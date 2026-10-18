@@ -218,3 +218,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Pesos de modelos y checkpoints de entrenamiento (Parte 2)
+*.safetensors
+*.bin
+checkpoint-*/

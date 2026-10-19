@@ -1,0 +1,3 @@
+# Sin vigilante de archivos: al revisar módulos importaba todos los submódulos de transformers
+[server]
+fileWatcherType = "none"

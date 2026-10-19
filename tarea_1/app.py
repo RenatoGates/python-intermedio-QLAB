@@ -3,7 +3,8 @@ from pathlib import Path
 import pandas as pd
 import plotly.express as px
 import streamlit as st
-from transformers import pipeline
+import torch
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 BASE = Path(__file__).parent
 RUTA_NOTICIAS = BASE / "datos" / "noticias.csv"
@@ -26,7 +27,20 @@ def cargar_noticias():
 
 @st.cache_resource(show_spinner="Descargando el modelo desde Hugging Face (solo la primera vez)…")
 def cargar_modelo():
-    return pipeline("text-classification", model=MODELO_HF)
+    tokenizer = AutoTokenizer.from_pretrained(MODELO_HF)
+    modelo = AutoModelForSequenceClassification.from_pretrained(MODELO_HF)
+    modelo.eval()
+    return tokenizer, modelo
+
+
+def predecir(titular):
+    tokenizer, modelo = cargar_modelo()
+    entradas = tokenizer(titular, truncation=True, max_length=64, return_tensors="pt")
+    with torch.inference_mode():
+        probabilidades = torch.softmax(modelo(**entradas).logits, dim=-1)[0]
+    return (pd.DataFrame({"label": [modelo.config.id2label[i] for i in range(len(probabilidades))],
+                          "score": probabilidades.tolist()})
+              .sort_values("score", ascending=False, ignore_index=True))
 
 
 noticias = cargar_noticias()
@@ -99,7 +113,7 @@ with clasificar:
     titular = st.text_input("Titular", placeholder="Ej.: El BCR mantiene su tasa de referencia en 4,25 %")
 
     if titular.strip():
-        resultado = pd.DataFrame(cargar_modelo()(titular.strip(), top_k=None))
+        resultado = predecir(titular.strip())
         resultado["categoria"] = resultado["label"].map(CATEGORIAS)
         mejor = resultado.iloc[0]
         st.metric("Categoría predicha", mejor["categoria"], delta=f"confianza: {mejor['score']:.0%}",

@@ -1,6 +1,6 @@
 # Clasificación de titulares de noticias peruanas
 
-**Dashboard:** _(pendiente: aquí va el enlace de Streamlit Cloud)_
+**Dashboard:** [python-intermedio-qlab-bpftfrjqdgkvll9bxwaopd.streamlit.app](https://python-intermedio-qlab-bpftfrjqdgkvll9bxwaopd.streamlit.app)
 **Modelo:** [gates1179/distilbeto-titulares-peru](https://huggingface.co/gates1179/distilbeto-titulares-peru) en Hugging Face Hub
 
 ## Pregunta

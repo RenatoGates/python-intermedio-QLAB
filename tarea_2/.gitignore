@@ -1,0 +1,10 @@
+audios/*
+documentos/*
+!audios/.gitkeep
+!documentos/.gitkeep
+datos/respaldos/
+*.wav
+*.mp3
+*.m4a
+*.ogg
+*.flac

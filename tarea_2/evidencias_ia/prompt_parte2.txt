@@ -1,0 +1,68 @@
+Sigo con la Parte 2 de la Tarea 2, issue #190. Crea la rama parte-2-evaluacion
+desde parte-1-extraccion y trabaja ahí.
+
+Tengo límite de tiempo: la entrega es mañana. Haz las secciones en el orden de
+abajo y commitea después de cada una. Si te quedas sin tiempo, lo último que
+puede faltar es la sección 6.
+
+Crea tarea_2/02_evaluacion.ipynb.
+
+REGLA CLAVE: no transcribas nada a mano. Ya tenemos texto_referencia gratis.
+ - 10 clips de audio: los de audios/es_peru/, que traen transcripción oficial
+   en transcripciones.csv. Elige 10 con duraciones distintas.
+ - 10 documentos: las 8 páginas del PDF del MINJUS (texto extraíble con pypdf)
+   más 2 documentos cualesquiera donde el texto sea corto y lo puedas verificar
+   leyendo la imagen. Incluye al menos un manuscrito y una foto difícil.
+Deja fijos esos 10+10 y usa EXACTAMENTE los mismos para todos los modelos.
+
+1. Línea base
+   - OCR: PaddleOCR PP-OCRv6 sin ajustes -> CER por documento
+   - ASR: faster-whisper small en CPU, vad_filter=True -> WER por clip
+   - Usa voz.cer() y voz.wer(), que ya normalizan igual ambos textos.
+   - Para el WER excluye las marcas de hablante (H1:, H2:).
+   - Reporta CER y WER medianos, y por tipo de documento.
+
+2. Extracción estructurada con LLM
+   - El LLM eres tú. Documenta en markdown el modelo (Claude Opus 5.5 vía Claude
+     Code), la fecha y el prompt exacto que usaste.
+   - Campos JSON por item: modalidad, tema, resumen, y condicionales
+     (n_hablantes para audio; tipo_documento para documentos).
+   - No inventes campos. Lo ausente va como null.
+   - Exporta datos/extraccion_llm.csv con: id, modalidad, campos_json,
+     modelo_llm, fecha.
+
+3. Auditoría humana
+   - Toma 20 extracciones al azar con semilla fija.
+   - Crea datos/auditoria_llm.csv con una columna 'correcta' que yo pueda llenar.
+   - Prellénala con tu propio juicio y márcalo como tal en el notebook, para que
+     yo solo revise y corrija. Reporta cuántas salieron correctas y da 2 ejemplos
+     de error.
+
+4. Modelo alternativo por modalidad, sobre los mismos 10+10
+   - OCR: PaddleOCR-VL (ya instalado). Aplica torch.set_flush_denormal(True)
+     antes, igual que en la Parte 1. Si una página tarda más de 90 s, bájale
+     max_new_tokens y anótalo.
+   - ASR: Transcriptor("qwen3-asr-0.6b") de voz.py.
+   - Mide CER/WER y el factor de tiempo real (segundos de cómputo / segundos
+     de audio, o segundos por página).
+
+5. Tabla comparativa final y decisión
+   - Una tabla: modelo, modalidad, CER o WER, tiempo, y una columna de veredicto.
+   - Párrafo justificando qué modelo elegirías en producción considerando
+     precisión, costo computacional y latencia.
+   - Menciona explícitamente que todo corrió en CPU sin GPU, y el hallazgo de
+     los pesos subnormales de PP-OCRv6.
+
+6. Casos difíciles (ESTA ES LA PRIMERA EN SACRIFICARSE si falta tiempo)
+   - Manuscritos vs impresos: diferencia de CER.
+   - El audio con más ruido.
+   - Quechua de Huaylas: compara Whisper contra Transcriptor("mms",
+     idioma_mms="qwh") en shansha_maricela.ogg. Es bonificación del enunciado
+     y son 2 celdas.
+
+Reglas:
+- Mismo kernel que la Parte 1.
+- Comentarios mínimos en el código; las explicaciones van en celdas markdown.
+- Ejecuta el notebook completo y guárdalo CON outputs.
+- Commit después de cada sección, con mensajes descriptivos.
+- No abras pull request.

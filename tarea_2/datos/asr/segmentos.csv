@@ -1,0 +1,457 @@
+id,inicio,fin,hablante,texto
+aud_01_reunion_laboral,0.0,8.15,H1,"Los medios sociales de las noticias de los medios de comunicación, ¿ya?"
+aud_01_reunion_laboral,8.49,8.77,H2,Sí.
+aud_01_reunion_laboral,9.25,18.1,H1,"Entonces, yo, a ver, primero creo que sea un poco nebuloso el tema, pero, o sea, me parece"
+aud_01_reunion_laboral,18.1,22.94,H1,"que hay una parte que todavía está un poco nebulosa, pero yo no voy a traducir como"
+aud_01_reunion_laboral,22.94,27.32,H1,"yo lo he entendido, el otro me dice si en verdad lo entendemos así o no, si hay alguna"
+aud_01_reunion_laboral,27.32,30.7,H1,"cosa que tú hayas entendido o que hay información que tú tengas que no tengas, ¿ya?"
+aud_01_reunion_laboral,30.7,35.3,H1,"Bueno, pero a ver, los medios sociales de comunicación tenemos, yo, identificado dos problemas."
+aud_01_reunion_laboral,36.57,52.53,H1,"Uno, que hay problemas conocidos que este algoritmo o este servicio de Azure detecta, por ejemplo,"
+aud_01_reunion_laboral,52.65,56.93,H1,"que un medio de comunicación, que extrae la información de un medio de comunicación y"
+aud_01_reunion_laboral,56.93,61.73,H1,"le aparece como vacío, entonces no extrae ninguna noticia porque cuando se extrae la información"
+aud_01_reunion_laboral,61.73,68.01,H1,"no hay noticias que extrae, así que en el, en el, en el mar, entonces, eh, coloca como"
+aud_01_reunion_laboral,68.01,71.39,H1,"vacío o cuando tiene algún problema, coloca como fail."
+aud_01_reunion_laboral,71.91,79.06,H1,"Ya, pues, con el mismo tal, en un segundo, eh, llegamos mejor a lo que te estoy diciendo."
+aud_01_reunion_laboral,79.06,94.54,H1,"Y otro problema, son los problemas no conocidos, que son los de, eh, que son los que tú detectaste,"
+aud_01_reunion_laboral,94.54,101.44,H1,"que no puede detectar naturalmente el Azure Function o el servicio que está haciendo el Scraping,"
+aud_01_reunion_laboral,101.44,109.9,H1,"que es cuando hay noticias que él ha extraído acá, pero faltan estas noticias."
+aud_01_reunion_laboral,109.9,113.6,H1,"O sea, hay noticias que él ha extraído, pero no ha extraído todas las noticias."
+aud_01_reunion_laboral,114.44,119.84,H1,"Que hay un cachito que falta, o, eh, hubio un problema, eh, que no se puede, que no puede detectar."
+aud_01_reunion_laboral,120.22,121.62,H1,"Ya, entonces, son dos problemas."
+aud_01_reunion_laboral,122.28,125.74,H1,"Yo le diría, si no, con su culpa, además, que tenemos, que son conocidos, que son los que"
+aud_01_reunion_laboral,125.74,126.32,H2,aparecen acá.
+aud_01_reunion_laboral,126.32,134.32,H1,"Por ejemplo, ahora, eh, el medio, eh, noticias, eh, animado, ahora, está completado."
+aud_01_reunion_laboral,134.46,136.88,H1,"Entonces, acá, teóricamente, no había ningún problema."
+aud_01_reunion_laboral,137.12,139.64,H1,"De hecho, yo le diría, asumamos, de que no había ningún problema."
+aud_01_reunion_laboral,140.3,144.92,H1,"Todavía no tenemos como el análisis que hiciste, ya, el análisis de Scraping, manual, automático,"
+aud_01_reunion_laboral,145.04,146.76,H1,si se ha dado a entender eso.
+aud_01_reunion_laboral,147.6,150.18,H1,"Acá, en [PERSONA_5], por ejemplo, aparece MPIC."
+aud_01_reunion_laboral,150.74,155.3,H1,"Esto podría ser, o sea, con el demás, como que está bien, en verdad."
+aud_01_reunion_laboral,155.3,161.92,H1,"Es la verdad, que no ha habido ningún, una noticia, o ninguna publicación de esta persona."
+aud_01_reunion_laboral,162.46,162.98,H1,Y está bien.
+aud_01_reunion_laboral,164.21,166.81,H1,"Pero, también, no sabemos si eso es completamente verdad."
+aud_01_reunion_laboral,167.57,169.81,H1,"Entonces, acá hay una sospecha de error."
+aud_01_reunion_laboral,170.35,172.39,H1,"Ya, pero, por lo menos, vamos a tratarlo como que está bien."
+aud_01_reunion_laboral,173.07,176.37,H1,"Y nosotros, y el otro estado, es fail."
+aud_01_reunion_laboral,176.69,179.23,H1,"Que, en el caso de rabia, no se dé, simplemente es fail."
+aud_01_reunion_laboral,179.35,183.53,H1,"Porque, ya está bien, es un error conocido, porque ya sabemos cuál es la, el problema,"
+aud_01_reunion_laboral,183.53,186.97,H1,"que tenemos que corregir, que tenemos que corregir, en algún momento,"
+aud_01_reunion_laboral,187.07,189.09,H1,"no es la misma, pero ya vamos a corregir todo ahí."
+aud_01_reunion_laboral,190.69,191.07,H2,¿Ya?
+aud_01_reunion_laboral,191.07,198.63,H1,"Entonces, lo que se me ocurre, para hacer monitoreo de esto, y que tengamos, porque el objetivo de esto,"
+aud_01_reunion_laboral,198.71,205.13,H1,"es que, digamos, o alguien esté al tanto de estos problemas, y cuando sucede un error grave,"
+aud_01_reunion_laboral,205.27,209.71,H1,"por ejemplo, acá, por ejemplo, acá, de hecho, acá hay un error grave, ya vemos,"
+aud_01_reunion_laboral,209.79,210.65,H1,"ya vemos, es una alarma."
+aud_01_reunion_laboral,211.15,213.69,H1,"El expreso ha dado fail, el día de hoy."
+aud_01_reunion_laboral,214.43,217.95,H1,"El día de ayer no había dado fail, pero este es un error."
+aud_01_reunion_laboral,217.95,220.21,H1,Ya.
+aud_01_reunion_laboral,220.85,225.19,H1,"Entonces, cuando sale un error, hay que activar un proceso de corrección de eso."
+aud_01_reunion_laboral,225.39,228.71,H1,"El proceso de corrección, ya vemos, vemos, es manual, es automático y todo eso."
+aud_01_reunion_laboral,229.29,232.11,H1,"Entonces, acá hay un error que es fail, y es un error nuevo."
+aud_01_reunion_laboral,232.67,235.87,H1,"Que en el fail, el expreso, que a veces funciona, a veces no funciona,"
+aud_01_reunion_laboral,236.05,237.15,H1,ya está funcionando bien.
+aud_01_reunion_laboral,237.91,239.97,H1,Y en otros medios puede suceder lo mismo.
+aud_01_reunion_laboral,239.97,246.61,H1,"Y algunos de esos empty también pueden ser, este, este, que este error,"
+aud_01_reunion_laboral,246.73,248.31,H1,"hay un error detrás de esto, ya."
+aud_01_reunion_laboral,248.31,250.31,H1,"Y los completados, y los sacamos con muy bien."
+aud_01_reunion_laboral,250.93,254.07,H1,"Entonces, lo que yo siento es, que en Fabric,"
+aud_01_reunion_laboral,256.06,258.26,H1,"esta data que esté en Fabric,"
+aud_01_reunion_laboral,259.56,263.42,H1,"podríamos hacer Power BI muy pequeño, muy,"
+aud_01_reunion_laboral,263.42,266.97,H1,"muy, muy, muy, muy pequeño,"
+aud_01_reunion_laboral,266.97,271.99,H1,"pero muy ejecutivo, sobre esta información."
+aud_01_reunion_laboral,273.72,278.42,H1,"Atrás de Fabric, en el proyecto,"
+aud_01_reunion_laboral,278.42,283.04,H1,"eso es, podemos ver, vamos a ver cuáles son nuestros médicos."
+aud_01_reunion_laboral,283.04,285.48,H1,Puntos.
+aud_01_reunion_laboral,285.48,289.86,H1,Puntos.
+aud_01_reunion_laboral,289.86,290.36,H1,Puntos.
+aud_01_reunion_laboral,290.36,293.72,H1,"Tiene Big Pals,"
+aud_01_reunion_laboral,293.72,297.22,H1,"y en la tal, no sé, está en Raúl,"
+aud_01_reunion_laboral,297.22,300.68,H1,cerca del Raúl.
+aud_01_reunion_laboral,300.68,302.26,H1,Así no.
+aud_01_reunion_laboral,302.26,329.18,H1,"Hay una tabla que tiene todos esos, este, esos manifestos,"
+aud_01_reunion_laboral,329.18,333.42,H1,"o esos estados de, si está bien o no está bien,"
+aud_01_reunion_laboral,333.42,335.8,H1,o si sacamos los puntos.
+aud_01_reunion_laboral,335.8,354.54,H1,"Hay una tabla que está en Raúl,"
+aud_01_reunion_laboral,354.54,357.06,H1,"que está en Raúl y es un manifesto,"
+aud_01_reunion_laboral,357.06,392.5,H1,"y no es una tabla que está en Raúl,"
+aud_01_reunion_laboral,392.5,393.84,H1,"que está en Raúl y está en Raúl,"
+aud_01_reunion_laboral,393.84,397.25,H1,lo que está en Raúl y es un comporto.
+aud_01_reunion_laboral,397.25,399.46,H1,y se va a los últimos días
+aud_01_reunion_laboral,399.46,405.4,H1,y la gente va a llegar a la realidad
+aud_01_reunion_laboral,405.4,473.8,H1,eso es lo que parece que no nos veículo
+aud_01_reunion_laboral,473.8,475.38,H1,pero no nos voy a seguir
+aud_01_reunion_laboral,475.38,477.0,H1,hasta llegar a salir
+aud_01_reunion_laboral,477.0,478.38,H1,ese balaje
+aud_01_reunion_laboral,478.38,480.4,H2,y el cielo
+aud_01_reunion_laboral,480.4,482.02,H1,entonces la gente va a darse
+aud_01_reunion_laboral,482.02,484.24,H1,y el suelo que no nos vemos
+aud_01_reunion_laboral,484.24,486.42,H1,y la gente va a llegar a salir
+aud_01_reunion_laboral,486.42,487.9,H1,el mundo se el bus
+aud_01_reunion_laboral,487.9,489.46,H1,y el tú
+agustino_1,0.34,7.7,,"Buenos días, aquí son las 10 y 28 y estoy con una señora que va a darme su opinión acerca del partido de hoy."
+agustino_1,8.44,9.72,,"¿Puede decirme su nombre, por favor?"
+agustino_1,10.3,11.38,,[PERSONA_3].
+agustino_1,12.18,17.62,,"Mucho gusto, yo soy [PERSONA_4], soy alumno de la Universidad Nacional Mayor de San Marcos"
+agustino_1,17.62,21.52,,y le voy a hacer estas preguntas acerca del partido de hoy.
+agustino_1,22.54,26.0,,¿Qué expectativas tiene acerca de este partido?
+agustino_1,26.42,29.2,,¿Quién piensa que va a atacar más o defender?
+agustino_1,29.2,33.85,,"Bueno, esperamos que Perú ganemos, ¿no?"
+agustino_1,35.84,38.8,,Espero que Padula se eche goles.
+agustino_1,40.05,47.19,,"Muy bien, la siguiente pregunta es acerca de ¿qué jugador piensa que va a ser más decisivo en este partido?"
+agustino_1,53.27,59.76,,"Muy bien, y la tercera pregunta es acerca de ¿cuál es el resultado que espera en este partido?"
+agustino_1,60.1,61.62,,¿Quién gana y a cuánto?
+agustino_1,62.34,62.9,,¿Por cuánto?
+agustino_1,62.9,80.63,,"Hay que esperar lo que Dios, primeramente es Dios, si perdemos también hay que esperar lo mejor, porque están demostrando lo mejor que pueden nuestros jugadores."
+agustino_1,80.63,89.87,,"Muy bien, o sea, está diciendo que está esperando lo mínimo, no importa si ganemos 1 a 0 o perdamos, lo más importante es Dios."
+agustino_1,89.87,95.85,,"Y la última pregunta, ¿qué piensa del fútbol como unión de masas?"
+agustino_1,96.09,103.39,,"Porque como puede ver, muy pronto en muchos locales va a haber muchas personas viendo este partido."
+agustino_1,103.57,104.47,,¿Qué piensa acerca de ello?
+agustino_1,104.47,112.13,,"Eso es una gente, ¿no?"
+agustino_1,112.51,122.42,,"De juntarse, o sea, tomar un... hacer barras, irse... y dormir, pues eso es lo que puedo hacer."
+agustino_1,122.6,124.06,,Muchas gracias por su opinión.
+agustino_1,124.94,126.26,,¿Un mensaje final?
+agustino_1,127.14,127.68,,¿Qué deseará?
+agustino_1,127.74,128.86,,Que Perú gane.
+agustino_1,129.96,132.81,,"Es todo lo que yo pienso, pues."
+agustino_1,133.43,134.65,,Esperamos que ganemos.
+agustino_1,135.4,135.92,,Muchas gracias.
+agustino_2,0.02,8.02,H1,"Buenos días profesores y compañeros, hoy estoy cerca de aquí por mi casa y voy a hacer una entrevista acerca del fútbol como unión de masas."
+agustino_2,8.72,10.02,H1,Estoy con las señoras...
+agustino_2,10.62,12.82,H2,"[PERSONA_1], soy [PERSONA_2]."
+agustino_2,13.4,19.86,H1,"Muy bien, voy a comenzar con la primera pregunta y es, ¿qué expectativas tienen ante este partido?"
+agustino_2,21.96,30.36,H3,Que el afición se encuentra motivado para ganar este partido.
+agustino_2,30.36,31.9,H1,¿Me puede decir su nombre?
+agustino_2,32.2,33.24,H3,[PERSONA_1].
+agustino_2,34.03,47.59,H2,"La expectativa que yo pienso es que acá, que el Perú va a dar todo por todo, todo su corazón va a entregar para que ganemos, para que ganemos para ir a las Olimpiadas."
+agustino_2,48.46,48.98,H1,Al Mundial.
+agustino_2,49.08,49.52,H2,Al Mundial.
+agustino_2,49.9,51.02,H1,¿Me puede decir este su nombre?
+agustino_2,51.36,52.18,H2,[PERSONA_2].
+agustino_2,52.76,55.02,H1,"Bien, sigo con la siguiente pregunta."
+agustino_2,56.52,60.04,H1,¿Qué jugador piensa que va a ser el más determinante?
+agustino_2,60.04,63.28,H1,"Antes de que diga su respuesta, dígame su nombre, por favor."
+agustino_2,63.56,64.64,H3,[PERSONA_1].
+agustino_2,66.54,67.46,H3,La Padula.
+agustino_2,68.76,69.2,H1,¿Por qué?
+agustino_2,69.6,79.09,H3,Porque ha demostrado su fuerza y su garra para jugar y ha metido unos cuantos goles.
+agustino_2,80.75,83.37,H1,"Muy bien, sigo con la siguiente señora."
+agustino_2,83.37,84.79,H2,[PERSONA_2].
+agustino_2,84.93,87.83,H2,"Para mí sería la Padula con Cueva, ¿no?"
+agustino_2,87.83,89.49,H2,Porque los dos han hecho un dúo.
+agustino_2,90.15,94.73,H2,"Un dúo y la Padula más que, para que demuestre que tiene el corazón más peruano que italiano."
+agustino_2,96.02,96.8,H1,Muchas gracias.
+agustino_2,97.42,99.7,H1,"Sigo con la siguiente, sigo con la pregunta."
+agustino_2,99.7,106.44,H1,"Y antes de empezar con ella, puedo decir que han destacado a la Padula más, ¿no?"
+agustino_2,106.92,110.88,H1,"Y la siguiente pregunta es, ¿cuál es el resultado de hoy?"
+agustino_2,111.48,113.24,H1,¿Cuál piensas que va a ser el resultado de hoy?
+agustino_2,115.24,116.32,H3,[PERSONA_1].
+agustino_2,116.56,117.24,H3,2-0.
+agustino_2,118.77,122.21,H1,"Sigo con la siguiente señorita, señora."
+agustino_2,122.61,123.69,H2,[PERSONA_2].
+agustino_2,124.05,124.98,H2,2-0.
+agustino_2,125.12,126.08,H2,Ojalá que sea 2-0.
+agustino_2,127.51,132.25,H1,Veo que ambas han dicho el mismo resultado y esperemos que sea así.
+agustino_2,132.63,133.57,H1,Y la última pregunta.
+agustino_2,135.04,142.16,H1,¿Qué opina del fútbol acerca como factor de unión de masas?
+agustino_2,144.32,145.4,H3,[PERSONA_1].
+agustino_2,148.94,149.42,H3,Deporte.
+agustino_2,149.42,156.94,H3,"Deporte apasiona a todos los peruanos, tanto como fuera del país también."
+agustino_2,157.88,165.08,H3,"Y es un deporte que une a toda la familia, a todas las amistades en general."
+agustino_2,165.74,166.64,H1,Muchas gracias.
+agustino_2,166.9,169.16,H1,"Y ya finalizando, ¿su comentario final?"
+agustino_2,169.68,170.74,H2,[PERSONA_2].
+agustino_2,171.1,173.95,H2,Hace que la gente se una.
+agustino_2,174.15,177.45,H2,"No hay distinción de raza ni religión, ¿no?"
+agustino_2,177.45,183.49,H2,Por que todos sean unidos y que el deporte siga adelante.
+agustino_2,185.01,185.63,H2,"Sí, gracias."
+agustino_2,186.13,186.79,H1,Muchas gracias.
+agustino_2,186.97,188.51,H1,Con esto termina la entrevista.
+aurora_coronado,0.05,8.37,,bueno ahora estamos en los san martín entre fiestas patrias de julio entonces primero podría
+aurora_coronado,8.37,13.81,,comenzar me diciéndome su nombre por favor mi nombre es aurora coronado primera pregunta
+aurora_coronado,13.81,19.79,,para usted para usted qué significa el perú bueno el perú es mi país donde he nacido amo
+aurora_coronado,19.79,28.25,,mucho porque acá vivo tengo todo lo que necesito y adoro mi país en mi patria es un territorio
+aurora_coronado,28.25,34.07,,donde nosotros vivimos por ejemplo yo soy de la selva central amo mi territorio porque de ahí
+aurora_coronado,34.07,41.37,,vivo de ahí como tengo mi medicina mis plantas ancestrales tengo mi cultura y mi identidad
+aurora_coronado,41.37,47.21,,también en qué momento diría usted que se dio cuenta de que era perdona que sintió que era
+aurora_coronado,47.21,54.41,,peruana bueno creo que desde que he nacido siempre no nuestros padres nos han inculcado que siempre el
+aurora_coronado,54.41,62.63,,28 de julio el día de la independencia no desde desde muy pequeños lo celebrábamos no solamente con
+aurora_coronado,62.63,68.27,,alimentación sino que era nuestro perú y que nos compraban ropa nueva me acuerdo de pequeños una
+aurora_coronado,68.27,74.03,,fiesta era una fiesta para nosotros no yo creo que eso se ha perdido un poco la tradición porque
+aurora_coronado,74.03,80.81,,algunos nos compraban hasta juguetes también era como navidad y 28 de julio y nos compraban ropa no era
+aurora_coronado,80.81,87.63,,hubiera la fiesta y que íbamos a los desfiles no en nuestra zona donde vivimos muy bonito pero creo
+aurora_coronado,87.63,92.76,,que eso se ha perdido un poco y ahora cuál diría que son los aspectos positivos las características
+aurora_coronado,92.76,100.62,,positivas del perú bueno de perú que ha crecido bastante se ha incrementado se ha incrementado hay
+aurora_coronado,100.62,107.94,,hay muchas fuentes también ha cambiado bastante la tecnología ha crecido pero ha crecido las ciudades
+aurora_coronado,107.94,115.92,,no solamente poblacional no sino en el aspecto social en el aspecto cultural en el aspecto indígena también
+aurora_coronado,115.92,121.38,,muchos aspectos no y en el aspecto económico también no y ahora cuál diría que serían los aspectos
+aurora_coronado,121.38,128.58,,negativos del perú bueno los aspectos negativos es que la corrupción y dentro de los gobiernos siempre
+aurora_coronado,128.58,135.96,,ha habido este demasiada corrupción y no hay políticas para nosotros las mujeres indígenas no respetan los
+aurora_coronado,135.96,141.78,,convenios las leyes las tenemos por gusto no los derechos también se nos vulneran los derechos a las
+aurora_coronado,141.78,147.24,,mujeres los derechos sexuales y reproductivos invisibilizan el trabajo de nosotras mujeres
+aurora_coronado,147.24,154.44,,no y no respetan a las personas como derecho como seres de derechos no porque dentro de las personas
+aurora_coronado,154.44,160.56,,estamos las mujeres los hombres y los hermanos y hermanas del gtbi y son seres humanos y tienen
+aurora_coronado,160.56,168.0,,derechos también y también hay mucho racismo no hemos perdido el racismo hay mucha gente que selecciona a las
+aurora_coronado,168.0,175.68,,personas acaso cuando dios bueno yo soy católica cuando dios o cuando oramos dios dice a tú eres blanco si te
+aurora_coronado,175.68,182.56,,escucho tú eres negro pero eso no dios escucha porque somos seres humanos nada más él no ve ni el color ni el
+aurora_coronado,182.56,190.31,,sexo ni la raza nada y por último qué mensaje le daría a las futuras generaciones de peruanos bueno
+aurora_coronado,190.31,199.06,,ahora con esta tecnología los jóvenes no leen no hay mucha educación mucha falta de respeto a los padres
+aurora_coronado,199.06,205.44,,yo creo que tienen que ser educados formados tienen que tener valores y de acuerdo a los ejemplos que
+aurora_coronado,205.44,212.28,,tenemos de este índice de corrupción que hay en el perú que se ha estabilizado creo en la en los
+aurora_coronado,212.28,219.4,,entes municipalidades gobiernos regionales en el mismo gobierno tienen que cambiar tienen que
+aurora_coronado,219.4,225.36,,mejorarnos tiene que tenemos que tener generaciones nuevas por ejemplo nosotros como mujeres luchadoras
+aurora_coronado,225.36,232.26,,queremos dejar generaciones que conozcan sus derechos que se hagan respetar no solamente el
+aurora_coronado,232.26,236.62,,derecho a nuestro territorio donde vivimos sino el derecho a nuestro cuerpo no que nadie nos toque
+aurora_coronado,236.62,244.15,,que nadie nos viola que nadie no haga abuso de nosotras y no nos maten tampoco muchas gracias
+aurora_coronado,244.15,246.05,,por la entrevista sigamos luchando por un peru
+historia_oral_glines,0.05,2.85,,We just took a brief break for a phone call.
+historia_oral_glines,3.39,7.91,,"And I just asked you, is there anything else you'd like to share about Wilton Cancer School?"
+historia_oral_glines,8.55,13.53,,"Well, the only thing was that it really was, it wasn't perfect."
+historia_oral_glines,13.53,17.26,,"I mean, we had problems."
+historia_oral_glines,17.9,19.26,,We didn't do everything perfect.
+historia_oral_glines,20.02,23.44,,"You know, there were lots of things that I'd do differently."
+historia_oral_glines,24.14,26.34,,"But remember, we were an experimental school."
+historia_oral_glines,26.5,27.74,,We were trying new ideas.
+historia_oral_glines,27.88,28.74,,We were trying new things.
+historia_oral_glines,29.4,30.9,,And that's what Minnesota's lost.
+historia_oral_glines,31.58,39.54,,"We don't have a school like Wilton now, public school, supported by the state, by the college,"
+historia_oral_glines,40.14,45.38,,"to experiment, to try new ideas, to do research, do innovation,"
+historia_oral_glines,45.38,51.72,,"to do new evaluation techniques, to pioneer, you know, so to speak,"
+historia_oral_glines,52.04,58.28,,"to be the NASA, you know, Space Center, the astronauts, you know, of the school."
+historia_oral_glines,58.28,67.99,,"And if we don't have that kind of program, then we, in the state, how are we ever going to progress?"
+historia_oral_glines,68.41,71.57,,"Things are going to stay the same, like to stay the same, stay the same."
+historia_oral_glines,72.07,75.28,,"Like, I went to high school with period 1, 2, 3."
+historia_oral_glines,76.34,78.08,,What's going on in Minnesota today?
+historia_oral_glines,78.38,79.84,,"Period 1, 2, 3, you know."
+historia_oral_glines,80.3,82.06,,I went to high school like 200 years ago.
+historia_oral_glines,82.06,86.92,,"So when I was in elementary school, you know, grade 1, grade 2, grade 3, what's going on?"
+historia_oral_glines,87.08,88.64,,"Grade 1, grade 2, grade 3."
+historia_oral_glines,89.45,92.28,,Is that the best way for all kids?
+historia_oral_glines,92.66,94.68,,"Maybe it's a good way for some kids, see."
+historia_oral_glines,95.18,98.06,,Is that the best way for all kids to learn?
+historia_oral_glines,98.38,100.36,,Is that the best way for all teachers to learn?
+historia_oral_glines,100.46,103.7,,Does it really bring out the maximum in their teaching ability?
+historia_oral_glines,103.7,114.79,,"Or, and so what we need in the state, and I'd like to see Minnesota State, you know, start it again,"
+historia_oral_glines,115.21,125.38,,"is to offer a teacher ed program that would be based on the teacher ed programs that we had at Wilson,"
+historia_oral_glines,126.13,130.23,,but then find schools out around the state.
+historia_oral_glines,131.29,133.85,,They start with some of the alternative schools as an example.
+historia_oral_glines,133.85,141.23,,"Where they could go out and learn to be a guide by the side instead of the stage by the stage, on the stage."
+historia_oral_glines,141.55,144.47,,"They could also then, a place that could experiment in."
+historia_oral_glines,144.59,154.62,,"So Minnesota State really ought to have, if not one lab school, several schools that they designate"
+historia_oral_glines,154.62,161.37,,"as collaborative lab school, right, where the school would be willing to try some things."
+historia_oral_glines,161.59,163.39,,Then they wouldn't do it with a whole wilted package.
+historia_oral_glines,163.39,168.89,,But they might try non-grading or non-scheduling or test differently.
+historia_oral_glines,169.35,171.99,,"They're doing, they try new things."
+historia_oral_glines,172.67,175.77,,And right now we don't have people trying new things.
+historia_oral_glines,175.99,181.06,,"They're just, and even the new legislation about requiring all this reading kind of instruction"
+historia_oral_glines,181.06,183.06,,"and all that kind of stuff, you know, it's wrong."
+historia_oral_glines,183.82,190.49,,Because an article in the Tribune Sunday said that we've got to have these kids catch up
+historia_oral_glines,190.49,191.95,,because they're behind before they start.
+historia_oral_glines,192.89,194.61,,How can you be behind if you haven't started?
+historia_oral_glines,195.72,198.76,,But they've got this idea that you've got to read in kindergarten.
+historia_oral_glines,198.96,201.54,,"And if you're not ready to read in kindergarten, then you're behind."
+historia_oral_glines,202.21,206.34,,"And if you don't read by the third grade, then your life's ruined."
+historia_oral_glines,206.62,208.36,,It's all wrong.
+historia_oral_glines,208.88,209.84,,We know it's wrong.
+historia_oral_glines,210.08,211.84,,And all the reading research will show that.
+historia_oral_glines,211.84,217.04,,But it's because they have to fit the kids in to the traditional program.
+historia_oral_glines,218.08,221.02,,"Well, at Wilson, kids had 12 years to learn to read."
+historia_oral_glines,222.19,223.15,,And they all learned to read.
+historia_oral_glines,223.41,224.55,,My kids went to Wilson.
+historia_oral_glines,224.69,226.29,,"I want them to learn to read, you know."
+historia_oral_glines,226.77,232.68,,"But there wasn't first grade reading class out of Scott Forsman's textbook, you know."
+historia_oral_glines,232.72,233.7,,We put all in the basement.
+historia_oral_glines,233.7,246.76,,"And so then what's missing from the Minnesota State right now is the research, experimentation,"
+historia_oral_glines,247.24,251.88,,"innovation, challenging new ideas, trying things differently."
+historia_oral_glines,252.54,255.22,,"So when I got in trouble with the legislature and called them ranking links,"
+historia_oral_glines,255.84,258.34,,I had support from the college administration.
+historia_oral_glines,259.43,261.19,,President Nickerson went to bat for me.
+historia_oral_glines,261.33,266.07,,"He said, well, Don may have used the wrong words, but he's got the right ideas."
+historia_oral_glines,266.07,269.44,,And we're going to go ahead and do it.
+historia_oral_glines,270.03,271.53,,"I'm supporting them, you see."
+historia_oral_glines,272.71,274.41,,That's the kind of thing that we have.
+historia_oral_glines,274.43,275.35,,We don't have that now.
+historia_oral_glines,276.13,278.53,,And we need that kind of spirit.
+historia_oral_glines,280.07,284.47,,I guess the easiest example is just to put me to have some programs out there.
+historia_oral_glines,285.03,286.71,,They're sort of the NASA's of education.
+historia_oral_glines,288.47,289.57,,We're going to the moon.
+historia_oral_glines,290.46,291.92,,And everybody's going to have to go.
+historia_oral_glines,292.12,296.8,,"But we have to have somebody finding out if this works, if it makes sense,"
+historia_oral_glines,296.94,298.86,,"if the rocket will get us there, you know."
+historia_oral_glines,298.86,300.76,,"You know, it will be a risk a little bit."
+historia_oral_glines,302.58,307.57,,And does education have to stay the same as it's been for 200 years?
+historia_oral_glines,310.44,318.7,,"In my book I wrote, referred to a book called The Tragedy of Education written in 1913 by Edmund Holmes."
+historia_oral_glines,319.46,323.26,,For 30 years he was a minister of education in England.
+historia_oral_glines,324.23,329.71,,"And they had a real traditional English program then, you know, by the numbers, you know, you do this, this, and this."
+historia_oral_glines,329.71,331.19,,And he was enforcing it.
+historia_oral_glines,331.23,336.21,,"He was the guy that had to make sure that everybody was on the same page at the same time, you know, that kind of thing."
+historia_oral_glines,338.27,343.85,,"He said, finally, he said, 1911, he said, I can't take this anymore."
+historia_oral_glines,345.98,349.94,,"He wrote a book, 1911, what should be and what could be."
+historia_oral_glines,349.94,357.26,,"In 1913, what tragedy of education described the current traditional system we have now."
+historia_oral_glines,358.36,369.99,,"And he said, I apologize to all the parents and all the kids and all of the people that I did wrong."
+historia_oral_glines,369.99,382.4,,I spent the rest of my life trying to make up for what I did because the school system in England in the last 30 years has been all wrong.
+historia_oral_glines,382.84,384.78,,And I've created a tragedy of education.
+historia_oral_glines,385.89,392.25,,"This is the guy that was into it, you see, until he realized that this wasn't working."
+historia_oral_glines,394.73,401.57,,"And Edmund, Bertrand Russell, a famous philosopher and mathematician, wrote a book in 1926 on education."
+historia_oral_glines,401.57,409.18,,"He said, most of us as parents would like to send our kids to school for learning and socialization and so forth."
+historia_oral_glines,409.44,413.0,,But we would like to send them to the schools that we have.
+historia_oral_glines,415.22,420.2,,"He's a brilliant philosopher, straight-A person, the top mathematician in the country almost at the time, you see."
+historia_oral_glines,421.27,426.01,,"And Margaret Mead in your history sociology kind of thing, Margaret Mead said,"
+historia_oral_glines,426.65,430.91,,"my grandmother wanted me to have a good education, so she kept me out of school."
+historia_oral_glines,430.91,436.98,,Seven U.S. presidents did not graduate from high school.
+historia_oral_glines,437.91,442.73,,"The Wright brothers did not graduate from high school, yet they revolutionized transportation."
+historia_oral_glines,442.93,445.43,,"They changed the world, didn't have a high school diploma."
+historia_oral_glines,446.85,454.74,,"So, you see, we need the Wright brothers pioneering spirit, so we need that effort to try."
+historia_oral_glines,457.36,461.44,,"We can't recreate Wilson now, it's too late, and we wouldn't do it exactly the same anyway."
+historia_oral_glines,461.6,464.28,,"We didn't have computers at Wilson, remember when I did this thing?"
+historia_oral_glines,464.28,469.74,,"We had no cell phones, we had no computers, we had no iPods, or whatever you call them."
+historia_oral_glines,470.08,477.89,,"So, now I think what Wilson might be like, but as it turns out, we were the first school in the state to have a computer."
+historia_oral_glines,479.64,491.58,,"It looked like a little freedom, what do you call those boxes?"
+historia_oral_glines,491.84,494.73,,"A freedom, adding machine kind of thing."
+historia_oral_glines,494.73,496.59,,It was kind of a little square box.
+historia_oral_glines,497.88,504.97,,"Because in those days, the university finally got a computer, and they're $100,000 in those days,"
+historia_oral_glines,505.43,512.47,,"and you had to have two classrooms in size to house them, and they had the air conditioning."
+historia_oral_glines,513.98,516.22,,"So, obviously, not many people could afford them."
+historia_oral_glines,516.22,518.36,,"Well, man, Kayla finally got one."
+historia_oral_glines,519.36,523.42,,"We didn't get one at Wilson School, but we had a terminal hookup."
+historia_oral_glines,523.87,524.11,,Okay.
+historia_oral_glines,524.33,529.63,,"So, and our kids could, see, we taught typing in the first grade, too, just like that."
+historia_oral_glines,529.75,541.22,,"We had typewriters, and one of the things in the tape you see on there is that we, one of the kids says,"
+historia_oral_glines,541.22,546.86,,"I don't think I'll take typewriters anymore, I'm going to, I'm going to try that computer, you know,"
+historia_oral_glines,547.16,553.0,,"this great kid, you know, and, but we had this terminal, and so we,"
+historia_oral_glines,553.14,557.12,,and then we got five other schools tying into this eventually.
+historia_oral_glines,557.38,563.46,,"So, there were six of us in the state that pioneered how to use a computer at the school."
+historia_oral_glines,563.46,565.46,,It was just like a little free-dating machine.
+historia_oral_glines,565.92,566.18,,Okay.
+historia_oral_glines,568.14,571.74,,"So, but, you know, that's, that's the kind of spirit we had."
+historia_oral_glines,571.74,575.38,,"It was, it's something new coming along, let's try it, let's give it a whirl."
+historia_oral_glines,576.53,580.86,,"How do you look, this thing called a computer, into a school, you know?"
+historia_oral_glines,581.17,581.47,,Mm-hmm.
+historia_oral_glines,581.91,585.36,,"And so, anyway, that's all I would say."
+historia_oral_glines,585.44,592.16,,"I've got to go over and see Dr. [PERSONA_6], but that's kind of the, you know,"
+historia_oral_glines,592.16,596.12,,"I appreciate your interest in knowing more of the history of this thing,"
+historia_oral_glines,596.12,597.74,,and it was a great program.
+historia_oral_glines,597.9,599.1,,I know times are different now.
+historia_oral_glines,599.18,599.98,,The world's different.
+historia_oral_glines,600.76,603.86,,"On the other hand, education is still the same."
+historia_oral_glines,603.96,605.08,,It's the same old schooling.
+historia_oral_glines,605.08,605.8,,Mm-hmm.
+historia_oral_glines,606.16,609.68,,"And what we need to do is get learning back in the forefront,"
+historia_oral_glines,610.34,614.0,,"and we need to get, overcome the politician decisions,"
+historia_oral_glines,614.87,619.35,,"and the learning specialist makes the decisions about, you know,"
+historia_oral_glines,619.73,627.72,,"kids and learning and so forth, and that's the next step."
+historia_oral_glines,627.72,634.72,,"And if Minnesota State did anything that I'd like to see them do,"
+historia_oral_glines,635.53,642.96,,"we'd work out a way to have a pioneering experimentation, research, innovation,"
+historia_oral_glines,642.96,649.16,,"accountability kinds of programs, working with some of the schools in the area,"
+historia_oral_glines,649.16,657.17,,"and with a Duke teacher ed program, and the, like when I did the teacher ed program here,"
+historia_oral_glines,657.79,661.13,,"the kids could still take, the students could still take the traditional teacher program."
+historia_oral_glines,661.21,661.43,,Okay.
+historia_oral_glines,661.59,662.23,,It was available.
+historia_oral_glines,662.23,668.81,,"So if you wanted to learn method teaching and reading, method teaching and math, you know, whatever,"
+historia_oral_glines,669.39,671.39,,the courses are still there.
+historia_oral_glines,672.18,677.41,,"But if you wanted to learn to teach by teaching, by being a guide by the side,"
+historia_oral_glines,677.89,679.21,,"then you have the option, you see."
+historia_oral_glines,679.43,679.67,,Mm-hmm.
+historia_oral_glines,679.67,682.56,,So that's what's lacking now.
+historia_oral_glines,683.18,684.18,,Everybody's got back to this.
+historia_oral_glines,684.26,685.08,,Everybody's got to do this.
+historia_oral_glines,685.44,688.48,,"Sit in this room, you know, take these classes, take these requirements."
+historia_oral_glines,690.73,691.29,,"Okay, then."
+historia_oral_glines,691.57,693.07,,"Well, thank you so much for your time."
+historia_oral_glines,694.24,694.58,,Okay.
+shansha_elena,0.0,9.97,,ya que nunca más planta está apamurcón que está por ya está por ya que aquí y mapas irwin en la
+shansha_elena,9.97,24.0,,paja y matará curan y que imágenes ataja más más sanas que hecho que fue lucho ya y mata
+shansha_elena,24.0,36.34,,espanolada y mechota más normalmente tarinchi que jorata
+shansha_elena,36.34,54.76,,y que planta
+shansha_elena,55.92,63.92,,inflamación ovario riñón dolor de cintura y tan calma agua de tiempo choto de los días
+shansha_elena,63.92,75.4,,o con equipa geno de amnoka que planta está utiliza geno de mvc y y me mechota
+shansha_elena,75.4,98.31,,lo que está siguiendo ya y mapas más hay que joda manamá está como se ha utilizado de tiempo choc cintura
+shansha_elena,98.31,106.31,,nanapting wakta con nanapting inflamación pachapach ni apting them utiliza que planta tan valorar
+shansha_elena,106.31,114.82,,y
+shansha_elena,114.82,122.82,,antipasado mamá ni a wilita he con a tiempo motiles ayer co y no carina e he costum de
+shansha_elena,122.82,126.26,,que plantas utilizar valorar.
+shansha_maricela,0.0,2.54,,¿Y cómo se llama?
+shansha_maricela,2.54,5.54,,Marcelina Figueroa
+shansha_maricela,7.7,12.7,,¿Cuál es la planta de medicina?
+shansha_maricela,13.7,16.7,,¿Cuál es la planta?
+shansha_maricela,16.7,21.02,,La planta es la aurín.
+shansha_maricela,22.15,24.15,,¿Cuál es la cura?
+shansha_maricela,24.15,31.31,,"La planta es la inflamación, la lavación y la cura."
+shansha_maricela,32.38,34.38,,¿Cuál es la planta de medicina?
+shansha_maricela,35.38,39.38,,La planta es la planta de medicina.
+shansha_maricela,39.38,42.38,,¿Cuál es la planta de medicina?
+shansha_maricela,42.38,47.38,,¿Cuál es la planta de medicina?
+shansha_maricela,48.89,50.89,,¿Cuál es mi zona botón?
+shansha_maricela,50.89,56.89,,¿Cuál es la campana de medicina?
+shansha_maricela,56.89,59.89,,¿Cuál es la planta de medicina?
+shansha_maricela,59.89,79.1,,¿Cuál es la historia de las plantas de los familiares de Uzaracón?
+shansha_maricela,79.1,85.1,,"Uzaracón, que plantas de enfermo, lavado,"
+shansha_maricela,85.1,91.1,,¿Cuál es la historia de las plantas de los familiares de Uzaracón?
+entrevista_simulada,0.14,3.22,H1,La granizada destruyó toda plantación de lechuga
+entrevista_simulada,3.22,9.82,H2,Lo primero que tiene que hacer es mantener la calma
+entrevista_simulada,9.82,16.04,H1,Ayer llovió mucho y llegue tarde a mi reunión
+entrevista_simulada,16.04,22.42,H2,Es importante que manejes bien la letra E
+entrevista_simulada,22.42,27.67,H1,¿Por qué dicen que la sal no es saludable?
+entrevista_simulada,27.67,33.65,H2,Es muy fácil recuartar su hogar de los huracanes
+entrevista_simulada,33.65,38.42,H1,¿Qué lugares románticos hay por aquí?
+entrevista_simulada,38.42,46.49,H2,Es muy importante la parte gutural con la R
+entrevista_simulada,46.49,52.57,H1,En el Amazonas existen los insectos más venenosos
+entrevista_simulada,52.57,60.0,H2,En el trayecto van a ir acompañados de otros turistas
+entrevista_simulada,60.0,65.52,H1,¿Qué tipo de tema le gustaría escuchar?
+entrevista_simulada,65.52,72.92,H2,El tiempo total de viaje es de diez horas treinta y cinco minutos
+entrevista_simulada,72.92,80.37,H1,"Lo interesante de su educación es que ella no quería ser actriz, quería ser psicóloga"
+entrevista_simulada,80.37,86.45,H2,Hoy en la tarde saqué mi tarjeta para bicicleta urbana
+entrevista_simulada,86.45,93.3,H1,Si estás enojado es mejor esperar a que te calmes
+entrevista_simulada,93.3,102.8,H2,Diego Rivera finalizó el mural en Nueva York en mil novecientos setenta y uno
+pef_01208_00204186196,0.3,3.24,,Es muy fácil reguardar su hogar de los huracanes.
+pef_01208_00484111472,0.21,4.09,,El tiempo total de viaje es de 10 horas 35 minutos.
+pef_01208_00749485613,0.08,3.5,,Lo primero que tiene que hacer es mantener la calma
+pef_01208_00800476712,0.4,3.48,,Es importante que manejes bien la letra E
+pef_01208_00985608339,0.43,3.57,,En el trayecto van a ir acompañados de otros turistas.
+pef_01208_01156192429,0.34,3.92,,Hoy en la tarde saqué mi tarjeta para bicicleta urbana
+pef_01208_01416572350,0.4,3.82,,Es muy importante la parte gutural con la R.
+pef_01208_02079472047,0.3,5.7,,Diego Rivera finalizó el mural en Nueva York en 1971
+pef_01523_01958041774,0.43,3.51,,¿Cómo puedo registrarme para entrar a la universidad?
+pef_02121_01758812969,0.21,6.01,,"La bolsa ha aumentado en un diecisiete por ciento, es un buen momento para hacer inversiones"
+pef_02484_00040888564,0.0,3.28,,Lo que dicen en internet puede ser mentira o no
+pef_03034_01049251542,0.18,3.3,,Siempre he querido tener un auto de carreras.
+pef_03349_01603439596,0.88,7.24,,El Festival de Cine de Venecia inauguró una sección de realidad virtual en el año 2017.
+pef_03397_01880729482,0.69,6.23,,Como vienen personas de diferentes partes del mundo necesito traductores
+pef_04310_00963525279,0.56,3.66,,Siempre he sido muy fan del color gris claro
+pef_06136_01733727647,1.01,5.27,,"Es un viaje de negocios, solamente voy por una noche"
+pef_07508_01829604797,0.27,3.19,,Es una gran ventaja tener una amiga mayor.
+pef_08421_00908604673,1.36,8.28,,La goma de mascar proviene del interior de unos árboles de los que no me sé el nombre
+pef_08784_00145014934,0.0,3.76,,Para hacer esa receta necesitas carne de calidad superior.
+pef_09334_01616249143,0.82,6.46,,Aquí encontré un sitio donde puedes leer sobre las diferencias entre los géneros del teatro.
+pem_00295_00397272224,0.43,4.61,,El Llano en Llamas es un clásico de Juan Rulfo
+pem_01523_01863672121,0.53,5.77,,¿Usted está interesado en las olimpiadas o en el mundial de gimnasia que mencionó después?
+pem_02436_00549214349,0.37,2.81,,me interesa una bolsa color azul
+pem_02484_00001672971,0.4,5.42,,Los requisitos para la escuela de cine es un examen de tres etapas y una audición.
+pem_03034_00749512564,1.55,3.47,,¿Conoces la historia del cine mudo?
+pem_03397_01048210856,0.18,5.24,,En tres semanas me salió un viaje a Caracas y no tengo ni idea qué aerolínea tomar.
+pem_05223_00388851533,0.34,2.42,,En su auto hay un botiquín de emergencia.
+pem_07505_00333918228,0.82,4.76,,Las salas IMAX tienen un costo de 110 soles
+pem_07508_01796320827,1.71,6.53,,"¿Qué me recomendarías, una pecera de agua salada o una de agua dulce?"
+pem_08421_00039444878,0.21,3.11,,Ayer llovió mucho y llegue tarde a mi reunión
+pem_08421_00246792473,0.14,2.9,,La granizada destruyó toda plantación de lechuga.
+pem_08421_00388917999,0.34,2.28,,¿Qué tipo de tema le gustaría escuchar?
+pem_08421_00594791991,0.27,2.27,,¿Por qué dicen que la sal no es saludable?
+pem_08421_01461891230,0.21,2.99,,"Si estás enojado, es mejor esperar a que te calmes."
+pem_08421_01683925931,0.21,4.81,,"Lo interesante de su educación es que ella no quería ser actriz, quería ser psicóloga"
+pem_08421_01845767461,0.21,3.21,,En el Amazonas existen los insectos más venenosos.
+pem_08421_02033101095,0.18,2.06,,¿Qué lugares románticos hay por aquí?
+pem_08784_00330246008,0.18,4.28,,El otro día me comí una sopa de champiñones muy picante.
+pem_09334_00727679966,0.4,3.3,,No me gustan nada las películas de Fellini.
+pem_09697_00226758927,0.53,4.77,,¿Es vuelo directo o hace escala en algún punto?
+1003119935936341070,0.69,8.73,,"However, due to the slow communication channels, styles in the West could lag behind by 25 to 30 years."
+10052240106321793346,0.21,7.57,,"All nouns alongside the world say for you always begin with a capital letter, even in the middle of a sentence."
+10167324587744183095,0.02,10.72,,To the north and within easy reach is the romantic and fascinating town of Cintra and which was made famous to foreigners after a glowing account of its splendorous recorded by Lord Byron.
+10197164397713068203,0.02,5.02,,"The cabbage juice changes color depending on how acidic, basic, alkaline the chemical is."
+10233995782544396174,0.02,3.74,,Many people don't think about them as dinosaurs because they have feathers and can fly.
+10235738076911595987,0.53,10.19,,"The hospital has followed protocol for infection control, including separating the patient from others to prevent possible infection of others."
+10323357556845456822,0.46,7.32,,The Northern Mariana's Emergency Management Office said that there were no damages reported in the nation.
+10335587906469246566,0.85,5.89,,20th century research has shown that there are two pools of genetic variation hidden and expressed.
+10344335557154974057,0.69,9.81,,"The aspect ratio of this format, dividing by 12 to obtain the simplest whole number ratio, is therefore said to be 3 to 2."
+1036771894648013441,0.46,8.52,,"As light pollution in their heyday was not the kind of problem it is today, they are usually located in cities or at campuses easier to reach than those built in modern times."
+1038214857203833067,0.0,4.3,,"For the night, between 150 and 200 copies were made, now known as Dunlap broadsides."
+10383288285905292158,0.0,6.0,,"For example, each year students from Bennett School in North Carolina design a website about their trip to the state capitol."
+10383288285905292158,6.0,11.0,,"Each year the website gets remodeled, but old versions are kept online to serve as a scrapbook."

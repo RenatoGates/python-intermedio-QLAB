@@ -1,0 +1,3 @@
+1
+00:00:00,000 --> 00:00:03,280
+Lo que dicen en internet puede ser mentira o no

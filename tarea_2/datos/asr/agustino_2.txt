@@ -1,0 +1,51 @@
+[00:00:00] H1: Buenos días profesores y compañeros, hoy estoy cerca de aquí por mi casa y voy a hacer una entrevista acerca del fútbol como unión de masas. Estoy con las señoras...
+
+[00:00:10] H2: [PERSONA_1], soy [PERSONA_2].
+
+[00:00:13] H1: Muy bien, voy a comenzar con la primera pregunta y es, ¿qué expectativas tienen ante este partido?
+
+[00:00:21] H3: Que el afición se encuentra motivado para ganar este partido.
+
+[00:00:30] H1: ¿Me puede decir su nombre?
+
+[00:00:32] H3: [PERSONA_1].
+
+[00:00:34] H2: La expectativa que yo pienso es que acá, que el Perú va a dar todo por todo, todo su corazón va a entregar para que ganemos, para que ganemos para ir a las Olimpiadas.
+
+[00:00:48] H1: Al Mundial.
+
+[00:00:49] H2: Al Mundial.
+
+[00:00:49] H1: ¿Me puede decir este su nombre?
+
+[00:00:51] H2: [PERSONA_2].
+
+[00:00:52] H1: Bien, sigo con la siguiente pregunta. ¿Qué jugador piensa que va a ser el más determinante? Antes de que diga su respuesta, dígame su nombre, por favor.
+
+[00:01:03] H3: [PERSONA_1]. La Padula.
+
+[00:01:08] H1: ¿Por qué?
+
+[00:01:09] H3: Porque ha demostrado su fuerza y su garra para jugar y ha metido unos cuantos goles.
+
+[00:01:20] H1: Muy bien, sigo con la siguiente señora.
+
+[00:01:23] H2: [PERSONA_2]. Para mí sería la Padula con Cueva, ¿no? Porque los dos han hecho un dúo. Un dúo y la Padula más que, para que demuestre que tiene el corazón más peruano que italiano.
+
+[00:01:36] H1: Muchas gracias. Sigo con la siguiente, sigo con la pregunta. Y antes de empezar con ella, puedo decir que han destacado a la Padula más, ¿no? Y la siguiente pregunta es, ¿cuál es el resultado de hoy? ¿Cuál piensas que va a ser el resultado de hoy?
+
+[00:01:55] H3: [PERSONA_1]. 2-0.
+
+[00:01:58] H1: Sigo con la siguiente señorita, señora.
+
+[00:02:02] H2: [PERSONA_2]. 2-0. Ojalá que sea 2-0.
+
+[00:02:07] H1: Veo que ambas han dicho el mismo resultado y esperemos que sea así. Y la última pregunta. ¿Qué opina del fútbol acerca como factor de unión de masas?
+
+[00:02:24] H3: [PERSONA_1]. Deporte. Deporte apasiona a todos los peruanos, tanto como fuera del país también. Y es un deporte que une a toda la familia, a todas las amistades en general.
+
+[00:02:45] H1: Muchas gracias. Y ya finalizando, ¿su comentario final?
+
+[00:02:49] H2: [PERSONA_2]. Hace que la gente se una. No hay distinción de raza ni religión, ¿no? Por que todos sean unidos y que el deporte siga adelante. Sí, gracias.
+
+[00:03:06] H1: Muchas gracias. Con esto termina la entrevista.

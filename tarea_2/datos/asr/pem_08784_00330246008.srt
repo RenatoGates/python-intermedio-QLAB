@@ -1,0 +1,3 @@
+1
+00:00:00,180 --> 00:00:04,280
+El otro día me comí una sopa de champiñones muy picante.

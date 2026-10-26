@@ -1,0 +1,7 @@
+1
+00:00:00,000 --> 00:00:06,000
+For example, each year students from Bennett School in North Carolina design a website about their trip to the state capitol.
+
+2
+00:00:06,000 --> 00:00:11,000
+Each year the website gets remodeled, but old versions are kept online to serve as a scrapbook.

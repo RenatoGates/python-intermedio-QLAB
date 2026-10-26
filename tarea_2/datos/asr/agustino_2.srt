@@ -1,0 +1,203 @@
+1
+00:00:00,020 --> 00:00:08,020
+[H1] Buenos días profesores y compañeros, hoy estoy cerca de aquí por mi casa y voy a hacer una entrevista acerca del fútbol como unión de masas.
+
+2
+00:00:08,720 --> 00:00:10,020
+[H1] Estoy con las señoras...
+
+3
+00:00:10,620 --> 00:00:12,820
+[H2] [PERSONA_1], soy [PERSONA_2].
+
+4
+00:00:13,400 --> 00:00:19,860
+[H1] Muy bien, voy a comenzar con la primera pregunta y es, ¿qué expectativas tienen ante este partido?
+
+5
+00:00:21,960 --> 00:00:30,360
+[H3] Que el afición se encuentra motivado para ganar este partido.
+
+6
+00:00:30,360 --> 00:00:31,900
+[H1] ¿Me puede decir su nombre?
+
+7
+00:00:32,200 --> 00:00:33,240
+[H3] [PERSONA_1].
+
+8
+00:00:34,030 --> 00:00:47,590
+[H2] La expectativa que yo pienso es que acá, que el Perú va a dar todo por todo, todo su corazón va a entregar para que ganemos, para que ganemos para ir a las Olimpiadas.
+
+9
+00:00:48,460 --> 00:00:48,980
+[H1] Al Mundial.
+
+10
+00:00:49,080 --> 00:00:49,520
+[H2] Al Mundial.
+
+11
+00:00:49,900 --> 00:00:51,020
+[H1] ¿Me puede decir este su nombre?
+
+12
+00:00:51,360 --> 00:00:52,180
+[H2] [PERSONA_2].
+
+13
+00:00:52,760 --> 00:00:55,020
+[H1] Bien, sigo con la siguiente pregunta.
+
+14
+00:00:56,520 --> 00:01:00,040
+[H1] ¿Qué jugador piensa que va a ser el más determinante?
+
+15
+00:01:00,040 --> 00:01:03,280
+[H1] Antes de que diga su respuesta, dígame su nombre, por favor.
+
+16
+00:01:03,560 --> 00:01:04,640
+[H3] [PERSONA_1].
+
+17
+00:01:06,540 --> 00:01:07,460
+[H3] La Padula.
+
+18
+00:01:08,760 --> 00:01:09,200
+[H1] ¿Por qué?
+
+19
+00:01:09,600 --> 00:01:19,090
+[H3] Porque ha demostrado su fuerza y su garra para jugar y ha metido unos cuantos goles.
+
+20
+00:01:20,750 --> 00:01:23,370
+[H1] Muy bien, sigo con la siguiente señora.
+
+21
+00:01:23,370 --> 00:01:24,790
+[H2] [PERSONA_2].
+
+22
+00:01:24,930 --> 00:01:27,830
+[H2] Para mí sería la Padula con Cueva, ¿no?
+
+23
+00:01:27,830 --> 00:01:29,490
+[H2] Porque los dos han hecho un dúo.
+
+24
+00:01:30,150 --> 00:01:34,730
+[H2] Un dúo y la Padula más que, para que demuestre que tiene el corazón más peruano que italiano.
+
+25
+00:01:36,020 --> 00:01:36,800
+[H1] Muchas gracias.
+
+26
+00:01:37,420 --> 00:01:39,700
+[H1] Sigo con la siguiente, sigo con la pregunta.
+
+27
+00:01:39,700 --> 00:01:46,440
+[H1] Y antes de empezar con ella, puedo decir que han destacado a la Padula más, ¿no?
+
+28
+00:01:46,920 --> 00:01:50,880
+[H1] Y la siguiente pregunta es, ¿cuál es el resultado de hoy?
+
+29
+00:01:51,480 --> 00:01:53,240
+[H1] ¿Cuál piensas que va a ser el resultado de hoy?
+
+30
+00:01:55,240 --> 00:01:56,320
+[H3] [PERSONA_1].
+
+31
+00:01:56,560 --> 00:01:57,240
+[H3] 2-0.
+
+32
+00:01:58,770 --> 00:02:02,210
+[H1] Sigo con la siguiente señorita, señora.
+
+33
+00:02:02,610 --> 00:02:03,690
+[H2] [PERSONA_2].
+
+34
+00:02:04,050 --> 00:02:04,980
+[H2] 2-0.
+
+35
+00:02:05,120 --> 00:02:06,080
+[H2] Ojalá que sea 2-0.
+
+36
+00:02:07,510 --> 00:02:12,250
+[H1] Veo que ambas han dicho el mismo resultado y esperemos que sea así.
+
+37
+00:02:12,630 --> 00:02:13,570
+[H1] Y la última pregunta.
+
+38
+00:02:15,040 --> 00:02:22,160
+[H1] ¿Qué opina del fútbol acerca como factor de unión de masas?
+
+39
+00:02:24,320 --> 00:02:25,400
+[H3] [PERSONA_1].
+
+40
+00:02:28,940 --> 00:02:29,420
+[H3] Deporte.
+
+41
+00:02:29,420 --> 00:02:36,940
+[H3] Deporte apasiona a todos los peruanos, tanto como fuera del país también.
+
+42
+00:02:37,880 --> 00:02:45,080
+[H3] Y es un deporte que une a toda la familia, a todas las amistades en general.
+
+43
+00:02:45,740 --> 00:02:46,640
+[H1] Muchas gracias.
+
+44
+00:02:46,900 --> 00:02:49,160
+[H1] Y ya finalizando, ¿su comentario final?
+
+45
+00:02:49,680 --> 00:02:50,740
+[H2] [PERSONA_2].
+
+46
+00:02:51,100 --> 00:02:53,950
+[H2] Hace que la gente se una.
+
+47
+00:02:54,150 --> 00:02:57,450
+[H2] No hay distinción de raza ni religión, ¿no?
+
+48
+00:02:57,450 --> 00:03:03,490
+[H2] Por que todos sean unidos y que el deporte siga adelante.
+
+49
+00:03:05,010 --> 00:03:05,630
+[H2] Sí, gracias.
+
+50
+00:03:06,130 --> 00:03:06,790
+[H1] Muchas gracias.
+
+51
+00:03:06,970 --> 00:03:08,510
+[H1] Con esto termina la entrevista.

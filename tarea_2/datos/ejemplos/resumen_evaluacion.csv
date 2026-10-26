@@ -1,0 +1,10 @@
+métrica,valor
+CER mediano (10 documentos),35.6%
+CER transcritos a mano (manuscrito · foto),15.2% · 18.0%
+WER mediano (10 clips OpenSLR),0.0%
+WER global (10 clips OpenSLR),1.9%
+Acuerdo LLM-humano por campo (20 casos),96.7%
+Casos LLM con todos los campos correctos,90%
+Parte 1 · OCR,19.7 min para 36 documentos (33 s por documento)
+Parte 1 · ASR + diarización,48.5 min para 60 clips y 40.9 min de audio (1.19× tiempo real)
+Hardware,"Todo en CPU, sin GPU: Intel Core i7-1355U, 16 GB de RAM"

@@ -1,0 +1,63 @@
+1
+00:00:00,140 --> 00:00:03,220
+[H1] La granizada destruyó toda plantación de lechuga
+
+2
+00:00:03,220 --> 00:00:09,820
+[H2] Lo primero que tiene que hacer es mantener la calma
+
+3
+00:00:09,820 --> 00:00:16,040
+[H1] Ayer llovió mucho y llegue tarde a mi reunión
+
+4
+00:00:16,040 --> 00:00:22,420
+[H2] Es importante que manejes bien la letra E
+
+5
+00:00:22,420 --> 00:00:27,670
+[H1] ¿Por qué dicen que la sal no es saludable?
+
+6
+00:00:27,670 --> 00:00:33,650
+[H2] Es muy fácil recuartar su hogar de los huracanes
+
+7
+00:00:33,650 --> 00:00:38,420
+[H1] ¿Qué lugares románticos hay por aquí?
+
+8
+00:00:38,420 --> 00:00:46,490
+[H2] Es muy importante la parte gutural con la R
+
+9
+00:00:46,490 --> 00:00:52,570
+[H1] En el Amazonas existen los insectos más venenosos
+
+10
+00:00:52,570 --> 00:01:00,000
+[H2] En el trayecto van a ir acompañados de otros turistas
+
+11
+00:01:00,000 --> 00:01:05,520
+[H1] ¿Qué tipo de tema le gustaría escuchar?
+
+12
+00:01:05,520 --> 00:01:12,920
+[H2] El tiempo total de viaje es de diez horas treinta y cinco minutos
+
+13
+00:01:12,920 --> 00:01:20,370
+[H1] Lo interesante de su educación es que ella no quería ser actriz, quería ser psicóloga
+
+14
+00:01:20,370 --> 00:01:26,450
+[H2] Hoy en la tarde saqué mi tarjeta para bicicleta urbana
+
+15
+00:01:26,450 --> 00:01:33,300
+[H1] Si estás enojado es mejor esperar a que te calmes
+
+16
+00:01:33,300 --> 00:01:42,800
+[H2] Diego Rivera finalizó el mural en Nueva York en mil novecientos setenta y uno

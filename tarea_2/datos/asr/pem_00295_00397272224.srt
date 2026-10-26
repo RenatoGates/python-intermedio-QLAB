@@ -1,0 +1,3 @@
+1
+00:00:00,430 --> 00:00:04,610
+El Llano en Llamas es un clásico de Juan Rulfo

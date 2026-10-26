@@ -1,0 +1,355 @@
+1
+00:00:00,000 --> 00:00:08,150
+[H1] Los medios sociales de las noticias de los medios de comunicación, ¿ya?
+
+2
+00:00:08,490 --> 00:00:08,770
+[H2] Sí.
+
+3
+00:00:09,250 --> 00:00:18,100
+[H1] Entonces, yo, a ver, primero creo que sea un poco nebuloso el tema, pero, o sea, me parece
+
+4
+00:00:18,100 --> 00:00:22,940
+[H1] que hay una parte que todavía está un poco nebulosa, pero yo no voy a traducir como
+
+5
+00:00:22,940 --> 00:00:27,320
+[H1] yo lo he entendido, el otro me dice si en verdad lo entendemos así o no, si hay alguna
+
+6
+00:00:27,320 --> 00:00:30,700
+[H1] cosa que tú hayas entendido o que hay información que tú tengas que no tengas, ¿ya?
+
+7
+00:00:30,700 --> 00:00:35,300
+[H1] Bueno, pero a ver, los medios sociales de comunicación tenemos, yo, identificado dos problemas.
+
+8
+00:00:36,570 --> 00:00:52,530
+[H1] Uno, que hay problemas conocidos que este algoritmo o este servicio de Azure detecta, por ejemplo,
+
+9
+00:00:52,650 --> 00:00:56,930
+[H1] que un medio de comunicación, que extrae la información de un medio de comunicación y
+
+10
+00:00:56,930 --> 00:01:01,730
+[H1] le aparece como vacío, entonces no extrae ninguna noticia porque cuando se extrae la información
+
+11
+00:01:01,730 --> 00:01:08,010
+[H1] no hay noticias que extrae, así que en el, en el, en el mar, entonces, eh, coloca como
+
+12
+00:01:08,010 --> 00:01:11,390
+[H1] vacío o cuando tiene algún problema, coloca como fail.
+
+13
+00:01:11,910 --> 00:01:19,060
+[H1] Ya, pues, con el mismo tal, en un segundo, eh, llegamos mejor a lo que te estoy diciendo.
+
+14
+00:01:19,060 --> 00:01:34,540
+[H1] Y otro problema, son los problemas no conocidos, que son los de, eh, que son los que tú detectaste,
+
+15
+00:01:34,540 --> 00:01:41,440
+[H1] que no puede detectar naturalmente el Azure Function o el servicio que está haciendo el Scraping,
+
+16
+00:01:41,440 --> 00:01:49,900
+[H1] que es cuando hay noticias que él ha extraído acá, pero faltan estas noticias.
+
+17
+00:01:49,900 --> 00:01:53,600
+[H1] O sea, hay noticias que él ha extraído, pero no ha extraído todas las noticias.
+
+18
+00:01:54,440 --> 00:01:59,840
+[H1] Que hay un cachito que falta, o, eh, hubio un problema, eh, que no se puede, que no puede detectar.
+
+19
+00:02:00,220 --> 00:02:01,620
+[H1] Ya, entonces, son dos problemas.
+
+20
+00:02:02,280 --> 00:02:05,740
+[H1] Yo le diría, si no, con su culpa, además, que tenemos, que son conocidos, que son los que
+
+21
+00:02:05,740 --> 00:02:06,320
+[H2] aparecen acá.
+
+22
+00:02:06,320 --> 00:02:14,320
+[H1] Por ejemplo, ahora, eh, el medio, eh, noticias, eh, animado, ahora, está completado.
+
+23
+00:02:14,460 --> 00:02:16,880
+[H1] Entonces, acá, teóricamente, no había ningún problema.
+
+24
+00:02:17,120 --> 00:02:19,640
+[H1] De hecho, yo le diría, asumamos, de que no había ningún problema.
+
+25
+00:02:20,300 --> 00:02:24,920
+[H1] Todavía no tenemos como el análisis que hiciste, ya, el análisis de Scraping, manual, automático,
+
+26
+00:02:25,040 --> 00:02:26,760
+[H1] si se ha dado a entender eso.
+
+27
+00:02:27,600 --> 00:02:30,180
+[H1] Acá, en [PERSONA_5], por ejemplo, aparece MPIC.
+
+28
+00:02:30,740 --> 00:02:35,300
+[H1] Esto podría ser, o sea, con el demás, como que está bien, en verdad.
+
+29
+00:02:35,300 --> 00:02:41,920
+[H1] Es la verdad, que no ha habido ningún, una noticia, o ninguna publicación de esta persona.
+
+30
+00:02:42,460 --> 00:02:42,980
+[H1] Y está bien.
+
+31
+00:02:44,210 --> 00:02:46,810
+[H1] Pero, también, no sabemos si eso es completamente verdad.
+
+32
+00:02:47,570 --> 00:02:49,810
+[H1] Entonces, acá hay una sospecha de error.
+
+33
+00:02:50,350 --> 00:02:52,390
+[H1] Ya, pero, por lo menos, vamos a tratarlo como que está bien.
+
+34
+00:02:53,070 --> 00:02:56,370
+[H1] Y nosotros, y el otro estado, es fail.
+
+35
+00:02:56,690 --> 00:02:59,230
+[H1] Que, en el caso de rabia, no se dé, simplemente es fail.
+
+36
+00:02:59,350 --> 00:03:03,530
+[H1] Porque, ya está bien, es un error conocido, porque ya sabemos cuál es la, el problema,
+
+37
+00:03:03,530 --> 00:03:06,970
+[H1] que tenemos que corregir, que tenemos que corregir, en algún momento,
+
+38
+00:03:07,070 --> 00:03:09,090
+[H1] no es la misma, pero ya vamos a corregir todo ahí.
+
+39
+00:03:10,690 --> 00:03:11,070
+[H2] ¿Ya?
+
+40
+00:03:11,070 --> 00:03:18,630
+[H1] Entonces, lo que se me ocurre, para hacer monitoreo de esto, y que tengamos, porque el objetivo de esto,
+
+41
+00:03:18,710 --> 00:03:25,130
+[H1] es que, digamos, o alguien esté al tanto de estos problemas, y cuando sucede un error grave,
+
+42
+00:03:25,270 --> 00:03:29,710
+[H1] por ejemplo, acá, por ejemplo, acá, de hecho, acá hay un error grave, ya vemos,
+
+43
+00:03:29,790 --> 00:03:30,650
+[H1] ya vemos, es una alarma.
+
+44
+00:03:31,150 --> 00:03:33,690
+[H1] El expreso ha dado fail, el día de hoy.
+
+45
+00:03:34,430 --> 00:03:37,950
+[H1] El día de ayer no había dado fail, pero este es un error.
+
+46
+00:03:37,950 --> 00:03:40,210
+[H1] Ya.
+
+47
+00:03:40,850 --> 00:03:45,190
+[H1] Entonces, cuando sale un error, hay que activar un proceso de corrección de eso.
+
+48
+00:03:45,390 --> 00:03:48,710
+[H1] El proceso de corrección, ya vemos, vemos, es manual, es automático y todo eso.
+
+49
+00:03:49,290 --> 00:03:52,110
+[H1] Entonces, acá hay un error que es fail, y es un error nuevo.
+
+50
+00:03:52,670 --> 00:03:55,870
+[H1] Que en el fail, el expreso, que a veces funciona, a veces no funciona,
+
+51
+00:03:56,050 --> 00:03:57,150
+[H1] ya está funcionando bien.
+
+52
+00:03:57,910 --> 00:03:59,970
+[H1] Y en otros medios puede suceder lo mismo.
+
+53
+00:03:59,970 --> 00:04:06,610
+[H1] Y algunos de esos empty también pueden ser, este, este, que este error,
+
+54
+00:04:06,730 --> 00:04:08,310
+[H1] hay un error detrás de esto, ya.
+
+55
+00:04:08,310 --> 00:04:10,310
+[H1] Y los completados, y los sacamos con muy bien.
+
+56
+00:04:10,930 --> 00:04:14,070
+[H1] Entonces, lo que yo siento es, que en Fabric,
+
+57
+00:04:16,060 --> 00:04:18,260
+[H1] esta data que esté en Fabric,
+
+58
+00:04:19,560 --> 00:04:23,420
+[H1] podríamos hacer Power BI muy pequeño, muy,
+
+59
+00:04:23,420 --> 00:04:26,970
+[H1] muy, muy, muy, muy pequeño,
+
+60
+00:04:26,970 --> 00:04:31,990
+[H1] pero muy ejecutivo, sobre esta información.
+
+61
+00:04:33,720 --> 00:04:38,420
+[H1] Atrás de Fabric, en el proyecto,
+
+62
+00:04:38,420 --> 00:04:43,040
+[H1] eso es, podemos ver, vamos a ver cuáles son nuestros médicos.
+
+63
+00:04:43,040 --> 00:04:45,480
+[H1] Puntos.
+
+64
+00:04:45,480 --> 00:04:49,860
+[H1] Puntos.
+
+65
+00:04:49,860 --> 00:04:50,360
+[H1] Puntos.
+
+66
+00:04:50,360 --> 00:04:53,720
+[H1] Tiene Big Pals,
+
+67
+00:04:53,720 --> 00:04:57,220
+[H1] y en la tal, no sé, está en Raúl,
+
+68
+00:04:57,220 --> 00:05:00,680
+[H1] cerca del Raúl.
+
+69
+00:05:00,680 --> 00:05:02,260
+[H1] Así no.
+
+70
+00:05:02,260 --> 00:05:29,180
+[H1] Hay una tabla que tiene todos esos, este, esos manifestos,
+
+71
+00:05:29,180 --> 00:05:33,420
+[H1] o esos estados de, si está bien o no está bien,
+
+72
+00:05:33,420 --> 00:05:35,800
+[H1] o si sacamos los puntos.
+
+73
+00:05:35,800 --> 00:05:54,540
+[H1] Hay una tabla que está en Raúl,
+
+74
+00:05:54,540 --> 00:05:57,060
+[H1] que está en Raúl y es un manifesto,
+
+75
+00:05:57,060 --> 00:06:32,500
+[H1] y no es una tabla que está en Raúl,
+
+76
+00:06:32,500 --> 00:06:33,840
+[H1] que está en Raúl y está en Raúl,
+
+77
+00:06:33,840 --> 00:06:37,250
+[H1] lo que está en Raúl y es un comporto.
+
+78
+00:06:37,250 --> 00:06:39,460
+[H1] y se va a los últimos días
+
+79
+00:06:39,460 --> 00:06:45,400
+[H1] y la gente va a llegar a la realidad
+
+80
+00:06:45,400 --> 00:07:53,800
+[H1] eso es lo que parece que no nos veículo
+
+81
+00:07:53,800 --> 00:07:55,380
+[H1] pero no nos voy a seguir
+
+82
+00:07:55,380 --> 00:07:57,000
+[H1] hasta llegar a salir
+
+83
+00:07:57,000 --> 00:07:58,380
+[H1] ese balaje
+
+84
+00:07:58,380 --> 00:08:00,400
+[H2] y el cielo
+
+85
+00:08:00,400 --> 00:08:02,020
+[H1] entonces la gente va a darse
+
+86
+00:08:02,020 --> 00:08:04,240
+[H1] y el suelo que no nos vemos
+
+87
+00:08:04,240 --> 00:08:06,420
+[H1] y la gente va a llegar a salir
+
+88
+00:08:06,420 --> 00:08:07,900
+[H1] el mundo se el bus
+
+89
+00:08:07,900 --> 00:08:09,460
+[H1] y el tú

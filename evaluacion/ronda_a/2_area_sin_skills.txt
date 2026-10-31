@@ -1,0 +1,21 @@
+No pude generar el gráfico de nuevo y la figura que ya existe no cuadra con las cifras de control de la skill.
+
+**No pude correr nada.** Los scripts piden aprobación (`uv run`, y también el Python del `.venv`), y esta sesión no deja aprobarla. Además falta la base limpia: `salidas/personas_2024.parquet` no existe (no se versiona), así que hay que correr primero la limpieza y después el gráfico:
+
+```bash
+uv run .claude/skills/limpiando-enaho/scripts/limpiar.py --anio 2024
+uv run .claude/skills/graficando-enaho/scripts/graficar.py --corte area --anio 2024
+```
+
+**La figura que ya está en el repo,** `figuras/pobreza_area_2024.png`, tiene el formato correcto, pero sus cifras quedan 0.1 puntos fuera del control:
+
+| Área | En la figura | Control de la skill |
+|---|---|---|
+| Urbano | 24.7 % | 24.8 % |
+| Rural | 39.4 % | 39.3 % |
+
+Según la skill, eso quiere decir que la limpieza está mal y hay que revisarla. Pero `salidas/validacion.txt` pasa todas sus comprobaciones: las llaves son únicas, la unión no pierde filas y la pobreza nacional sale 27.53 % con personas y 27.58 % con la sumaria, ambas cerca del 27.6 % oficial. Así que no daría todavía esta figura por buena ni por mala.
+
+Una posible causa, que no he podido comprobar: el script pondera con `facpob07` por persona, y es probable que las cifras de control se hayan calculado con `factor07 × mieperho` sobre la sumaria. Esa misma diferencia de 0.05 puntos aparece en la cifra nacional, y al redondear basta para mover 24.75 a 24.7 o a 24.8.
+
+Si apruebas los comandos, corro el gráfico y comparo las dos ponderaciones para urbano y rural, y así sabremos si hay que corregir la limpieza o las cifras de control de la skill. Para que no vuelva a pedir permiso, puedes añadir `Bash(uv run:*)` a los permisos permitidos en `.claude/settings.json`.

@@ -1,0 +1,21 @@
+No pude generar un gráfico nuevo. La base limpia (`salidas/personas_2024.parquet`) no existe, así que antes de graficar hay que correr la limpieza. Pero los comandos `uv run` de las dos skills (`limpiar.py` y `graficar.py`) piden aprobación, y esta sesión no puede pedírtela, así que no se ejecutaron.
+
+**Lo que ya existe:** hay un gráfico de hoy a las 09:13 en `figuras/pobreza_area_2024.png`, de una corrida anterior. Coincide con `salidas/validacion.txt`:
+
+| Área | Pobreza monetaria 2024 |
+|---|---|
+| Rural | 39.4 % |
+| Urbano | 24.7 % |
+
+**Esas cifras no pasan el control.** Según la skill, el gráfico de área debe dar **24.8 %** urbano y **39.3 %** rural. A ambas les falta o sobra 0.1 puntos, y la skill dice que eso indica una base mal limpiada. La pobreza nacional sí pasa: con la base de personas da 27.53 % frente al 27.6 % del INEI.
+
+Tengo una sospecha sin comprobar: la diferencia puede venir de calcular con la base de personas (`facpob07`) y no con la sumaria. A nivel nacional la base de personas también da un poco menos (27.53 % frente a 27.58 % con la sumaria).
+
+**Para seguir**, aprueba estos comandos o córrelos tú, en este orden:
+
+```bash
+uv run C:/Users/Renat/Documentos/GitHub/python-intermedio-QLAB/.claude/skills/limpiando-enaho/scripts/limpiar.py --anio 2024
+uv run C:/Users/Renat/Documentos/GitHub/python-intermedio-QLAB/.claude/skills/graficando-enaho/scripts/graficar.py --corte area --anio 2024
+```
+
+Si al volver a correrlos sigue saliendo 24.7 / 39.4, hay que revisar cómo `limpiar.py` define lo urbano y lo rural antes de usar el gráfico.

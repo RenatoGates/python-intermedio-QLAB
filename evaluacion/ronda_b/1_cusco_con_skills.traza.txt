@@ -1,0 +1,10 @@
+> Skill: {"skill": "limpiando-enaho", "args": "Calcular la pobreza monetaria en Cusco en 2024"}
+  < 'Launching skill: limpiando-enaho'
+> Glob: {"pattern": "datos/**/*"}
+  < 'datos\\peru_departamental_simple.geojson\ndatos\\966-Modulo34.zip\ndatos\\966-Modulo02.zip\ndatos\\966-Modulo02\\966-Modulo02\\CED-01-200-2024.pdf\ndatos\\966-Modulo02\\966-Modulo02\\Criterios para codificar Ocupaciones Peligrosas.pdf\ndatos\\966-Modulo02\\966-Modulo02\\Diccionario2024.pdf\ndatos\\966-Modulo02\\966-Mod'
+> Glob: {"pattern": "salidas/*"}
+  < 'salidas\\.gitkeep\nsalidas\\validacion.txt'
+> PowerShell: {"command": "uv run C:/Users/Renat/Documentos/GitHub/python-intermedio-QLAB/.claude/skills/limpiando-enaho/scripts/limpiar.py --anio 2024", "description": "Run ENAHO cleaning script for 2024", "timeout": 600000}
+  < 'ENAHO 2024 · validación de la limpieza\r\nSumaria   : sumaria-2024.dta (33,691 hogares)\r\nMiembros  : enaho01-2024-200.dta (117,721 filas)\r\nResidentes habituales: 108,664\r\nBase final: 108,664 filas x 50 columnas -> personas_2024.parquet\r\nFactor de expansión usado: facpob07\r\nPobreza monetaria\r\n  sumaria'
+> Bash: {"command": "cd C:/Users/Renat/Documentos/GitHub/python-intermedio-QLAB && uv run python -c \"\nimport pandas as pd\nd = pd.read_parquet('salidas/personas_2024.parquet')\nc = d[d['departamento'] == '08']\nw = c['facpob07']\nprint('filas Cusco:', len(c))\nprint('poblacion expandida:', round(w.sum()))\nprint('pobreza total   :', round(100 * (w * c['pobre']).sum() / w.sum(), 2))\nprint('pobreza extre
+  < 'filas Cusco: 3777\r\npoblacion expandida: 1380357\r\npobreza total   : 18.54\r\npobreza extrema : 2.15\r\npersonas pobres : 255908\r\nrural 25.0\r\nurbano 14.72'

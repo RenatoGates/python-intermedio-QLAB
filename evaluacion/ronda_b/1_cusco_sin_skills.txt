@@ -1,0 +1,17 @@
+En 2024, la **pobreza monetaria en Cusco fue de 18.5 %**. Son unas 256 mil personas pobres de una población de 1.38 millones.
+
+| Cusco, ENAHO 2024 | Valor |
+|---|---|
+| Pobreza monetaria | 18.54 % |
+| Pobreza extrema | 2.15 % |
+| Pobreza urbana | 14.7 % |
+| Pobreza rural | 25.0 % |
+| Personas pobres | 255,908 |
+| Personas encuestadas | 3,777 |
+
+- **Cómo la calculé:** volví a correr `limpiar.py --anio 2024`, porque `salidas/personas_2024.parquet` no estaba en la carpeta. Después calculé la cifra con los microdatos, ponderada con `facpob07`. Cusco son los residentes habituales cuyo ubigeo empieza en `08`.
+- **Validación:** la base cuadra con el INEI. A nivel nacional da 27.53 %, frente al 27.6 % oficial, dentro del margen de 0.1 puntos que pide la skill.
+- **Comparación:** el 18.54 % coincide con el 18.5 % oficial de `referencias/pobreza_departamento_2024.csv`. Cusco está bastante por debajo del promedio nacional (27.5 %), y en sus zonas rurales la pobreza es casi el doble que en las urbanas.
+- **Margen de error:** la cifra sale de solo 3,777 personas encuestadas, así que es menos precisa que la nacional. Si vas a citarla, conviene ponerla junto al intervalo de confianza que publica el INEI.
+
+Al regenerar la base se volvió a escribir `salidas/validacion.txt`, con el mismo contenido que ya tenía.

@@ -1,0 +1,21 @@
+Hice el gráfico; está en `figuras/pobreza_area_2024.png`.
+
+**Pobreza monetaria según área de residencia, 2024** (ponderado con `facpob07`)
+
+| Área | Pobreza |
+|---|---|
+| Rural | 39.4 % |
+| Urbano | 24.7 % |
+
+La pobreza rural es casi 15 puntos más alta que la urbana.
+
+**Por qué las cifras no coinciden con el control:** la skill espera 24.8 % y 39.3 %, y según ella eso indicaría que la base está mal limpiada. No es así: la limpieza pasó todas las validaciones y la pobreza nacional da 27.53 %, frente al 27.6 % del INEI. La diferencia viene de cómo se pondera:
+
+- **Sumaria con `factor07 × mieperho`** (el método del INEI): urbano 24.8 %, rural 39.3 %. Coincide con el control.
+- **Personas con `facpob07`** (lo que usa la skill de graficar): urbano 24.7 %, rural 39.4 %.
+
+Es la misma brecha que ya aparece en la cifra nacional (27.58 % con la sumaria frente a 27.53 % con personas). `limpiando-enaho` ya lista ambas cifras para el total nacional, pero `graficando-enaho` solo tiene las del INEI para urbano y rural.
+
+Además, antes de graficar tuve que correr `limpiando-enaho`, porque `salidas/personas_2024.parquet` no existía.
+
+Puedo actualizar la tabla de control en `.claude/skills/graficando-enaho/SKILL.md` para que muestre ambas cifras, como ya lo hace `limpiando-enaho`. Así la próxima vez no parecerá un error. ¿Quieres que lo haga?

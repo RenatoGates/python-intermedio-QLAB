@@ -1,0 +1,9 @@
+Permission deny rule "¿Cuál" matches no known tool — check for typos.
+Permission deny rule "fue" matches no known tool — check for typos.
+Permission deny rule "la" matches no known tool — check for typos.
+Permission deny rule "pobreza" matches no known tool — check for typos.
+Permission deny rule "en" matches no known tool — check for typos.
+Permission deny rule "Cusco" matches no known tool — check for typos.
+Permission deny rule "2024?" matches no known tool — check for typos.
+Warning: no stdin data received in 3s, proceeding without it. If piping from a slow command, redirect stdin explicitly: < /dev/null to skip, or wait longer.
+Error: Input must be provided either through stdin or as a prompt argument when using --print

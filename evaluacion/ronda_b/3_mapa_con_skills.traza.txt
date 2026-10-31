@@ -1,0 +1,14 @@
+> Skill: {"skill": "mapeando-enaho"}
+  < 'Launching skill: mapeando-enaho'
+> Glob: {"pattern": "salidas/personas_*.parquet"}
+  < 'No files found'
+> Skill: {"skill": "limpiando-enaho"}
+  < 'Launching skill: limpiando-enaho'
+> Glob: {"pattern": "datos/**/*.{zip,dta}"}
+  < 'datos\\966-Modulo34.zip\ndatos\\966-Modulo02.zip\ndatos\\966-Modulo02\\966-Modulo02\\enaho01-2024-200.dta\ndatos\\966-Modulo02\\966-Modulo02\\enaho_tabla_ciuo_88.dta\ndatos\\966-Modulo02\\966-Modulo02\\enaho_tabla_cno_2015.dta\ndatos\\966-Modulo34\\966-Modulo34\\ConstVarGasto-Metodologia actualizada.zip\ndatos\\966-Modu'
+> Bash: {"command": "uv run C:/Users/Renat/Documentos/GitHub/python-intermedio-QLAB/.claude/skills/limpiando-enaho/scripts/limpiar.py --anio 2024", "description": "Clean ENAHO 2024 modules into person-level base", "timeout": 600000}
+  < 'ENAHO 2024 � validaci�n de la limpieza\r\nSumaria   : sumaria-2024.dta (33,691 hogares)\r\nMiembros  : enaho01-2024-200.dta (117,721 filas)\r\nResidentes habituales: 108,664\r\nBase final: 108,664 filas x 50 columnas -> personas_2024.parquet\r\nFactor de expansi�n usado: facpob07\r\nPobreza monetaria\r\n  sumaria'
+> Bash: {"command": "uv run C:/Users/Renat/Documentos/GitHub/python-intermedio-QLAB/.claude/skills/mapeando-enaho/scripts/mapear.py --anio 2024", "description": "Build poverty choropleth map by department", "timeout": 600000}
+  < 'Pobreza monetaria por departamento, 2024 (ponderado con facpob07)\r\n  25 departamentos, ninguno sin dato\r\n  m�s pobreza  : CAJAMARCA 45.0 %, LORETO 42.6 %, PUNO 40.4 %\r\n  menos pobreza: ICA 5.9 %, MOQUEGUA 10.9 %, MADRE DE DIOS 11.1 %\r\n\r\nContra la referencia del INEI: diferencia m�xima 0.5 puntos (me'
+> Read: {"file_path": "C:\\Users\\Renat\\Documentos\\GitHub\\python-intermedio-QLAB\\mapas\\pobreza_departamento.png"}
+  < ''

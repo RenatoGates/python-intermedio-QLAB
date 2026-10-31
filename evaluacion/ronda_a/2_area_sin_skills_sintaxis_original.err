@@ -1,0 +1,8 @@
+Permission deny rule "Grafica" matches no known tool — check for typos.
+Permission deny rule "la" matches no known tool — check for typos.
+Permission deny rule "pobreza" matches no known tool — check for typos.
+Permission deny rule "urbana" matches no known tool — check for typos.
+Permission deny rule "y" matches no known tool — check for typos.
+Permission deny rule "rural" matches no known tool — check for typos.
+Warning: no stdin data received in 3s, proceeding without it. If piping from a slow command, redirect stdin explicitly: < /dev/null to skip, or wait longer.
+Error: Input must be provided either through stdin or as a prompt argument when using --print

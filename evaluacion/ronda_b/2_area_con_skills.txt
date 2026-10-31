@@ -1,0 +1,22 @@
+Hice el gráfico. En 2024 la pobreza monetaria fue de **39.4 %** en el área rural y de **24.7 %** en la urbana, unos 15 puntos más en lo rural.
+
+![Pobreza por área](figuras/pobreza_area_2024.png)
+
+La figura se guardó en `figuras/pobreza_area_2024.png`.
+
+Primero tuve que armar la base, porque no existía `salidas/personas_2024.parquet`. Pasó todas las comprobaciones: la pobreza nacional da 27.53 %, a menos de 0.1 puntos del 27.6 % oficial, y no se perdió ni duplicó ninguna fila.
+
+**Estas cifras no coinciden con las de control de la skill.** La skill dice que el gráfico debe dar 24.8 % y 39.3 %, y que si no, la base está mal limpiada. Pero la limpieza no es el problema, es el método de cálculo:
+
+| Método | Urbano | Rural |
+|---|---|---|
+| Base de personas con `facpob07` (lo que usa el gráfico) | 24.7 % | 39.4 % |
+| Sumaria, `factor07 × mieperho` (cifra oficial del INEI) | 24.8 % | 39.3 % |
+
+Rehíce el cálculo con la sumaria y da exactamente 24.8 % y 39.3 %. Es la misma diferencia que ya se ve en la cifra nacional (27.53 % contra 27.58 %). La regla de usar siempre `facpob07` y la tabla de control piden cosas distintas.
+
+Tienes que decidir qué cifras deben salir en el gráfico:
+- **Las cifras oficiales:** cambio el corte de área para que use la sumaria y dé 24.8 % y 39.3 %.
+- **Las de la base de personas:** dejo el gráfico como está y corrijo la tabla de control de `graficando-enaho` a 24.7 % y 39.4 %.
+
+**Un error en las skills:** las dos ponen una palabra de tu pedido donde va un argumento (`--corte Grafica` y `--anio Arma`). Usé los valores por defecto (`area` y `2024`). Puedo corregir los `SKILL.md` para que eso no vuelva a pasar.

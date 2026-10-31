@@ -1,0 +1,14 @@
+[project]
+name = "python-intermedio-qlab"
+version = "0.1.0"
+description = "Tareas del curso de Ciencia de Datos con Python (QLAB / UP 2026-II)"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.2",
+    "pyarrow>=16",
+    "geopandas>=1.0",
+    "matplotlib>=3.8",
+]
+
+[tool.uv]
+package = false

@@ -226,3 +226,4 @@ checkpoint-*/
 
 # Microdatos del INEI (sesion 16)
 datos/
+salidas/*.parquet

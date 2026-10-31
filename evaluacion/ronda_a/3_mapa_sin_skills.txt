@@ -1,0 +1,21 @@
+No pude regenerar el mapa. Esta sesión no me deja ejecutar scripts: tanto `uv run` como el Python de `.venv` quedaron esperando una aprobación que aquí no puedo pedir.
+
+**Lo que encontré:**
+- La base limpia `salidas/personas_2024.parquet` no existe. El parquet no se versiona, así que habría que volver a correr `limpiando-enaho` antes de hacer el mapa.
+- Los zip del INEI (`966-Modulo34.zip` y `966-Modulo02.zip`) y el GeoJSON de los departamentos ya están en `datos/`, así que solo falta correr los scripts.
+- En `mapas/pobreza_departamento.png` hay un mapa de una corrida anterior, con cambios que todavía no están en un commit. Lo abrí y cumple las reglas de la skill: un solo color (`Oranges`) que empieza en 0, la leyenda dice «Pobreza monetaria (% de personas)», está ponderado con `facpob07` y Lima y Callao van por separado. Pero no lo generé yo en esta sesión.
+
+**Cifras de esa corrida anterior** (de `salidas/validacion.txt`):
+- La pobreza nacional sale 27.58 % con la sumaria y 27.53 % con personas. El INEI da 27.6 %, así que está dentro de los 0.1 puntos que se exigen.
+- Los tres departamentos con más pobreza son Cajamarca (45.0 %), Loreto (42.6 %) y Puno (40.4 %).
+- Los tres con menos son Madre de Dios (11.1 %), Moquegua (10.9 %) e Ica (5.9 %).
+- Frente a las cifras de control de la skill, Loreto (43.0 %) y Puno (39.9 %) difieren en hasta 0.5 puntos. El script del mapa mide esa diferencia contra la tabla completa, pero no he podido correrlo.
+
+**Para regenerarlo**, corre estos dos comandos en el prompt (con `!` al inicio) o apruébalos cuando te los pida:
+
+```
+! uv run .claude/skills/limpiando-enaho/scripts/limpiar.py --anio 2024
+! uv run .claude/skills/mapeando-enaho/scripts/mapear.py --anio 2024
+```
+
+Cuando los corras, puedo revisar las cifras que imprime el script del mapa y la diferencia máxima con la referencia del INEI.

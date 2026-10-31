@@ -1,0 +1,16 @@
+Hice el mapa: está en `mapas/pobreza_departamento.png` (200 dpi). Usa una escala de naranjas que empieza en 0 y Lima y Callao aparecen por separado.
+
+Primero tuve que limpiar los datos, porque no existía `salidas/personas_2024.parquet`. La pobreza nacional sale 27.58 % con la sumaria y 27.53 % con personas; la cifra oficial del INEI es 27.6 %, así que pasa el control de 0.1 puntos. Todos los cálculos van ponderados con `facpob07`.
+
+**Pobreza monetaria por departamento, 2024**
+
+| Más pobreza | % | Menos pobreza | % |
+|---|---|---|---|
+| Cajamarca | 45.0 | Ica | 5.9 |
+| Loreto | 42.6 | Moquegua | 10.9 |
+| Puno | 40.4 | Madre de Dios | 11.1 |
+
+- Los 25 departamentos tienen dato. La unión con los límites se hizo por código de ubigeo, no por nombre.
+- Comparado con la tabla del INEI en `referencias/`, la diferencia mediana es 0.1 puntos y la máxima 0.5. Las más grandes son Puno (40.4 contra 39.9) y Loreto (42.6 contra 43.0).
+
+El PNG reemplazó al que ya estaba en el repo y quedará como modificado en git. El parquet no se versiona. No hice commit.

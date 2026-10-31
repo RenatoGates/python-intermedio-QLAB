@@ -1,0 +1,21 @@
+No pude generar el mapa de nuevo. Hacen falta dos comandos `uv run` y esta sesión no puede aprobarlos: ambos se quedaron esperando un permiso que nadie podía dar.
+
+- **Falta la base limpia.** `salidas/personas_2024.parquet` no existe porque no se versiona, así que la skill pide correr primero `limpiando-enaho`. Los datos del INEI ya están en `datos/` (`sumaria-2024.dta` y `enaho01-2024-200.dta`) y los límites en `datos/peru_departamental_simple.geojson`, así que no se necesita descargar nada.
+- **Ya hay un mapa de una corrida anterior.** Está en `mapas/pobreza_departamento.png`, modificado pero sin commit. Lo revisé: Oranges desde 0, leyenda «Pobreza monetaria (% de personas)», Lima y Callao separados, ponderado con `facpob07`. Pero no lo produje yo ahora, así que no puedo confirmar que salga de los datos actuales.
+
+**Validación de esa corrida anterior** (`salidas/validacion.txt`):
+- Pobreza monetaria: 27.53 % con personas frente a 27.6 % del INEI, dentro de los 0.1 puntos.
+- Pobreza extrema: 5.50 % frente a 5.5 % del INEI.
+- Tiene dato en los 25 de 25 departamentos.
+- Los más pobres son Cajamarca (45.0 %), Loreto (42.6 %) y Puno (40.4 %).
+- Los menos pobres son Moquegua (10.9 %) e Ica (5.9 %). El tercero sale como código 17 (11.1 %), que es Madre de Dios, aunque el archivo solo da el código.
+- Esas cifras salen de la limpieza. No son las que imprime el script del mapa ni la comparación con `referencias/pobreza_departamento_2024.csv`, y no las vi. Loreto y Puno se alejan 0.4 y 0.5 puntos de la tabla de control de la skill (43.0 % y 39.9 %).
+
+Para generarlo de nuevo, corre esto desde la raíz del repo:
+
+```bash
+uv run .claude/skills/limpiando-enaho/scripts/limpiar.py --anio 2024
+uv run .claude/skills/mapeando-enaho/scripts/mapear.py --anio 2024
+```
+
+Otra opción es aprobar `uv run` en una sesión interactiva y pedírmelo otra vez; así reporto las cifras que imprima el script y la diferencia máxima con la tabla de referencia.

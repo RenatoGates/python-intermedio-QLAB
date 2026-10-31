@@ -1,0 +1,9 @@
+En 2024, el **18.5 %** de la población de Cusco era pobre.
+
+Esa cifra la tomé de la tabla oficial del INEI que tienes guardada en `referencias/pobreza_departamento_2024.csv:9`. No la calculé yo con los microdatos. Para eso tenía que correr `limpiar.py`, y el comando pedía tu aprobación, que no se pudo dar en esta sesión. Tampoco está `salidas/personas_2024.parquet` de una corrida anterior, así que no pude obtener el número de Cusco ponderado con `facpob07` como pide la skill.
+
+`salidas/validacion.txt` es de una corrida anterior. Muestra que la limpieza cuadraba a nivel nacional (27.53 % con el archivo de personas frente al 27.6 % del INEI). En los departamentos que lista, la diferencia con la tabla oficial es de entre 0.1 y 0.5 puntos (por ejemplo, Puno 40.4 % frente a 39.9 %). Por eso, el cálculo propio para Cusco podría salir unas décimas distinto de 18.5 %.
+
+**Un error en la skill:** al llamarla con un texto en lugar de un año, puso ese texto donde va el año. Armó `--anio Calcular` y `personas_Calcular.parquet`. Conviene que el `SKILL.md` diga que el argumento debe ser solo el año, o que use 2024 cuando lo que llega no es un número.
+
+Si apruebas `uv run .claude/skills/limpiando-enaho/scripts/limpiar.py --anio 2024`, calculo la pobreza de Cusco con los microdatos y la comparo con el 18.5 %.

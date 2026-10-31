@@ -1,0 +1,10 @@
+Permission deny rule "Haz" matches no known tool — check for typos.
+Permission deny rule "un" matches no known tool — check for typos.
+Permission deny rule "mapa" matches no known tool — check for typos.
+Permission deny rule "de" matches no known tool — check for typos.
+Permission deny rule "la" matches no known tool — check for typos.
+Permission deny rule "pobreza" matches no known tool — check for typos.
+Permission deny rule "por" matches no known tool — check for typos.
+Permission deny rule "departamento" matches no known tool — check for typos.
+Warning: no stdin data received in 3s, proceeding without it. If piping from a slow command, redirect stdin explicitly: < /dev/null to skip, or wait longer.
+Error: Input must be provided either through stdin or as a prompt argument when using --print

@@ -1,0 +1,18 @@
+Según la ENAHO 2024, la **pobreza monetaria en Cusco fue de 18.5 %**, unas 256 mil personas de una población de 1.38 millones.
+
+| Indicador (Cusco, 2024) | Valor |
+|---|---|
+| Pobreza monetaria | **18.5 %** |
+| Pobreza extrema | 2.2 % |
+| Personas pobres | ≈ 255,900 |
+| Pobreza urbana | 14.7 % |
+| Pobreza rural | 25.0 % |
+
+Cusco está bastante por debajo del promedio nacional, que fue 27.5 %. La pobreza rural del departamento es casi el doble que la urbana.
+
+**Cómo lo calculé:**
+- Corrí la limpieza de la ENAHO 2024 con el skill `limpiando-enaho`. La validación salió bien: la pobreza nacional dio 27.58 % y la cifra oficial del INEI es 27.6 %.
+- Todas las cifras están ponderadas con el factor de expansión `facpob07`. Cusco corresponde a los residentes habituales con ubigeo que empieza en `08`.
+- La cifra de Cusco sale de 3,777 personas encuestadas, así que tiene un margen de error mayor que la nacional. El INEI publica las cifras departamentales con intervalos de confianza. Si vas a citar el número, conviene ponerlo al lado del intervalo oficial.
+
+Al invocar el skill, la palabra "Calcular" quedó como si fuera el año. Corrí el script con `--anio 2024`, que es el año por defecto, y quedó guardado en `salidas/personas_2024.parquet`.

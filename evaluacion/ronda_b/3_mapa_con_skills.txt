@@ -1,0 +1,18 @@
+Hice el mapa y lo guardé en `mapas/pobreza_departamento.png` (200 dpi). Están los 25 departamentos y a ninguno le falta el dato.
+
+Como aún no estaba `salidas/personas_2024.parquet`, primero limpié la ENAHO 2024 con los archivos que ya tenías en `datos/`. Pasó todas las comprobaciones: la pobreza nacional da 27.58 % y el INEI publica 27.6 %, y la pobreza extrema da 5.50 % frente al 5.5 % oficial.
+
+**Pobreza monetaria por departamento, 2024** (ponderada con `facpob07`):
+
+| | Departamento | Pobreza | Cifra de control del INEI |
+|---|---|---|---|
+| Más pobres | Cajamarca | 45.0 % | 45.0 % |
+| | Loreto | 42.6 % | 43.0 % |
+| | Puno | 40.4 % | 39.9 % |
+| Menos pobres | Madre de Dios | 11.1 % | — |
+| | Moquegua | 10.9 % | 11.0 % |
+| | Ica | 5.9 % | 6.0 % |
+
+Comparando los 25 departamentos con la tabla del INEI, la mayor diferencia es de 0.5 puntos, en Puno, y la mediana es de 0.1. El orden de los más y menos pobres coincide con el del INEI.
+
+El mapa va de naranja claro a oscuro, con la escala desde 0, y Lima y Callao aparecen por separado. Al correr la limpieza y el mapa se sobrescribieron `salidas/validacion.txt` y `mapas/pobreza_departamento.png`, que ya tenían cambios sin guardar en git; ahora tienen la versión de esta corrida.

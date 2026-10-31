@@ -227,3 +227,8 @@ checkpoint-*/
 # Microdatos del INEI (sesion 16)
 datos/
 salidas/*.parquet
+
+# Tarea 3: PDF original de la SBS
+tarea_3/datos/crudos/
+tarea_3/reel/*.mp4
+tarea_3/reel/*.wav

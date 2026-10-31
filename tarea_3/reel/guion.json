@@ -1,0 +1,51 @@
+{
+  "titulo": "De la agencia al bodeguero",
+  "escenas": [
+    {
+      "frase": "En cinco años, la proporción de peruanos adultos con una cuenta en el sistema financiero pasó de cuarenta y dos a casi sesenta por ciento.",
+      "cifra": "59.6 %",
+      "etiqueta": "Adultos con cuenta, 2025",
+      "cifra_en_texto": true
+    },
+    {
+      "frase": "Lo raro es que eso no pasó porque hubiera más bancos. Los puntos de atención por cada cien mil adultos cayeron uno punto siete por ciento.",
+      "cifra": "−1.7 %",
+      "etiqueta": "Puntos de atención por 100 mil adultos, 2021 a 2026",
+      "cifra_en_texto": true
+    },
+    {
+      "frase": "Lo que cambió fue el mapa. Huancavelica multiplicó su red por tres punto seis, y Madre de Dios por dos punto ocho.",
+      "cifra": "+257 %",
+      "etiqueta": "Huancavelica, puntos de atención",
+      "cifra_en_texto": true
+    },
+    {
+      "frase": "Mientras tanto Arequipa perdió treinta y cinco por ciento de su red, y Lima veintiséis. La brecha entre el mejor y el peor departamento bajó de cuatro veces a dos punto nueve.",
+      "cifra": "2.9x",
+      "etiqueta": "Brecha entre departamentos, antes 4.0x",
+      "cifra_en_texto": true
+    },
+    {
+      "frase": "¿Quién sostiene la red hoy? No las agencias, que siguen cerrando. Ochenta y nueve por ciento de los puntos de atención del país son cajeros corresponsales: la bodega de la esquina.",
+      "cifra": "89.2 %",
+      "etiqueta": "La red que son corresponsales",
+      "cifra_en_texto": true
+    },
+    {
+      "frase": "Armé un tablero con los datos públicos de la Superintendencia de Banca y Seguros para que cualquiera revise su departamento. El enlace está en mi perfil.",
+      "cifra": "",
+      "etiqueta": "Tablero interactivo: enlace en mi perfil",
+      "cifra_en_texto": true
+    }
+  ],
+  "hashtags": [
+    "#InclusionFinanciera",
+    "#Peru",
+    "#DatosAbiertos",
+    "#CienciaDeDatos",
+    "#SistemaFinanciero"
+  ],
+  "posts": {
+    "linkedin": "Entre 2021 y 2026 la proporción de peruanos adultos con una cuenta en el sistema financiero subió de 42.3 % a 59.6 %. Diecisiete puntos en cinco años.\n\nLo contraintuitivo: no fue porque abrieran más puntos de atención. Al contrario, cayeron 1.7 % por cada 100 mil adultos.\n\nLo que cambió fue el mapa. Huancavelica multiplicó su red por 3.6 y Madre de Dios por 2.8, mientras Arequipa perdía 35 % y Lima 26 %. La brecha entre el departamento mejor y peor servido bajó de 4.0x a 2.9x.\n\n¿Quién sostiene esa red? Las oficinas siguen cerrando: hoy el 89 % de los puntos de atención del país son cajeros corresponsales. El punto de acceso financiero típico del peruano ya no es una agencia, es una bodega.\n\nArmé un tablero interactivo con los datos públicos de la SBS para que cualquiera revise su departamento. Enlace al tablero y al repositorio en los comentarios.\n\nLa voz de este video fue generada con IA a partir de una grabación de mi propia voz.\n\nFuente: SBS, Reporte de Indicadores de Inclusión Financiera, junio 2026; INEI."
+  }
+}

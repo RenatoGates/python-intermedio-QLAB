@@ -1,0 +1,24 @@
+ENAHO 2024 · validación de la limpieza
+Sumaria   : sumaria-2024.dta (33,691 hogares)
+Miembros  : enaho01-2024-200.dta (117,721 filas)
+Residentes habituales: 108,664
+Base final: 108,664 filas x 50 columnas -> personas_2024.parquet
+Factor de expansión usado: facpob07
+Pobreza monetaria
+  sumaria (factor07 x mieperho): 27.58 %
+  personas (facpob07)           : 27.53 %
+  oficial INEI                 : 27.6 %
+Pobreza extrema
+  sumaria : 5.50 %
+  personas: 5.50 %
+  oficial : 5.5 %
+Urbano (estrato <= 5): 24.7 %
+Rural  (estrato >  5): 39.4 %
+Departamentos con dato: 25 de 25
+  más pobres : 06 45.0 %, 16 42.6 %, 21 40.4 %
+  menos pobres: 17 11.1 %, 18 10.9 %, 11 5.9 %
+Comprobaciones
+  [ok] llaves de hogar únicas en la sumaria
+  [ok] llaves de persona únicas tras la unión
+  [ok] la unión no perdió ni duplicó filas
+  [ok] pobreza dentro de 0.1 puntos de la cifra oficial

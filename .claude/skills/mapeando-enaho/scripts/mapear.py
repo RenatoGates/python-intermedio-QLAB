@@ -105,16 +105,19 @@ def main() -> int:
     fig.savefig(destino, dpi=200)
     plt.close(fig)
 
-    orden = mapa.sort_values("pobreza_pct", ascending=False)
-    etiqueta = "NOMBDEP" if "NOMBDEP" in mapa.columns else "ccdd"
+    etiqueta = next(
+        (c for c in ("NOMBDEP", "FIRST_NOMB", "DEPARTAMEN", "NOMBRE") if c in mapa.columns),
+        "ccdd",
+    )
+    orden = mapa.sort_values("pobreza_pct", ascending=False)[[etiqueta, "pobreza_pct"]]
+
+    def listar(sub):
+        return ", ".join(f"{n} {v:.1f} %" for n, v in zip(sub[etiqueta], sub["pobreza_pct"]))
+
     print(f"Pobreza monetaria por departamento, {args.anio} (ponderado con {peso})")
     print(f"  {len(mapa)} departamentos, ninguno sin dato")
-    print("  más pobreza : " + ", ".join(
-        f"{r[etiqueta]} {r.pobreza_pct:.1f} %" for r in orden.head(3).itertuples()
-    ))
-    print("  menos pobreza: " + ", ".join(
-        f"{r[etiqueta]} {r.pobreza_pct:.1f} %" for r in orden.tail(3).itertuples()
-    ))
+    print("  más pobreza  : " + listar(orden.head(3)))
+    print("  menos pobreza: " + listar(orden.tail(3).iloc[::-1]))
 
     ref = raiz / "referencias" / "pobreza_departamento_2024.csv"
     if ref.exists() and args.anio == 2024:

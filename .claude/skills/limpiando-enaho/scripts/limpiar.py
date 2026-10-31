@@ -39,7 +39,7 @@ def descomprimir(datos: Path) -> None:
             zf.extractall(datos / z.stem)
 
 
-def buscar_dta(datos: Path, patron: str) -> Path:
+def buscar_dta(datos: Path, patron: str, preferido: str | None = None) -> Path:
     rx = re.compile(patron, re.IGNORECASE)
     candidatos = [p for p in datos.rglob("*.dta") if rx.search(p.name)]
     if not candidatos:
@@ -47,7 +47,11 @@ def buscar_dta(datos: Path, patron: str) -> Path:
             f"No encontré ningún .dta que coincida con '{patron}' dentro de {datos}. "
             "Baja los zip del INEI (966-Modulo34.zip y 966-Modulo02.zip) a esa carpeta."
         )
-    return max(candidatos, key=lambda p: p.stat().st_size)
+    if preferido:
+        exactos = [p for p in candidatos if p.name.lower() == preferido.lower()]
+        if exactos:
+            return exactos[0]
+    return min(candidatos, key=lambda p: len(p.name))
 
 
 def leer(ruta: Path, llaves: list[str]) -> pd.DataFrame:
@@ -84,8 +88,10 @@ def main() -> int:
         return 1
 
     descomprimir(datos)
-    ruta_sumaria = buscar_dta(datos, r"sumaria")
-    ruta_personas = buscar_dta(datos, r"(enaho01[-_]?\d{4}[-_]?200|modulo0?2)")
+    ruta_sumaria = buscar_dta(datos, r"^sumaria", f"sumaria-{args.anio}.dta")
+    ruta_personas = buscar_dta(
+        datos, rf"^enaho01[-_]?{args.anio}[-_]?200", f"enaho01-{args.anio}-200.dta"
+    )
 
     sumaria = leer(ruta_sumaria, LLAVES_HOGAR)
     personas = leer(ruta_personas, LLAVES_PERSONA)

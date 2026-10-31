@@ -224,8 +224,8 @@ __marimo__/
 *.bin
 checkpoint-*/
 
-# Microdatos del INEI (sesion 16)
-datos/
+# Microdatos del INEI (sesion 16): solo la carpeta de la raiz
+/datos/
 salidas/*.parquet
 
 # Tarea 3: PDF original de la SBS

@@ -75,14 +75,22 @@ Haz un mapa de la pobreza por departamento
 
 `salidas/validacion.txt` se detiene si alguna de estas no se cumple:
 
+| Cifra | Sumaria (`factor07 × mieperho`) | Personas (`facpob07`) |
+|---|---|---|
+| Pobreza monetaria nacional | 27.58 % | 27.53 % |
+| Pobreza extrema | 5.50 % | 5.50 % |
+| Urbano / rural | 24.8 % / 39.3 % | 24.7 % / 39.4 % |
+
+El INEI publica **27.6 %**: es la cifra de la sumaria redondeada. Las dos bases son
+correctas y difieren en una décima porque la sumaria pondera hogares por su tamaño y
+la base de personas pondera personas. Los gráficos y el mapa usan la de personas.
+
 | Cifra | Valor |
 |---|---|
-| Pobreza monetaria nacional | 27.6 % (27.58 % con la sumaria, 27.53 % con personas) |
-| Pobreza extrema | 5.5 % |
 | Hogares en la sumaria | 33,691 |
 | Residentes habituales | 108,664 de 117,721 filas del módulo 02 |
-| Urbano / rural | 24.8 % / 39.3 % |
 | Cusco | 18.5 % |
+| Cajamarca / Ica | 45.0 % / 5.9 % |
 | Departamentos con dato en el mapa | 25 de 25 |
 
 La pobreza oficial de los 25 departamentos está en

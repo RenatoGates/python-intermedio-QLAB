@@ -12,10 +12,13 @@ argument-hint: [area|sexo|edad|departamento]
 2. Corre exactamente:
 
    ```bash
-   uv run ${CLAUDE_SKILL_DIR}/scripts/graficar.py --corte $0 --anio 2024
+   uv run ${CLAUDE_SKILL_DIR}/scripts/graficar.py --corte area --anio 2024
    ```
 
-   Cortes: `area` (urbano/rural), `sexo`, `edad`, `departamento`. Si no se pasó corte, usa `area`.
+   Cortes válidos: `area` (urbano/rural), `sexo`, `edad`, `departamento`.
+   Reemplaza `area` por el corte que pidió el usuario **solo si es uno de esos cuatro
+   valores exactos**. `$0` trae el texto libre del pedido, no un corte: nunca lo pases
+   tal cual al script.
 
 3. El script imprime las cifras y guarda el PNG. Reporta las cifras que imprimió,
    no las recalcules, y menciona la ruta de la figura.
@@ -36,11 +39,17 @@ argument-hint: [area|sexo|edad|departamento]
 
 ## Cifras de control, ENAHO 2024
 
-| Corte | Valor |
-|---|---|
-| Urbano | 24.8 % |
-| Rural | 39.3 % |
-| Nacional | 27.6 % |
+Hay **dos bases** y dan cifras ligeramente distintas. Este script usa la de personas.
 
-Si el gráfico de área no da 24.8 % y 39.3 %, la base está mal limpiada: vuelve a
-`limpiando-enaho` y revisa `salidas/validacion.txt`.
+| Corte | Con personas y `facpob07` (lo que hace este script) | Con la sumaria y `factor07 × mieperho` (la cifra que publica el INEI) |
+|---|---|---|
+| Urbano | **24.7 %** | 24.8 % |
+| Rural | **39.4 %** | 39.3 % |
+| Nacional | **27.53 %** | 27.58 % |
+
+La diferencia de una décima es normal y **no es un error**: la sumaria pondera hogares
+por su tamaño y la base de personas pondera personas. Si el gráfico de área da 24.7 % y
+39.4 %, está correcto.
+
+Preocúpate solo si la diferencia pasa de medio punto; ahí sí vuelve a `limpiando-enaho`
+y revisa `salidas/validacion.txt`.

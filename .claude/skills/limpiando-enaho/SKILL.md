@@ -14,10 +14,11 @@ argument-hint: [año]
 2. Corre exactamente:
 
    ```bash
-   uv run ${CLAUDE_SKILL_DIR}/scripts/limpiar.py --anio $0
+   uv run ${CLAUDE_SKILL_DIR}/scripts/limpiar.py --anio 2024
    ```
 
-   Si no se pasó año, usa 2024.
+   Cambia `2024` solo si el usuario pidió otro año y `$0` es un **número de cuatro
+   dígitos**. `$0` trae el texto libre del pedido, no un año: nunca lo pases tal cual.
 
 3. Lee `salidas/validacion.txt`. **Si la pobreza difiere del INEI en más de 0.1 puntos, detente**
    y reporta la diferencia en vez de seguir con el análisis.
@@ -41,10 +42,20 @@ argument-hint: [año]
 
 ## Cifras de control, ENAHO 2024
 
+Hay dos bases y dan cifras que difieren por una décima. **Las dos son correctas**: la
+sumaria pondera hogares por su tamaño y la base de personas pondera personas.
+
+| Cifra | Sumaria (`factor07 × mieperho`) | Personas (`facpob07`) |
+|---|---|---|
+| Pobreza monetaria | 27.58 % | 27.53 % |
+| Pobreza extrema | 5.50 % | 5.50 % |
+| Urbano / rural | 24.8 % / 39.3 % | 24.7 % / 39.4 % |
+
+La cifra que publica el INEI es **27.6 %**, la de la sumaria redondeada. El script
+calcula las dos y valida ambas contra ella con una tolerancia de 0.1 puntos.
+
 | Cifra | Valor |
 |---|---|
-| Pobreza monetaria | 27.6 % (27.58 % con la sumaria, 27.53 % con personas) |
-| Pobreza extrema | 5.5 % |
 | Hogares en la sumaria | 33,691 |
 | Residentes habituales | 108,664 de 117,721 filas |
-| Urbano / rural | 24.8 % / 39.3 % |
+| Cusco | 18.5 % |

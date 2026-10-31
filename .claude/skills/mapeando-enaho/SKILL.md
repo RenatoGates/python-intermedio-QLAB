@@ -12,10 +12,11 @@ argument-hint: [año]
 2. Corre exactamente:
 
    ```bash
-   uv run ${CLAUDE_SKILL_DIR}/scripts/mapear.py --anio $0
+   uv run ${CLAUDE_SKILL_DIR}/scripts/mapear.py --anio 2024
    ```
 
-   Si no se pasó año, usa 2024.
+   Cambia `2024` solo si el usuario pidió otro año y `$0` es un **número de cuatro
+   dígitos**. `$0` trae el texto libre del pedido, no un año: nunca lo pases tal cual.
 
 3. El script imprime las cifras y guarda `mapas/pobreza_departamento.png`.
    Reporta las cifras que imprimió y menciona la ruta del mapa.

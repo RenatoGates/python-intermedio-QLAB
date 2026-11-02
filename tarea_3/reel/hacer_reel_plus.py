@@ -47,6 +47,16 @@ SALIDAS = Path(a.salidas)
 SALIDAS.mkdir(parents=True, exist_ok=True)
 IMG_Y, IMG_ALTO = 410, 520
 BLOQUE_Y0, BLOQUE_Y1 = 960, 1240
+LOUDNORM = "loudnorm=I=-14:TP=-1.5:LRA=11"
+# Sin recortar picos, llegar a -14 LUFS rebasa TP=-1.5 y loudnorm ignora linear=true sin avisar
+LIMITADOR = "alimiter=limit=0.12:attack=5:release=50:level=0:latency=1"
+
+
+def subtitulos_sin_cola(narracion, guion):
+    """Subtítulos sin lo que Whisper alucina en el silencio final: nada empieza tras la última escena."""
+    fin = narracion.escenas[-1][1]
+    narracion.palabras = [p for p in reel.subtitulos(narracion, guion) if p[0] <= fin]
+    return narracion.palabras
 
 
 def escena_con_imagen(e, indice):
@@ -83,6 +93,26 @@ def escena_con_imagen(e, indice):
     return capa
 
 
+def mezcla(i, dur, volumen):
+    """Filtro de la narración (entrada i) con la cama musical (entrada i + 1), antes de normalizar."""
+    if not volumen:
+        return f"[{i}:a]volume=0.5,{LIMITADOR}"   # amix también deja la narración a la mitad
+    return (f"[{i + 1}:a]volume={volumen},afade=t=in:d=2,"
+            f"afade=t=out:st={max(0, dur - 3):.2f}:d=3[m];"
+            f"[{i}:a][m]amix=inputs=2:duration=first:dropout_transition=0,{LIMITADOR}")
+
+
+def medir_volumen(entradas, filtro):
+    """Primera pasada de loudnorm: mide la mezcla y devuelve el JSON que ffmpeg imprime en stderr."""
+    proc = subprocess.run([reel.FFMPEG, "-hide_banner", "-nostats", *entradas,
+                           "-filter_complex", f"{filtro},{LOUDNORM}:print_format=json[a]",
+                           "-map", "[a]", "-f", "null", "-"],
+                          capture_output=True, encoding="utf-8", errors="replace")
+    if proc.returncode != 0:
+        sys.exit(f"ffmpeg falló al medir el volumen:\n{proc.stderr}")
+    return json.loads(proc.stderr[proc.stderr.rindex("{"):proc.stderr.rindex("}") + 1])
+
+
 def video_con_musica(guion, narracion, ruta, fuente_datos, autor, volumen):
     ruta = Path(ruta)
     wav = ruta.with_suffix(".wav")
@@ -94,25 +124,27 @@ def video_con_musica(guion, narracion, ruta, fuente_datos, autor, volumen):
     fuente_sub = reel._fuente("PublicSans", 62, 800)
 
     musica = RECURSOS / "musica.wav"
-    usar_musica = volumen > 0 and musica.exists()
+    volumen = volumen if musica.exists() else 0
     dur = narracion.duracion
+
+    entradas = ["-i", str(wav)] + (["-i", str(musica)] if volumen > 0 else [])
+    m = medir_volumen(entradas, mezcla(0, dur, volumen))
+    pico = float(m["input_tp"]) - 14 - float(m["input_i"])
+    if pico > -1.5 or float(m["input_lra"]) > 11:
+        print(f"   Aviso: loudnorm no podrá ser lineal (pico previsto {pico:.1f} dBTP, "
+              f"LRA {m['input_lra']}); el volumen puede quedar por debajo de -14 LUFS.")
+    normalizar = (f"{LOUDNORM}:measured_I={m['input_i']}:measured_TP={m['input_tp']}"
+                  f":measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}"
+                  f":offset={m['target_offset']}:linear=true")
 
     cmd = [reel.FFMPEG, "-y", "-v", "error",
            "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{reel.ANCHO}x{reel.ALTO}",
-           "-r", str(reel.FPS), "-i", "-", "-i", str(wav)]
-    if usar_musica:
-        cmd += ["-i", str(musica),
-                "-filter_complex",
-                f"[2:a]volume={volumen},afade=t=in:d=2,"
-                f"afade=t=out:st={max(0, dur - 3):.2f}:d=3[m];"
-                f"[1:a][m]amix=inputs=2:duration=first:dropout_transition=0,"
-                f"loudnorm=I=-14:TP=-1.5:LRA=11[a]",
-                "-map", "0:v", "-map", "[a]"]
-    else:
-        cmd += ["-af", "loudnorm=I=-14:TP=-1.5:LRA=11"]
-    cmd += ["-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
-            "-c:a", "aac", "-b:a", "160k", "-ar", "48000",
-            "-shortest", "-movflags", "+faststart", str(ruta)]
+           "-r", str(reel.FPS), "-i", "-", *entradas,
+           "-filter_complex", f"{mezcla(1, dur, volumen)},{normalizar}[a]",
+           "-map", "0:v", "-map", "[a]",
+           "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
+           "-c:a", "aac", "-b:a", "160k", "-ar", "48000",
+           "-shortest", "-movflags", "+faststart", str(ruta)]
 
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     for k in range(int(dur * reel.FPS)):
@@ -144,7 +176,7 @@ if __name__ == "__main__":
     reel._reloj(f"narración: {narracion.duracion:.1f} s; WER por escena: "
                 + ", ".join(f"{e['wer']:.2f}" for e in guion["escenas"]), t0)
 
-    reel.subtitulos(narracion, guion)
+    subtitulos_sin_cola(narracion, guion)
     reel.a_srt(narracion, SALIDAS / "reel.srt")
     reel._reloj(f"subtítulos: {len(narracion.palabras)} palabras", t0)
 

@@ -34,6 +34,25 @@ def cargar():
 panel, nacional, geo = cargar()
 nac = nacional.set_index("indicador")["valor"].to_dict()
 
+try:
+    OSCURO = st.context.theme.type == "dark"
+except Exception:
+    OSCURO = False
+TINTA = "#e8e6e3" if OSCURO else "#1a1a1a"
+REJILLA = "#3a3a3a" if OSCURO else "#eeeeee"
+TRANSPARENTE = "rgba(0,0,0,0)"
+
+
+def vestir(fig, altura):
+    """Fondo transparente y colores que funcionan en tema claro y oscuro."""
+    fig.update_layout(
+        height=altura, paper_bgcolor=TRANSPARENTE, plot_bgcolor=TRANSPARENTE,
+        font_color=TINTA, legend_font_color=TINTA,
+    )
+    fig.update_xaxes(gridcolor=REJILLA, zerolinecolor=REJILLA, color=TINTA)
+    fig.update_yaxes(gridcolor=REJILLA, zerolinecolor=REJILLA, color=TINTA)
+    return fig
+
 INDICADORES = {
     "Puntos de atención por 100 mil adultos": ("puntos_21", "puntos_26", "{:,.0f}"),
     "Cajeros corresponsales por 100 mil adultos": ("corresp_21", "corresp_26", "{:,.0f}"),
@@ -102,9 +121,12 @@ with izq:
         hover_data={"ccdd": False, col: ":,.1f"},
         labels={col: nombre_ind},
     )
-    fig.update_geos(fitbounds="locations", visible=False)
+    fig.update_geos(fitbounds="locations", visible=False, bgcolor=TRANSPARENTE)
     fig.update_layout(margin=dict(l=0, r=0, t=0, b=0), height=470,
-                      coloraxis_colorbar=dict(title=None, thickness=12))
+                      paper_bgcolor=TRANSPARENTE, plot_bgcolor=TRANSPARENTE,
+                      font_color=TINTA,
+                      coloraxis_colorbar=dict(title=None, thickness=12,
+                                              tickfont_color=TINTA))
     st.plotly_chart(fig, use_container_width=True)
     st.caption("Unión por código de ubigeo, nunca por nombre. Lima (15) y Callao (07) van separados.")
 
@@ -117,12 +139,11 @@ with der:
         text=[f"{v:+.0f} %" for v in orden["variacion_pct"]], textposition="outside",
         hovertemplate="%{y}: %{x:+.1f} %<extra></extra>",
     ))
-    fig2.update_layout(
-        height=470, margin=dict(l=0, r=30, t=10, b=0),
-        xaxis_title="variación porcentual", yaxis_title=None,
-        plot_bgcolor="white", showlegend=False,
-    )
-    fig2.update_xaxes(gridcolor="#eeeeee", zerolinecolor="#999999")
+    fig2.update_layout(margin=dict(l=0, r=30, t=10, b=0),
+                       xaxis_title="variación porcentual", yaxis_title=None,
+                       showlegend=False)
+    fig2.update_traces(textfont_color=TINTA)
+    vestir(fig2, 470)
     st.plotly_chart(fig2, use_container_width=True)
     st.caption("En rojo los departamentos donde la red se contrajo.")
 
@@ -140,10 +161,10 @@ with izq2:
                 "cuentas_pct_25": "Adultos con cuenta (%, 2025)",
                 "var_cuentas_pp": "Cambio en pp"},
     )
-    fig3.update_traces(textposition="top center", textfont_size=8)
-    fig3.update_layout(height=430, margin=dict(l=0, r=0, t=10, b=0), plot_bgcolor="white")
-    fig3.update_xaxes(gridcolor="#eeeeee")
-    fig3.update_yaxes(gridcolor="#eeeeee")
+    fig3.update_traces(textposition="top center", textfont_size=8, textfont_color=TINTA)
+    fig3.update_layout(margin=dict(l=0, r=0, t=10, b=0))
+    fig3.update_coloraxes(colorbar_tickfont_color=TINTA, colorbar_title_font_color=TINTA)
+    vestir(fig3, 430)
     st.plotly_chart(fig3, use_container_width=True)
     st.caption("El tamaño del punto es el número de corresponsales por 100 mil adultos.")
 
@@ -158,12 +179,10 @@ with der2:
     ]:
         fig4.add_bar(y=comp["departamento"], x=comp[col_c], name=nombre_c,
                      orientation="h", marker_color=color_c)
-    fig4.update_layout(
-        barmode="stack", height=430, margin=dict(l=0, r=0, t=10, b=0),
-        xaxis_title="por cada 100 mil adultos", yaxis_title=None,
-        plot_bgcolor="white", legend=dict(orientation="h", y=-0.18),
-    )
-    fig4.update_xaxes(gridcolor="#eeeeee")
+    fig4.update_layout(barmode="stack", margin=dict(l=0, r=0, t=10, b=0),
+                       xaxis_title="por cada 100 mil adultos", yaxis_title=None,
+                       legend=dict(orientation="h", y=-0.18))
+    vestir(fig4, 430)
     st.plotly_chart(fig4, use_container_width=True)
     st.caption("Los 12 departamentos con más puntos de atención.")
 
@@ -180,8 +199,10 @@ if deps:
     fig5 = px.bar(largo, x="departamento", y="valor", color="anio", barmode="group",
                   color_discrete_sequence=["#c9dced", COLOR], text_auto=".0f",
                   labels={"valor": nombre_ind, "anio": "Año", "departamento": ""})
-    fig5.update_layout(height=330, margin=dict(l=0, r=0, t=10, b=0), plot_bgcolor="white")
-    fig5.update_yaxes(gridcolor="#eeeeee", rangemode="tozero")
+    fig5.update_layout(margin=dict(l=0, r=0, t=10, b=0))
+    fig5.update_traces(textfont_color=TINTA)
+    vestir(fig5, 330)
+    fig5.update_yaxes(rangemode="tozero")
     st.plotly_chart(fig5, use_container_width=True)
 
 # ── Tabla ─────────────────────────────────────────────────────────────────────

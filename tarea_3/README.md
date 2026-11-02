@@ -21,8 +21,9 @@ de atención y los deudores; diciembre 2020 a diciembre 2025 para la tenencia de
 ## Tres hallazgos
 
 **1 · El acceso físico se estancó, pero la bancarización saltó.**
-Los puntos de atención por cada 100 mil adultos pasaron de 1,330 a 1,308: una caída de 1.7 %.
-En el mismo periodo la proporción de adultos con alguna cuenta subió de **42.3 % a 59.6 %**,
+Los puntos de atención por cada 100 mil adultos pasaron de 1,330 a 1,308 entre junio de 2021 y
+junio de 2026: una caída de 1.7 %. En esos mismos cinco años la proporción de adultos con alguna
+cuenta subió de **42.3 % a 59.6 %** (diciembre de 2020 a diciembre de 2025, según la ENAHO),
 17.2 puntos porcentuales. La inclusión avanzó sin más infraestructura.
 
 **2 · La brecha se cerró por redistribución, no por crecimiento.**

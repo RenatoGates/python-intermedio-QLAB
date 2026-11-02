@@ -7,9 +7,15 @@ Tarea 3 del curso de Ciencia de Datos con Python (QLAB / UP 2026-II) — Renato 
 
 | | |
 |---|---|
-| **Tablero** | _pendiente_ |
-| **LinkedIn** | _pendiente_ |
-| **Reel** | [`reel/reel.mp4`](reel) |
+| **Tablero** | https://acceso-financiero-peru-renato.streamlit.app/ |
+| **Reel (video final)** | https://drive.google.com/file/d/1vSGMFejtj-ePg_qSyf2JfItXAwzqUxJC/view?usp=sharing |
+| **Reel en el repo** | [`reel/reel.mp4`](reel/reel.mp4) · 47 s · [`reel/reel.srt`](reel/reel.srt) · [`reel/posts.md`](reel/posts.md) |
+
+## El tablero
+
+![Vista general del tablero](web/capturas/dashboard_1.png)
+
+![Composicion de la red y comparador](web/capturas/dashboard_2.png)
 
 ## La pregunta
 

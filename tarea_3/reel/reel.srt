@@ -39,7 +39,7 @@ eso no pasó porque
 hubiera más bancos.
 
 11
-00:00:10,000 --> 00:00:11,039
+00:00:09,980 --> 00:00:11,039
 Los puntos de atención
 
 12
@@ -51,7 +51,7 @@ por cada cien mil
 adultos incluso bajaron.
 
 14
-00:00:14,339 --> 00:00:15,439
+00:00:14,300 --> 00:00:15,439
 Lo que cambió fue
 
 15
@@ -59,7 +59,7 @@ Lo que cambió fue
 el mapa.
 
 16
-00:00:16,820 --> 00:00:17,940
+00:00:16,780 --> 00:00:17,940
 Huancavelica multiplicó
 
 17
@@ -79,7 +79,7 @@ y Madre de Dios
 casi por tres.
 
 21
-00:00:21,739 --> 00:00:22,519
+00:00:21,760 --> 00:00:22,519
 Mientras tanto,
 
 22
@@ -103,7 +103,7 @@ Lima veintiséis y el
 Callao veintitrés.
 
 27
-00:00:28,219 --> 00:00:29,239
+00:00:28,199 --> 00:00:29,239
 La brecha entre el
 
 28
@@ -127,7 +127,7 @@ de tres.
 El país se emparejó.
 
 33
-00:00:34,500 --> 00:00:35,259
+00:00:34,259 --> 00:00:35,259
 Hoy casi nueve de
 
 34
@@ -143,7 +143,7 @@ atención del país son
 cajeros corresponsales.
 
 37
-00:00:38,460 --> 00:00:39,359
+00:00:38,420 --> 00:00:39,359
 La bodega de la
 
 38
@@ -169,19 +169,3 @@ y Seguros para que
 43
 00:00:44,280 --> 00:00:45,320
 revises tu departamento.
-
-44
-00:00:45,320 --> 00:00:46,740
-Arrecido por la Cukuléa
-
-45
-00:00:46,740 --> 00:00:46,880
-de Banca y Seguros.
-
-46
-00:00:46,880 --> 00:00:46,920
-Gracias por ver el
-
-47
-00:00:46,920 --> 00:00:46,939
-video.

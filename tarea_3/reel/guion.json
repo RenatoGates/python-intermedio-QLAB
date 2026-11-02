@@ -26,6 +26,12 @@
       "cifra_en_texto": true
     },
     {
+      "frase": "La brecha entre el departamento mejor y el peor servido bajó de cuatro veces a menos de tres. El país se emparejó.",
+      "cifra": "2.9x",
+      "etiqueta": "Brecha entre departamentos, antes 4.0x",
+      "cifra_en_texto": true
+    },
+    {
       "frase": "Hoy casi nueve de cada diez puntos de atención del país son cajeros corresponsales: la bodega de la esquina.",
       "cifra": "89.2 %",
       "etiqueta": "La red que son corresponsales",

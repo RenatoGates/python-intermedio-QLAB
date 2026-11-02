@@ -105,6 +105,29 @@ def s4_caen(panel):
     guardar(fig, "escena_4.png", left=0.06, right=0.80)
 
 
+def s5_brecha(panel):
+    """Rango entre el departamento mejor y el peor servido, 2021 contra 2026."""
+    fig, eje = lienzo()
+    for y, (ini, fin, anio, color) in enumerate([
+        (panel["puntos_26"].min(), panel["puntos_26"].max(), "jun 2026", ACENTO),
+        (panel["puntos_21"].min(), panel["puntos_21"].max(), "jun 2021", SUAVE),
+    ]):
+        eje.plot([ini, fin], [y, y], color=color, linewidth=9, solid_capstyle="round")
+        eje.plot([ini, fin], [y, y], "o", color=color, markersize=15)
+        eje.text(ini - 70, y, f"{ini:,.0f}", color=TEXTO, fontsize=16, va="center", ha="right")
+        eje.text(fin + 70, y, f"{fin:,.0f}", color=TEXTO, fontsize=16, va="center")
+        eje.text((ini + fin) / 2, y + 0.22, f"{fin / ini:.1f}x", color=TEXTO, fontsize=24,
+                 ha="center", fontweight="bold")
+        eje.text(ini - 70, y - 0.30, anio, color=SUAVE, fontsize=15, va="center", ha="right")
+    eje.set_xlim(-250, panel["puntos_21"].max() * 1.14)
+    eje.set_ylim(-0.75, 1.65)
+    eje.set_xticks([])
+    eje.set_yticks([])
+    eje.set_title("Distancia entre el departamento mejor y el peor servido", color=TEXTO,
+                  fontsize=17, loc="left", pad=16)
+    guardar(fig, "escena_5.png", left=0.02, right=0.98)
+
+
 def s5_composicion(nac):
     fig, eje = lienzo()
     partes = [("Cajeros corresponsales", nac["corresp_26"], ACENTO),
@@ -124,7 +147,7 @@ def s5_composicion(nac):
                labelcolor=SUAVE, bbox_to_anchor=(0.5, -0.18))
     eje.set_title("De qué está hecha la red de atención, 2026", color=TEXTO,
                   fontsize=17, loc="left", pad=16)
-    guardar(fig, "escena_5.png")
+    guardar(fig, "escena_6.png")
 
 
 def s6_mapa(panel):
@@ -161,9 +184,9 @@ def s6_mapa(panel):
                  fontsize=17, x=0.03, ha="left", y=0.96)
     SALIDA.mkdir(exist_ok=True)
     fig.subplots_adjust(left=0.0, right=0.90, top=0.84, bottom=0.04, wspace=0.02)
-    fig.savefig(SALIDA / "escena_6.png", dpi=DPI, facecolor=FONDO)
+    fig.savefig(SALIDA / "escena_7.png", dpi=DPI, facecolor=FONDO)
     plt.close(fig)
-    print("   escena_6.png")
+    print("   escena_7.png")
 
 
 def musica(segundos=75, sr=44100):
@@ -201,6 +224,7 @@ if __name__ == "__main__":
     panel = pd.read_csv(DATOS / "panel_departamental.csv", dtype={"ccdd": str})
     nac = pd.read_csv(DATOS / "nacional.csv").set_index("indicador")["valor"].to_dict()
     print("imágenes:")
-    s1_cuentas(); s2_puntos(); s3_crecen(panel); s4_caen(panel); s5_composicion(nac); s6_mapa(panel)
+    s1_cuentas(); s2_puntos(); s3_crecen(panel); s4_caen(panel)
+    s5_brecha(panel); s5_composicion(nac); s6_mapa(panel)
     print("música:")
     musica()

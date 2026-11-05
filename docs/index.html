@@ -1,0 +1,656 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Renato Gates Rojas | Analítica y Datos</title>
+  <meta name="description" content="Renato Gates Rojas — Asistente de Evaluación y Analítica en ASBANC. Economista PUCP. Informes del sistema financiero, research, Power BI, Python y ciencia de datos.">
+  <meta name="author" content="Renato Christian Gates Rojas">
+  <meta property="og:title" content="Renato Gates Rojas | Analítica y Datos">
+  <meta property="og:description" content="Economista PUCP y asistente de Evaluación y Analítica en ASBANC. Informes financieros, research y proyectos de ciencia de datos.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/perfil.jpg">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#inicio">Saltar al contenido</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Renato Gates, inicio">
+        <span class="brand-mark">RG</span>
+        <span class="brand-text">Renato Gates</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="siteNav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Navegación principal">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#demo">Demo</a>
+        <a href="#certificados">Certificados</a>
+        <a href="#contacto">Contacto</a>
+        <a class="btn btn-small btn-primary nav-cv" href="assets/docs/Renato_Gates_CV.pdf" target="_blank" rel="noopener">
+          Ver CV
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse-dot"></span>Economía · Datos · Analítica</p>
+          <h1>Renato Gates<br><em>Rojas</em></h1>
+          <p class="hero-role">Asistente de Evaluación y Analítica en <strong>ASBANC</strong></p>
+          <p class="hero-desc">
+            Economista PUCP. Informes y dashboards de data financiera con Python, SQL y Power BI.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="assets/docs/Renato_Gates_CV.pdf" download="Renato_Gates_CV.pdf">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              Descargar CV
+            </a>
+            <a class="btn btn-ghost" href="#proyectos">
+              Ver proyectos
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hero-links">
+            <a href="https://www.linkedin.com/in/renato-gates" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.7c0-1.36-.03-3.1-1.9-3.1-1.9 0-2.2 1.47-2.2 3v5.8H9z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com/RenatoGates" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.1-1.47-1.1-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+              GitHub
+            </a>
+            <a href="mailto:renatogates2124@gmail.com" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 2v.4l8 5 8-5V7H4Zm16 10V9.75l-7.47 4.67a1 1 0 0 1-1.06 0L4 9.75V17h16Z"/></svg>
+              Email
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="portrait-wrap">
+            <div class="portrait-frame">
+              <img src="assets/img/perfil.jpg" alt="Retrato de Renato Gates Rojas" width="900" height="1200">
+            </div>
+            <div class="float-card float-card-top">
+              <span class="float-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M6 16V9m6 7V5m6 11v-5"/></svg>
+              </span>
+              <div>
+                <strong>Power BI + Python</strong>
+                <span>Dashboards y automatización</span>
+              </div>
+            </div>
+            <div class="float-card float-card-bottom">
+              <span class="float-icon accent">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 8l10 5 10-5-10-5Zm-6 8v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
+              </span>
+              <div>
+                <strong>QLAB · PUCP</strong>
+                <span>Ciencia de Datos, en curso</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <dl class="hero-stats">
+          <div class="stat"><dt>2+</dt><dd>años en análisis de datos</dd></div>
+          <div class="stat"><dt>4</dt><dd>proyectos de datos publicados</dd></div>
+          <div class="stat"><dt>25</dt><dd>departamentos analizados</dd></div>
+          <div class="stat"><dt>7</dt><dd>formaciones complementarias</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- SOBRE MI -->
+    <section class="section" id="sobre-mi">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">01 — Perfil</p>
+          <h2>Economía aplicada,<br><em>datos que se entienden.</em></h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p class="lead">
+              Soy asistente de Evaluación y Analítica y tengo experiencia en la elaboración de
+              informes, research y análisis de data financiera. Actualmente curso el Diplomado en
+              Ciencia de Datos en QLAB.
+            </p>
+            <p>
+              Trabajo en la Gerencia de Evaluación y Analítica de ASBANC, donde preparo los informes
+              mensuales del sistema financiero peruano con información de los bancos asociados:
+              tasas de interés, depósitos, colocaciones, liquidez y medios de pago. Antes pasé por
+              Innovations for Poverty Action como analista de datos y research intern, y por The
+              Emerging Market Network en consultoría ESG.
+            </p>
+            <p>
+              Mi enfoque combina rigor económico, reportería clara y automatización: notebooks de
+              Python, jobs SQL, modelos semánticos en Power BI y procesos ETL que reducen el trabajo
+              manual y los errores. Soy bachiller en Economía por la PUCP, en el tercio superior de
+              mi promoción.
+            </p>
+            <div class="about-tags">
+              <span>Informes financieros</span>
+              <span>Research</span>
+              <span>Análisis de datos</span>
+              <span>Automatización</span>
+            </div>
+          </div>
+
+          <aside class="about-panel reveal">
+            <div class="panel-item">
+              <span class="panel-label">Actualmente</span>
+              <p><strong>ASBANC</strong> · Asistente, Gerencia de Evaluación y Analítica</p>
+            </div>
+            <div class="panel-item">
+              <span class="panel-label">Formación</span>
+              <p><strong>PUCP</strong> · Bachiller en Economía, tercio superior</p>
+              <p><strong>QLAB PUCP</strong> · Diplomado en Ciencia de Datos, en curso</p>
+            </div>
+            <div class="panel-item">
+              <span class="panel-label">Herramientas</span>
+              <p>Python, SQL, Power BI, Stata, R, Microsoft Fabric, Git</p>
+            </div>
+            <div class="panel-item">
+              <span class="panel-label">Idiomas</span>
+              <p>Español nativo · Inglés intermedio</p>
+            </div>
+            <a class="panel-link" href="#contacto">
+              Hablemos de datos
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section class="section section-alt" id="experiencia">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">02 — Trayectoria</p>
+          <h2>Experiencia <em>profesional</em></h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-meta">
+              <span class="date-pill">08/2026 — Actualidad</span>
+              <span class="place">Lima, Perú</span>
+            </div>
+            <div class="timeline-card">
+              <div class="role-head">
+                <div>
+                  <h3>Asistente · Gerencia de Evaluación y Analítica</h3>
+                  <p class="org">ASBANC — Asociación de Bancos del Perú</p>
+                </div>
+                <span class="logo-chip">ASBANC</span>
+              </div>
+              <ul>
+                <li>Elaboro los informes mensuales del sistema financiero con data de los bancos asociados —tasas de interés, depósitos y colocaciones, liquidez y medios de pago— entregados a las entidades y al BCRP.</li>
+                <li>Automaticé de extremo a extremo el proceso mensual de tasas activas y pasivas con notebooks de Python (pandas) y jobs SQL: carga, corrección de fuentes, cálculo sobre saldos y validación final.</li>
+                <li>Participo en la migración de los procesos analíticos del área a Microsoft Fabric con arquitectura medallion (bronce, plata y oro).</li>
+                <li>Desarrollo dashboards en Power BI con modelado de datos y medidas DAX; automatizo extracción con Python (Selenium) y web scraping, incluido un índice de sentimiento de medios.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-meta">
+              <span class="date-pill">08/2025 — 06/2026</span>
+              <span class="place">Proyecto CONCYTEC · Banco Mundial · PROCIENCIA</span>
+            </div>
+            <div class="timeline-card">
+              <div class="role-head">
+                <div>
+                  <h3>Analista de Datos</h3>
+                  <p class="org">Innovations for Poverty Action (IPA)</p>
+                </div>
+                <span class="logo-chip">IPA</span>
+              </div>
+              <ul>
+                <li>Diseñé y mantuve dashboards en Power BI con KPIs de seguimiento diario para detectar desviaciones operativas y ajustar estrategias.</li>
+                <li>Integré y consolidé información de distintas fuentes mediante procesos ETL, asegurando calidad, consistencia y actualización de la data.</li>
+                <li>Automaticé la extracción y validación de información con Python (Selenium), reduciendo tiempos de procesamiento y errores manuales.</li>
+                <li>Construí indicadores y modelos analíticos en Stata y documenté procesos para contrapartes institucionales (CONCYTEC, Banco Mundial, BID).</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-meta">
+              <span class="date-pill">09/2024 — 08/2025</span>
+              <span class="place">Proyecto Mate Raymi · BID · MINEDU · ODF</span>
+            </div>
+            <div class="timeline-card">
+              <div class="role-head">
+                <div>
+                  <h3>Research Intern</h3>
+                  <p class="org">Innovations for Poverty Action (IPA)</p>
+                </div>
+                <span class="logo-chip">IPA</span>
+              </div>
+              <ul>
+                <li>Elaboré dashboards en Power BI para el seguimiento diario de avances y desviaciones del proceso de auditoría, presentados semanalmente al equipo.</li>
+                <li>Depuré y validé bases de datos y construí indicadores de control de calidad en Stata y Python.</li>
+                <li>Automaticé la exportación de tablas y reportes descriptivos ad-hoc, estandarizando los entregables.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-meta">
+              <span class="date-pill">03/2024 — 06/2024</span>
+              <span class="place">Consultoría ESG · Sector cementero</span>
+            </div>
+            <div class="timeline-card">
+              <div class="role-head">
+                <div>
+                  <h3>Practicante de Consultoría</h3>
+                  <p class="org">The Emerging Market Network</p>
+                </div>
+                <span class="logo-chip">TEMN</span>
+              </div>
+              <ul>
+                <li>Analicé información financiera y de negocio —ventas, márgenes y rentabilidad— mediante benchmarking frente a competidores internacionales.</li>
+                <li>Elaboré reportes comparativos y recomendaciones estratégicas presentadas al cliente.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="education-grid">
+          <article class="edu-card reveal">
+            <p class="kicker">Educación</p>
+            <h3>Bachiller en Economía</h3>
+            <p class="org">Pontificia Universidad Católica del Perú · 2024</p>
+            <ul class="mini-list">
+              <li>Tercio superior de la promoción.</li>
+              <li>Seminario de Tesis: segundo puesto entre todas las comisiones.</li>
+              <li>Programación en R y Python: primer puesto del curso.</li>
+            </ul>
+          </article>
+          <article class="edu-card reveal">
+            <p class="kicker">Formación complementaria</p>
+            <ul class="mini-list two-col">
+              <li><strong>Diplomado en Ciencia de Datos</strong> — QLAB PUCP <span>En curso</span></li>
+              <li><strong>IA Generativa Aplicada</strong> — QLAB PUCP <span>2026</span></li>
+              <li><strong>Analista de Datos con Power BI</strong> — Laboratorio de Datos Sociales <span>2025</span></li>
+              <li><strong>Databases and SQL for Data Science with Python</strong> — Coursera <span>2025</span></li>
+              <li><strong>Laboratorio de Econometría: Stata</strong> — PUCP <span>2024</span></li>
+              <li><strong>Excel Avanzado: Macros</strong> — INFO PUCP <span>2022</span></li>
+              <li><strong>Introducción a Python para Machine Learning</strong> — INFO PUCP <span>2022</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section class="section" id="proyectos">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">03 — Portafolio</p>
+          <h2>Proyectos de <em>ciencia de datos</em></h2>
+          <p class="section-intro">Trabajos del curso de Ciencia de Datos con Python (QLAB / UP 2026-II) y del repositorio <a href="https://github.com/RenatoGates/python-intermedio-QLAB" target="_blank" rel="noopener">python-intermedio-QLAB</a>.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="project-media project-media-mock">
+              <div class="mock-ui" aria-hidden="true">
+                <div class="mock-dots"><span></span><span></span><span></span></div>
+                <p class="mock-label">Titular de El Comercio</p>
+                <p class="mock-headline">“Senado debate las facultades legislativas para el próximo año”</p>
+                <div class="mock-flow">
+                  <span class="mock-model">DistilBETO</span>
+                  <span class="mock-arrow">→</span>
+                  <span class="mock-result">Política</span>
+                </div>
+                <div class="mock-bars">
+                  <span style="--w:92%"></span>
+                  <span style="--w:76%"></span>
+                  <span style="--w:61%"></span>
+                  <span style="--w:44%"></span>
+                </div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <span class="project-num">01</span>
+                <span class="project-type">NLP · Machine Learning</span>
+              </div>
+              <h3>Clasificación de titulares peruanos con IA</h3>
+              <p class="project-question"><span>Pregunta</span>¿Puede un Transformer ligero, entrenado en CPU con menos de 300 titulares, superar a un modelo zero-shot?</p>
+              <p class="project-result"><span>Resultado</span>F1 macro de 0.929 frente a 0.726 del zero-shot; 54 de 58 titulares correctos en test.</p>
+              <div class="project-tags">
+                <span>Python</span><span>Transformers</span><span>NLP</span><span>Streamlit</span>
+              </div>
+              <div class="project-links">
+                <a class="link-primary" href="https://python-intermedio-qlab-bpftfrjqdgkvll9bxwaopd.streamlit.app" target="_blank" rel="noopener">Abrir dashboard <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                <a href="https://huggingface.co/gates1179/distilbeto-titulares-peru" target="_blank" rel="noopener">Modelo en HF</a>
+                <a href="https://github.com/RenatoGates/python-intermedio-QLAB/tree/main/tarea_1" target="_blank" rel="noopener">Código</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-media">
+              <img src="assets/img/proyecto-ocr-1.jpg" alt="Gráfico de confianza del OCR por tipo de documento">
+              <span class="media-badge">OCR + ASR</span>
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <span class="project-num">02</span>
+                <span class="project-type">Document AI · Voz</span>
+              </div>
+              <h3>De documentos y audio a texto estructurado</h3>
+              <p class="project-question"><span>Pregunta</span>¿Se pueden convertir documentos escaneados y entrevistas en audio a texto estructurado y buscable?</p>
+              <p class="project-result"><span>Resultado</span>35 documentos y 60 clips procesados en CPU; texto impreso casi perfecto, manuscritos y quechua con revisión humana.</p>
+              <div class="project-tags">
+                <span>PaddleOCR</span><span>Whisper</span><span>Evaluación</span><span>Streamlit</span>
+              </div>
+              <div class="project-links">
+                <a class="link-primary" href="https://github.com/RenatoGates/python-intermedio-QLAB/tree/main/tarea_2" target="_blank" rel="noopener">Ver proyecto <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                <a href="https://github.com/RenatoGates/python-intermedio-QLAB/blob/main/tarea_2/README.md" target="_blank" rel="noopener">README</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card-wide reveal">
+            <div class="project-media">
+              <img src="assets/img/proyecto-finanzas.jpg" alt="Vista general del tablero de acceso financiero en el Perú">
+              <span class="media-badge">SBS · ENAHO</span>
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <span class="project-num">03</span>
+                <span class="project-type">Analítica financiera · Geo</span>
+              </div>
+              <h3>De la agencia al bodeguero</h3>
+              <p class="project-question"><span>Pregunta</span>¿Dónde está la brecha de acceso financiero y cómo cambió entre 2021 y 2026?</p>
+              <p class="project-result"><span>Resultado</span>Bancarización de 42.3 % a 59.6 % y 89.2 % de los puntos de atención son cajeros corresponsales.</p>
+              <div class="project-tags">
+                <span>Power BI / Streamlit</span><span>Geoespacial</span><span>Finanzas</span><span>SBS</span>
+              </div>
+              <div class="project-links">
+                <a class="link-primary" href="https://acceso-financiero-peru-renato.streamlit.app/" target="_blank" rel="noopener">Abrir tablero <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                <a href="https://drive.google.com/file/d/1vSGMFejtj-ePg_qSyf2JfItXAwzqUxJC/view?usp=sharing" target="_blank" rel="noopener">Ver reel</a>
+                <a href="https://github.com/RenatoGates/python-intermedio-QLAB/tree/main/tarea_3" target="_blank" rel="noopener">Código</a>
+              </div>
+              <p class="project-note">El reel usa una voz sintética generada con IA (Qwen3-TTS) a partir de mi propia voz.</p>
+            </div>
+          </article>
+
+          <article class="project-card project-card-wide reveal">
+            <div class="project-media project-media-map">
+              <img src="assets/img/proyecto-enaho.jpg" alt="Mapa de pobreza por departamento del Perú, 2024">
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <span class="project-num">04</span>
+                <span class="project-type">Agentes de IA · Datos oficiales</span>
+              </div>
+              <h3>Skills que limpian, grafican y mapean la ENAHO</h3>
+              <p class="project-question"><span>Pregunta</span>¿Pueden tres skills encadenadas reproducir la cifra oficial de pobreza de la ENAHO 2024?</p>
+              <p class="project-result"><span>Resultado</span>27.6 % de pobreza monetaria y los 25 departamentos mapeados y validados contra el INEI.</p>
+              <div class="project-tags">
+                <span>Claude Code</span><span>pandas</span><span>GeoPandas</span><span>ENAHO</span>
+              </div>
+              <div class="project-links">
+                <a class="link-primary" href="https://github.com/RenatoGates/python-intermedio-QLAB" target="_blank" rel="noopener">Ver repositorio <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                <a href="https://github.com/RenatoGates/python-intermedio-QLAB/blob/main/evaluacion.md" target="_blank" rel="noopener">Evaluación</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO -->
+    <section class="section" id="demo">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">04 — Demo</p>
+          <h2>El tablero, <em>en vivo</em></h2>
+          <p class="section-intro">Explora la demo interactiva de <strong>De la agencia al bodeguero</strong>. Si no carga, <a href="https://acceso-financiero-peru-renato.streamlit.app/" target="_blank" rel="noopener">ábrela en una pestaña nueva</a>.</p>
+        </div>
+        <div class="demo-frame reveal">
+          <iframe src="https://acceso-financiero-peru-renato.streamlit.app/?embed=true" title="Demo interactiva: acceso financiero en el Perú, 2021-2026" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <p class="demo-note reveal">El reel de 47 segundos usa una voz sintética generada con IA (Qwen3-TTS) a partir de mi propia voz. <a href="https://drive.google.com/file/d/1vSGMFejtj-ePg_qSyf2JfItXAwzqUxJC/view?usp=sharing" target="_blank" rel="noopener">Ver el reel</a>.</p>
+      </div>
+    </section>
+
+    <!-- CERTIFICADOS -->
+    <section class="section section-alt" id="certificados">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">05 — Credenciales</p>
+          <h2>Certificados <em>verificables</em></h2>
+          <p class="section-intro">Haz clic en cualquier certificado para verlo aquí mismo, sin salir de la página.</p>
+        </div>
+
+        <div class="certs-grid">
+          <button class="cert-card reveal" type="button"
+                  data-pdf="assets/docs/06_Certificado_PowerBI.pdf"
+                  data-title="Analista de Datos con Power BI — Laboratorio de Datos Sociales">
+            <span class="cert-top">
+              <span class="cert-icon">PDF</span>
+              <span class="cert-year">2025</span>
+            </span>
+            <span class="cert-title">Analista de Datos con Power BI</span>
+            <span class="cert-issuer">Laboratorio de Datos Sociales</span>
+            <span class="cert-meta">Programa especializado · 72 horas · ago–nov 2025</span>
+            <span class="cert-action">Ver certificado <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Zm10 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg></span>
+          </button>
+
+          <button class="cert-card reveal" type="button"
+                  data-pdf="assets/docs/04_Certificado_Stata.pdf"
+                  data-title="Laboratorio de Econometría: Stata — PUCP">
+            <span class="cert-top">
+              <span class="cert-icon">PDF</span>
+              <span class="cert-year">2024</span>
+            </span>
+            <span class="cert-title">Laboratorio de Econometría: Stata</span>
+            <span class="cert-issuer">Pontificia Universidad Católica del Perú</span>
+            <span class="cert-meta">Curso 1ECO31 · Semestre 2024-0</span>
+            <span class="cert-action">Ver certificado <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Zm10 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg></span>
+          </button>
+
+          <button class="cert-card reveal" type="button"
+                  data-pdf="assets/docs/05_Certificado_Python.pdf"
+                  data-title="Introducción a Python para Machine Learning — INFO PUCP">
+            <span class="cert-top">
+              <span class="cert-icon">PDF</span>
+              <span class="cert-year">2022</span>
+            </span>
+            <span class="cert-title">Introducción a Python para Machine Learning</span>
+            <span class="cert-issuer">INFO PUCP</span>
+            <span class="cert-meta">Curso de capacitación · 30 horas · ene–feb 2022</span>
+            <span class="cert-action">Ver certificado <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Zm10 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg></span>
+          </button>
+
+          <button class="cert-card reveal" type="button"
+                  data-pdf="assets/docs/03_Certificado_Excel.pdf"
+                  data-title="Excel Avanzado: Macros — INFO PUCP">
+            <span class="cert-top">
+              <span class="cert-icon">PDF</span>
+              <span class="cert-year">2022</span>
+            </span>
+            <span class="cert-title">Excel Avanzado: Macros</span>
+            <span class="cert-issuer">INFO PUCP</span>
+            <span class="cert-meta">Curso de capacitación · 24 horas · jul–ago 2022</span>
+            <span class="cert-action">Ver certificado <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Zm10 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg></span>
+          </button>
+        </div>
+
+        <div class="cert-note reveal">
+          <p><strong>En curso y otras credenciales:</strong> Diplomado en Ciencia de Datos (QLAB PUCP), IA Generativa Aplicada (QLAB PUCP, 2026) y Databases and SQL for Data Science with Python (Coursera, 2025).</p>
+          <a class="btn btn-ghost btn-small" href="assets/docs/Renato_Gates_CV.pdf" target="_blank" rel="noopener">Ver CV completo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="habilidades">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">06 — Herramientas</p>
+          <h2>Competencias <em>técnicas</em></h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="skill-head">
+              <span class="skill-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10m6 10V4m6 16v-7m4 7H2"/></svg>
+              </span>
+              <h3>Business Intelligence</h3>
+            </div>
+            <div class="chips">
+              <span>Power BI</span><span>DAX</span><span>Power Query</span><span>Modelado de datos</span><span>Microsoft Fabric</span><span>Tableau</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-head">
+              <span class="skill-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 6-6 6 6 6m8-12 6 6-6 6M14 4l-4 16"/></svg>
+              </span>
+              <h3>Bases de datos y lenguajes</h3>
+            </div>
+            <div class="chips">
+              <span>SQL</span><span>Python</span><span>pandas</span><span>Stata</span><span>R</span><span>Excel avanzado</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-head">
+              <span class="skill-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v4m0 12v4M2 12h4m12 0h4M5 5l3 3m8 8 3 3M19 5l-3 3M8 16l-3 3"/><circle cx="12" cy="12" r="3"/></svg>
+              </span>
+              <h3>Procesos de datos e IA</h3>
+            </div>
+            <div class="chips">
+              <span>ETL</span><span>Calidad de datos</span><span>Arquitectura medallion</span><span>KPIs</span><span>Web scraping</span><span>IA generativa</span><span>Machine Learning</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-head">
+              <span class="skill-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+              </span>
+              <h3>Herramientas e idiomas</h3>
+            </div>
+            <div class="chips">
+              <span>Git</span><span>LaTeX</span><span>Microsoft Office</span><span>Español nativo</span><span>Inglés intermedio</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contact" id="contacto">
+      <div class="contact-grid-bg" aria-hidden="true"></div>
+      <div class="container contact-inner reveal">
+        <p class="kicker light">07 — Contacto</p>
+        <h2>¿Trabajamos con <em>datos</em>?</h2>
+        <p class="contact-desc">Estoy abierto a oportunidades en analítica, evaluación, research y business intelligence. Escríbeme y conversamos.</p>
+        <div class="contact-actions">
+          <a class="btn btn-light" href="mailto:renatogates2124@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 2v.4l8 5 8-5V7H4Zm16 10V9.75l-7.47 4.67a1 1 0 0 1-1.06 0L4 9.75V17h16Z"/></svg>
+            renatogates2124@gmail.com
+          </a>
+          <button class="btn btn-outline-light" type="button" id="copyEmail" data-email="renatogates2124@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9h11v11H9zM5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copiar correo
+          </button>
+        </div>
+        <div class="contact-meta">
+          <a href="tel:+51985209919">+51 985 209 919</a>
+          <span></span>
+          <a href="mailto:renato.gates@pucp.edu.pe">renato.gates@pucp.edu.pe</a>
+          <span></span>
+          <p>Lima, Perú</p>
+        </div>
+        <div class="contact-social">
+          <a href="https://www.linkedin.com/in/renato-gates" target="_blank" rel="noopener">LinkedIn <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          <a href="https://github.com/RenatoGates" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          <a href="https://github.com/RenatoGates/python-intermedio-QLAB" target="_blank" rel="noopener">Repositorio QLAB <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark small">RG</span>
+        <p>Renato Christian Gates Rojas<br><span>Economía · Datos · Analítica</span></p>
+      </div>
+      <p class="footer-note">© <span id="year">2026</span> Renato Gates Rojas. Hecho con HTML, CSS y JavaScript.</p>
+      <a class="back-top" href="#top" aria-label="Volver arriba">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- MODAL PDF -->
+  <div class="modal" id="pdfModal" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle" hidden>
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-panel">
+      <div class="modal-head">
+        <div>
+          <p class="modal-kicker">Certificado</p>
+          <h3 id="pdfModalTitle">Certificado</h3>
+        </div>
+        <div class="modal-tools">
+          <a id="pdfOpen" href="#" target="_blank" rel="noopener" class="modal-tool" title="Abrir en nueva pestaña" aria-label="Abrir en nueva pestaña">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>
+          </a>
+          <a id="pdfDownload" href="#" download class="modal-tool" title="Descargar" aria-label="Descargar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          </a>
+          <button class="modal-tool modal-close" type="button" data-close aria-label="Cerrar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <iframe id="pdfFrame" title="Visor de certificado PDF"></iframe>
+        <p class="modal-fallback">Si el visor no carga, <a id="pdfFallback" href="#" target="_blank" rel="noopener">abre el PDF en una nueva pestaña</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Correo copiado</div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

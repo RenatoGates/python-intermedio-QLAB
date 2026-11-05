@@ -2,6 +2,8 @@
 
 Tareas del curso de Ciencia de Datos con Python (QLAB / UP 2026-II) — Renato Gates Rojas ([@RenatoGates](https://github.com/RenatoGates)).
 
+**Portafolio:** [renatogates.github.io/python-intermedio-QLAB](https://renatogates.github.io/python-intermedio-QLAB/) · sitio en [`docs/`](docs).
+
 | Carpeta | Qué hay |
 |---|---|
 | [`tarea_1/`](tarea_1) | Clasificación de noticias peruanas: scraping, etiquetado con LLM, fine-tuning de DistilBETO y dashboard |

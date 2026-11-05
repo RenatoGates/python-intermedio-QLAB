@@ -47,7 +47,7 @@
   }
 
   /* ---------- Active nav link ---------- */
-  var sections = ["inicio", "sobre-mi", "experiencia", "proyectos", "certificados", "contacto"]
+  var sections = ["inicio", "sobre-mi", "experiencia", "proyectos", "demo", "certificados", "contacto"]
     .map(function (id) { return document.getElementById(id); })
     .filter(Boolean);
 

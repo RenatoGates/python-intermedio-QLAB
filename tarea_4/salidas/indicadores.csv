@@ -1,0 +1,164 @@
+indicador,corte,grupo,valor,unidad,ponderador,n_muestral
+pobreza,nacional,Perú,27.5795,% de personas,factor07 × mieperho,33691
+pobreza_extrema,nacional,Perú,5.5045,% de personas,factor07 × mieperho,33691
+pobreza,area,Urbano,24.807,% de personas,factor07 × mieperho,22031
+pobreza,area,Rural,39.3028,% de personas,factor07 × mieperho,11660
+pobreza,departamento,01 Amazonas,25.7488,% de personas,factor07 × mieperho,1243
+pobreza,departamento,02 Áncash,22.7746,% de personas,factor07 × mieperho,1393
+pobreza,departamento,03 Apurímac,23.9587,% de personas,factor07 × mieperho,913
+pobreza,departamento,04 Arequipa,15.7844,% de personas,factor07 × mieperho,1506
+pobreza,departamento,05 Ayacucho,32.7633,% de personas,factor07 × mieperho,1160
+pobreza,departamento,06 Cajamarca,45.0069,% de personas,factor07 × mieperho,1469
+pobreza,departamento,07 Callao,33.8599,% de personas,factor07 × mieperho,1027
+pobreza,departamento,08 Cusco,18.5413,% de personas,factor07 × mieperho,1230
+pobreza,departamento,09 Huancavelica,33.4034,% de personas,factor07 × mieperho,1042
+pobreza,departamento,10 Huánuco,38.9626,% de personas,factor07 × mieperho,1244
+pobreza,departamento,11 Ica,6.0142,% de personas,factor07 × mieperho,1500
+pobreza,departamento,12 Junín,18.4994,% de personas,factor07 × mieperho,1506
+pobreza,departamento,13 La Libertad,30.1903,% de personas,factor07 × mieperho,1509
+pobreza,departamento,14 Lambayeque,14.0406,% de personas,factor07 × mieperho,1302
+pobreza,departamento,15 Lima,27.0689,% de personas,factor07 × mieperho,4544
+pobreza,departamento,16 Loreto,42.9726,% de personas,factor07 × mieperho,1359
+pobreza,departamento,17 Madre de Dios,11.1478,% de personas,factor07 × mieperho,603
+pobreza,departamento,18 Moquegua,10.9682,% de personas,factor07 × mieperho,963
+pobreza,departamento,19 Pasco,38.972,% de personas,factor07 × mieperho,865
+pobreza,departamento,20 Piura,31.861,% de personas,factor07 × mieperho,1611
+pobreza,departamento,21 Puno,39.9381,% de personas,factor07 × mieperho,1123
+pobreza,departamento,22 San Martín,22.0215,% de personas,factor07 × mieperho,1347
+pobreza,departamento,23 Tacna,23.989,% de personas,factor07 × mieperho,1271
+pobreza,departamento,24 Tumbes,26.9012,% de personas,factor07 × mieperho,842
+pobreza,departamento,25 Ucayali,27.0701,% de personas,factor07 × mieperho,1119
+pobreza,tipo_hogar_am,Con adultos mayores y menores de 65,28.3717,% de personas,factor07 × mieperho,5930
+pobreza_extrema,tipo_hogar_am,Con adultos mayores y menores de 65,5.3606,% de personas,factor07 × mieperho,5930
+part_alimentos,tipo_hogar_am,Con adultos mayores y menores de 65,43.4124,% del gasto del hogar,factor07 × mieperho,5930
+gasto_pc_mensual,tipo_hogar_am,Con adultos mayores y menores de 65,770.1944,soles corrientes por persona al mes,factor07 × mieperho,5930
+mieperho_medio,tipo_hogar_am,Con adultos mayores y menores de 65,3.7858,personas por hogar,factor07,5930
+hogares,tipo_hogar_am,Con adultos mayores y menores de 65,18.8731,% de hogares,factor07,5930
+personas,tipo_hogar_am,Con adultos mayores y menores de 65,21.4683,% de personas,factor07 × mieperho,5930
+rural,tipo_hogar_am,Con adultos mayores y menores de 65,13.4301,% de personas,factor07 × mieperho,5930
+pobreza,tipo_hogar_am,Sin adultos mayores,27.8543,% de personas,factor07 × mieperho,23292
+pobreza_extrema,tipo_hogar_am,Sin adultos mayores,5.5796,% de personas,factor07 × mieperho,23292
+part_alimentos,tipo_hogar_am,Sin adultos mayores,47.5286,% del gasto del hogar,factor07 × mieperho,23292
+gasto_pc_mensual,tipo_hogar_am,Sin adultos mayores,761.9594,soles corrientes por persona al mes,factor07 × mieperho,23292
+mieperho_medio,tipo_hogar_am,Sin adultos mayores,3.5239,personas por hogar,factor07,23292
+hogares,tipo_hogar_am,Sin adultos mayores,69.3732,% de hogares,factor07,23292
+personas,tipo_hogar_am,Sin adultos mayores,73.4522,% de personas,factor07 × mieperho,23292
+rural,tipo_hogar_am,Sin adultos mayores,19.751,% de personas,factor07 × mieperho,23292
+pobreza,tipo_hogar_am,Solo adultos mayores,20.2572,% de personas,factor07 × mieperho,4469
+pobreza_extrema,tipo_hogar_am,Solo adultos mayores,5.0271,% de personas,factor07 × mieperho,4469
+part_alimentos,tipo_hogar_am,Solo adultos mayores,46.1133,% del gasto del hogar,factor07 × mieperho,4469
+gasto_pc_mensual,tipo_hogar_am,Solo adultos mayores,977.1416,soles corrientes por persona al mes,factor07 × mieperho,4469
+mieperho_medio,tipo_hogar_am,Solo adultos mayores,1.4383,personas por hogar,factor07,4469
+hogares,tipo_hogar_am,Solo adultos mayores,11.7536,% de hogares,factor07,4469
+personas,tipo_hogar_am,Solo adultos mayores,5.0795,% de personas,factor07 × mieperho,4469
+rural,tipo_hogar_am,Solo adultos mayores,34.1638,% de personas,factor07 × mieperho,4469
+pobreza,tipo_hogar_am × area,Con adultos mayores y menores de 65 · Rural,43.1907,% de personas,factor07 × mieperho,1618
+pobreza_extrema,tipo_hogar_am × area,Con adultos mayores y menores de 65 · Rural,19.5861,% de personas,factor07 × mieperho,1618
+part_alimentos,tipo_hogar_am × area,Con adultos mayores y menores de 65 · Rural,58.6808,% del gasto del hogar,factor07 × mieperho,1618
+gasto_pc_mensual,tipo_hogar_am × area,Con adultos mayores y menores de 65 · Rural,434.8723,soles corrientes por persona al mes,factor07 × mieperho,1618
+mieperho_medio,tipo_hogar_am × area,Con adultos mayores y menores de 65 · Rural,3.3066,personas por hogar,factor07,1618
+pobreza,tipo_hogar_am × area,Con adultos mayores y menores de 65 · Urbano,26.0728,% de personas,factor07 × mieperho,4312
+pobreza_extrema,tipo_hogar_am × area,Con adultos mayores y menores de 65 · Urbano,3.1537,% de personas,factor07 × mieperho,4312
+part_alimentos,tipo_hogar_am × area,Con adultos mayores y menores de 65 · Urbano,41.0438,% del gasto del hogar,factor07 × mieperho,4312
+gasto_pc_mensual,tipo_hogar_am × area,Con adultos mayores y menores de 65 · Urbano,822.2149,soles corrientes por persona al mes,factor07 × mieperho,4312
+mieperho_medio,tipo_hogar_am × area,Con adultos mayores y menores de 65 · Urbano,3.8729,personas por hogar,factor07,4312
+pobreza,tipo_hogar_am × area,Sin adultos mayores · Rural,39.3121,% de personas,factor07 × mieperho,7803
+pobreza_extrema,tipo_hogar_am × area,Sin adultos mayores · Rural,15.1114,% de personas,factor07 × mieperho,7803
+part_alimentos,tipo_hogar_am × area,Sin adultos mayores · Rural,58.6044,% del gasto del hogar,factor07 × mieperho,7803
+gasto_pc_mensual,tipo_hogar_am × area,Sin adultos mayores · Rural,446.5819,soles corrientes por persona al mes,factor07 × mieperho,7803
+mieperho_medio,tipo_hogar_am × area,Sin adultos mayores · Rural,3.5764,personas por hogar,factor07,7803
+pobreza,tipo_hogar_am × area,Sin adultos mayores · Urbano,25.0343,% de personas,factor07 × mieperho,15489
+pobreza_extrema,tipo_hogar_am × area,Sin adultos mayores · Urbano,3.2337,% de personas,factor07 × mieperho,15489
+part_alimentos,tipo_hogar_am × area,Sin adultos mayores · Urbano,44.8026,% del gasto del hogar,factor07 × mieperho,15489
+gasto_pc_mensual,tipo_hogar_am × area,Sin adultos mayores · Urbano,839.5804,soles corrientes por persona al mes,factor07 × mieperho,15489
+mieperho_medio,tipo_hogar_am × area,Sin adultos mayores · Urbano,3.5112,personas por hogar,factor07,15489
+pobreza,tipo_hogar_am × area,Solo adultos mayores · Rural,32.7654,% de personas,factor07 × mieperho,2239
+pobreza_extrema,tipo_hogar_am × area,Solo adultos mayores · Rural,12.1635,% de personas,factor07 × mieperho,2239
+part_alimentos,tipo_hogar_am × area,Solo adultos mayores · Rural,58.1431,% del gasto del hogar,factor07 × mieperho,2239
+gasto_pc_mensual,tipo_hogar_am × area,Solo adultos mayores · Rural,516.3886,soles corrientes por persona al mes,factor07 × mieperho,2239
+mieperho_medio,tipo_hogar_am × area,Solo adultos mayores · Rural,1.4192,personas por hogar,factor07,2239
+pobreza,tipo_hogar_am × area,Solo adultos mayores · Urbano,13.7664,% de personas,factor07 × mieperho,2230
+pobreza_extrema,tipo_hogar_am × area,Solo adultos mayores · Urbano,1.3238,% de personas,factor07 × mieperho,2230
+part_alimentos,tipo_hogar_am × area,Solo adultos mayores · Urbano,39.8708,% del gasto del hogar,factor07 × mieperho,2230
+gasto_pc_mensual,tipo_hogar_am × area,Solo adultos mayores · Urbano,1216.2365,soles corrientes por persona al mes,factor07 × mieperho,2230
+mieperho_medio,tipo_hogar_am × area,Solo adultos mayores · Urbano,1.4484,personas por hogar,factor07,2230
+pobreza,tipo_hogar_am × tamano,Con adultos mayores y menores de 65 · 1 persona,0.0,% de personas,factor07 × mieperho,43
+part_alimentos,tipo_hogar_am × tamano,Con adultos mayores y menores de 65 · 1 persona,35.8494,% del gasto del hogar,factor07 × mieperho,43
+pobreza,tipo_hogar_am × tamano,Con adultos mayores y menores de 65 · 2 personas,16.4049,% de personas,factor07 × mieperho,1704
+part_alimentos,tipo_hogar_am × tamano,Con adultos mayores y menores de 65 · 2 personas,44.1093,% del gasto del hogar,factor07 × mieperho,1704
+pobreza,tipo_hogar_am × tamano,Con adultos mayores y menores de 65 · 3 a 4 personas,21.5086,% de personas,factor07 × mieperho,2642
+part_alimentos,tipo_hogar_am × tamano,Con adultos mayores y menores de 65 · 3 a 4 personas,41.929,% del gasto del hogar,factor07 × mieperho,2642
+pobreza,tipo_hogar_am × tamano,Con adultos mayores y menores de 65 · 5 o más personas,38.2265,% de personas,factor07 × mieperho,1541
+part_alimentos,tipo_hogar_am × tamano,Con adultos mayores y menores de 65 · 5 o más personas,44.5467,% del gasto del hogar,factor07 × mieperho,1541
+pobreza,tipo_hogar_am × tamano,Sin adultos mayores · 1 persona,4.0228,% de personas,factor07 × mieperho,2914
+part_alimentos,tipo_hogar_am × tamano,Sin adultos mayores · 1 persona,43.7917,% del gasto del hogar,factor07 × mieperho,2914
+pobreza,tipo_hogar_am × tamano,Sin adultos mayores · 2 personas,10.6814,% de personas,factor07 × mieperho,3909
+part_alimentos,tipo_hogar_am × tamano,Sin adultos mayores · 2 personas,44.7164,% del gasto del hogar,factor07 × mieperho,3909
+pobreza,tipo_hogar_am × tamano,Sin adultos mayores · 3 a 4 personas,21.5249,% de personas,factor07 × mieperho,10741
+part_alimentos,tipo_hogar_am × tamano,Sin adultos mayores · 3 a 4 personas,46.3462,% del gasto del hogar,factor07 × mieperho,10741
+pobreza,tipo_hogar_am × tamano,Sin adultos mayores · 5 o más personas,41.1424,% de personas,factor07 × mieperho,5728
+part_alimentos,tipo_hogar_am × tamano,Sin adultos mayores · 5 o más personas,49.8595,% del gasto del hogar,factor07 × mieperho,5728
+pobreza,tipo_hogar_am × tamano,Solo adultos mayores · 1 persona,11.1635,% de personas,factor07 × mieperho,2639
+part_alimentos,tipo_hogar_am × tamano,Solo adultos mayores · 1 persona,45.2347,% del gasto del hogar,factor07 × mieperho,2639
+pobreza,tipo_hogar_am × tamano,Solo adultos mayores · 2 personas,25.8421,% de personas,factor07 × mieperho,1771
+part_alimentos,tipo_hogar_am × tamano,Solo adultos mayores · 2 personas,46.8927,% del gasto del hogar,factor07 × mieperho,1771
+pobreza,tipo_hogar_am × tamano,Solo adultos mayores · 3 a 4 personas,30.7,% de personas,factor07 × mieperho,55
+part_alimentos,tipo_hogar_am × tamano,Solo adultos mayores · 3 a 4 personas,43.1599,% del gasto del hogar,factor07 × mieperho,55
+pobreza,tipo_hogar_am × tamano,Solo adultos mayores · 5 o más personas,96.7639,% de personas,factor07 × mieperho,4
+part_alimentos,tipo_hogar_am × tamano,Solo adultos mayores · 5 o más personas,45.2563,% del gasto del hogar,factor07 × mieperho,4
+mieperho_medio,nacional,Perú,3.3282,personas por hogar,factor07,33691
+hogares_con_am,nacional,Perú,30.6268,% de hogares,factor07,33691
+am_vive_solo,hogares_con_am,Perú,22.6149,% de hogares con adultos mayores,factor07,10399
+part_alimentos,nacional,Perú,46.573,% del gasto del hogar,factor07 × mieperho,33691
+personas_en_hogares_am,departamento,01 Amazonas,23.5037,% de personas,factor07 × mieperho,1243
+pobreza_hogares_am,departamento,01 Amazonas,21.3538,% de personas,factor07 × mieperho,378
+personas_en_hogares_am,departamento,02 Áncash,26.095,% de personas,factor07 × mieperho,1393
+pobreza_hogares_am,departamento,02 Áncash,26.8081,% de personas,factor07 × mieperho,463
+personas_en_hogares_am,departamento,03 Apurímac,23.004,% de personas,factor07 × mieperho,913
+pobreza_hogares_am,departamento,03 Apurímac,28.5323,% de personas,factor07 × mieperho,323
+personas_en_hogares_am,departamento,04 Arequipa,25.3971,% de personas,factor07 × mieperho,1506
+pobreza_hogares_am,departamento,04 Arequipa,13.5117,% de personas,factor07 × mieperho,423
+personas_en_hogares_am,departamento,05 Ayacucho,22.1101,% de personas,factor07 × mieperho,1160
+pobreza_hogares_am,departamento,05 Ayacucho,28.2764,% de personas,factor07 × mieperho,386
+personas_en_hogares_am,departamento,06 Cajamarca,24.8781,% de personas,factor07 × mieperho,1469
+pobreza_hogares_am,departamento,06 Cajamarca,49.4445,% de personas,factor07 × mieperho,470
+personas_en_hogares_am,departamento,07 Callao,33.8629,% de personas,factor07 × mieperho,1027
+pobreza_hogares_am,departamento,07 Callao,28.1785,% de personas,factor07 × mieperho,361
+personas_en_hogares_am,departamento,08 Cusco,22.5986,% de personas,factor07 × mieperho,1230
+pobreza_hogares_am,departamento,08 Cusco,16.9996,% de personas,factor07 × mieperho,411
+personas_en_hogares_am,departamento,09 Huancavelica,22.0064,% de personas,factor07 × mieperho,1042
+pobreza_hogares_am,departamento,09 Huancavelica,36.5933,% de personas,factor07 × mieperho,333
+personas_en_hogares_am,departamento,10 Huánuco,23.541,% de personas,factor07 × mieperho,1244
+pobreza_hogares_am,departamento,10 Huánuco,39.4076,% de personas,factor07 × mieperho,369
+personas_en_hogares_am,departamento,11 Ica,22.1494,% de personas,factor07 × mieperho,1500
+pobreza_hogares_am,departamento,11 Ica,2.8351,% de personas,factor07 × mieperho,439
+personas_en_hogares_am,departamento,12 Junín,23.887,% de personas,factor07 × mieperho,1506
+pobreza_hogares_am,departamento,12 Junín,14.2025,% de personas,factor07 × mieperho,466
+personas_en_hogares_am,departamento,13 La Libertad,27.3913,% de personas,factor07 × mieperho,1509
+pobreza_hogares_am,departamento,13 La Libertad,24.0201,% de personas,factor07 × mieperho,514
+personas_en_hogares_am,departamento,14 Lambayeque,31.4894,% de personas,factor07 × mieperho,1302
+pobreza_hogares_am,departamento,14 Lambayeque,14.34,% de personas,factor07 × mieperho,462
+personas_en_hogares_am,departamento,15 Lima,31.3181,% de personas,factor07 × mieperho,4544
+pobreza_hogares_am,departamento,15 Lima,26.0,% de personas,factor07 × mieperho,1641
+personas_en_hogares_am,departamento,16 Loreto,24.0886,% de personas,factor07 × mieperho,1359
+pobreza_hogares_am,departamento,16 Loreto,43.7514,% de personas,factor07 × mieperho,371
+personas_en_hogares_am,departamento,17 Madre de Dios,10.7606,% de personas,factor07 × mieperho,603
+pobreza_hogares_am,departamento,17 Madre de Dios,3.7553,% de personas,factor07 × mieperho,100
+personas_en_hogares_am,departamento,18 Moquegua,22.1296,% de personas,factor07 × mieperho,963
+pobreza_hogares_am,departamento,18 Moquegua,17.1826,% de personas,factor07 × mieperho,298
+personas_en_hogares_am,departamento,19 Pasco,17.7029,% de personas,factor07 × mieperho,865
+pobreza_hogares_am,departamento,19 Pasco,40.9239,% de personas,factor07 × mieperho,214
+personas_en_hogares_am,departamento,20 Piura,21.6073,% de personas,factor07 × mieperho,1611
+pobreza_hogares_am,departamento,20 Piura,33.6685,% de personas,factor07 × mieperho,464
+personas_en_hogares_am,departamento,21 Puno,23.1797,% de personas,factor07 × mieperho,1123
+pobreza_hogares_am,departamento,21 Puno,43.1215,% de personas,factor07 × mieperho,386
+personas_en_hogares_am,departamento,22 San Martín,19.2645,% de personas,factor07 × mieperho,1347
+pobreza_hogares_am,departamento,22 San Martín,24.5795,% de personas,factor07 × mieperho,339
+personas_en_hogares_am,departamento,23 Tacna,20.9845,% de personas,factor07 × mieperho,1271
+pobreza_hogares_am,departamento,23 Tacna,32.7388,% de personas,factor07 × mieperho,330
+personas_en_hogares_am,departamento,24 Tumbes,19.21,% de personas,factor07 × mieperho,842
+pobreza_hogares_am,departamento,24 Tumbes,27.6518,% de personas,factor07 × mieperho,222
+personas_en_hogares_am,departamento,25 Ucayali,16.6019,% de personas,factor07 × mieperho,1119
+pobreza_hogares_am,departamento,25 Ucayali,26.1268,% de personas,factor07 × mieperho,236
+pobreza,edad_persona,65 años o más,22.7424,% de personas,facpob07,13670
+pobreza,edad_persona,Menos de 65 años,28.2001,% de personas,facpob07,94994

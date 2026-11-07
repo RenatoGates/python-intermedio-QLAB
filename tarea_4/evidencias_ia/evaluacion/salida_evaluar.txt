@@ -1,0 +1,25 @@
+Copia aislada (sin .git ni respuestas): <copia>/tarea_4
+20 llamadas a claude -p con haiku, 2 en paralelo...
+
+modo                          mcp_skills  memoria
+id                                               
+comb_exposicion_rural_oct26     3.095000      NaN
+comb_exposicion_solo_am_2025    0.670000      NaN
+enaho_hogares_con_am           30.630000      NaN
+enaho_pobreza_nacional         27.600000     27.6
+enaho_pobreza_rural            39.300000      NaN
+enaho_pobreza_solo_am          20.257200      NaN
+ipc_dic25                       1.508800      NaN
+ipc_set26                       4.550000      NaN
+referencia_set26                4.250000      NaN
+tc_15oct26                      3.428214      NaN
+
+resultado   acierta  no sabe  segundos
+modo                                  
+mcp_skills       10        0      19.0
+memoria           1        9       4.7
+
+Sesiones que tocaron archivos de la evaluación: 6
+
+$ uv run evaluacion/evaluar.py --recalcular-banderas   # control corregido, sobre las trazas guardadas
+Sesiones que tocaron archivos con respuestas, evidencias o git: 0 de 20

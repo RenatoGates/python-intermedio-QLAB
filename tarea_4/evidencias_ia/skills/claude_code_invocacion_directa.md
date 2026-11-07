@@ -39,12 +39,12 @@ No files found
 
 ```text
 total 7008
-drwxr-xr-x 1 Renat 197609       0 Nov  6 21:49 .
-drwxr-xr-x 1 Renat 197609       0 Nov  6 21:47 ..
-drwxr-xr-x 1 Renat 197609       0 Nov  6 21:46 966-Modulo02
-drwxr-xr-x 1 Renat 197609       0 Nov  6 21:46 966-Modulo34
--rw-r--r-- 1 Renat 197609 7005225 Nov  6 21:49 catalogo_bcrp.csv
--rw-r--r-- 1 Renat 197609  157636 Nov  6 21:46 peru_departamental_simple.geojson
+drwxr-xr-x 1 usuario 197609       0 Nov  6 21:49 .
+drwxr-xr-x 1 usuario 197609       0 Nov  6 21:47 ..
+drwxr-xr-x 1 usuario 197609       0 Nov  6 21:46 966-Modulo02
+drwxr-xr-x 1 usuario 197609       0 Nov  6 21:46 966-Modulo34
+-rw-r--r-- 1 usuario 197609 7005225 Nov  6 21:49 catalogo_bcrp.csv
+-rw-r--r-- 1 usuario 197609  157636 Nov  6 21:46 peru_departamental_simple.geojson
 README.md
 datos
 evaluacion
@@ -121,41 +121,76 @@ The script searches recursively and the exact files are present, so I'm running 
 #### ← Resultado
 
 ```text
-ENAHO 2024 · validación de la limpieza (versión tarea_4)
-Generado por .claude/skills/limpiando-enaho/scripts/limpiar.py. Ninguna cifra está escrita a mano.
-
-Archivos
-  sumaria : datos/966-Modulo34/966-Modulo34/sumaria-2024.dta (33,691 hogares)
-  miembros: datos/966-Modulo02/966-Modulo02/enaho01-2024-200.dta (117,721 filas)
-  otras sumarias en datos/, que no se usan: sumaria-2024-12g.dta
-
-CIFRA OFICIAL · base hogar (sumaria), ponderada con factor07 × mieperho
-  [OK]    Pobreza monetaria nacional    27.58 %   referencia  27.6 %   diferencia -0.02 pp (tolerancia ±0.1)
-  [OK]    Pobreza urbana                24.81 %   referencia  24.8 %   diferencia +0.01 pp (tolerancia ±0.1)
-  [OK]    Pobreza rural                 39.30 %   referencia  39.3 %   diferencia +0.00 pp (tolerancia ±0.1)
-  [OK]    Residentes habituales       108,664     referencia 108,664
-  [OK]    Unidades territoriales           25     referencia 25 (códigos 01 a 25; Lima 15 y Callao 07 separados)
-
-Integridad de la limpieza (esenciales)
-  [OK]    la llave conglome es texto de largo fijo (6 caracteres): conserva los ceros iniciales
-  [OK]    la llave vivienda es texto de largo fijo (3 caracteres): conserva los ceros iniciales
-  [OK]    la llave hogar es texto de largo fijo (2 caracteres): conserva los ceros iniciales
-  [OK]    llaves de hogar únicas en la sumaria
-  [OK]    llaves de persona únicas en el módulo 02
-  [OK]    la unión m:1 personas-hogares conserva las 108,664 filas, sin perder ni duplicar
-  [OK]    todos los hogares de la sumaria tienen residentes en el módulo 02 (0 sin ellos)
-  [OK]    factor07 positivo y sin vacíos en todos los hogares
-  [OK]    facpob07 positivo y sin vacíos en todos los residentes
-  [OK]    los 8 grupos de gasto del INEI suman gashog2d en todos los hogares (diferencia máxima 0.014 soles)
-
-Cifra secundaria · base persona (módulo 02 unido a la sumaria), ponderada con facpob07
-  No es la cifra contra la que se valida: pondera personas, no hogares por su tamaño, y por eso
-  difiere en una décima. Se usa solo para cortes por atributos de la persona (sexo, edad).
-  Pobreza nacional 27.53 % · urbana 24.7 % · rural 39.4 % · extrema 5.50 %
-
-Informativas (no detienen el proceso)
-  [OK]    población expandida: 34,482,700 con factor07 × mieperho y 34,147,768 con facpob07 (difieren menos de 1 %)
-  [OK]    pobreza extrema base hogar 5.50 % (INEI 5.5 %)
+ENAHO 2024 · validación de la limpieza (versión tarea_4)
+
+Generado por .claude/skills/limpiando-enaho/scripts/limpiar.py. Ninguna cifra está escrita a mano.
+
+
+
+Archivos
+
+  sumaria : datos/966-Modulo34/966-Modulo34/sumaria-2024.dta (33,691 hogares)
+
+  miembros: datos/966-Modulo02/966-Modulo02/enaho01-2024-200.dta (117,721 filas)
+
+  otras sumarias en datos/, que no se usan: sumaria-2024-12g.dta
+
+
+
+CIFRA OFICIAL · base hogar (sumaria), ponderada con factor07 × mieperho
+
+  [OK]    Pobreza monetaria nacional    27.58 %   referencia  27.6 %   diferencia -0.02 pp (tolerancia ±0.1)
+
+  [OK]    Pobreza urbana                24.81 %   referencia  24.8 %   diferencia +0.01 pp (tolerancia ±0.1)
+
+  [OK]    Pobreza rural                 39.30 %   referencia  39.3 %   diferencia +0.00 pp (tolerancia ±0.1)
+
+  [OK]    Residentes habituales       108,664     referencia 108,664
+
+  [OK]    Unidades territoriales           25     referencia 25 (códigos 01 a 25; Lima 15 y Callao 07 separados)
+
+
+
+Integridad de la limpieza (esenciales)
+
+  [OK]    la llave conglome es texto de largo fijo (6 caracteres): conserva los ceros iniciales
+
+  [OK]    la llave vivienda es texto de largo fijo (3 caracteres): conserva los ceros iniciales
+
+  [OK]    la llave hogar es texto de largo fijo (2 caracteres): conserva los ceros iniciales
+
+  [OK]    llaves de hogar únicas en la sumaria
+
+  [OK]    llaves de persona únicas en el módulo 02
+
+  [OK]    la unión m:1 personas-hogares conserva las 108,664 filas, sin perder ni duplicar
+
+  [OK]    todos los hogares de la sumaria tienen residentes en el módulo 02 (0 sin ellos)
+
+  [OK]    factor07 positivo y sin vacíos en todos los hogares
+
+  [OK]    facpob07 positivo y sin vacíos en todos los residentes
+
+  [OK]    los 8 grupos de gasto del INEI suman gashog2d en todos los hogares (diferencia máxima 0.014 soles)
+
+
+
+Cifra secundaria · base persona (módulo 02 unido a la sumaria), ponderada con facpob07
+
+  No es la cifra contra la que se valida: pondera personas, no hogares por su tamaño, y por eso
+
+  difiere en una décima. Se usa solo para cortes por atributos de la persona (sexo, edad).
+
+  Pobreza nacional 27.53 % · urbana 24.7 % · rural 39.4 % · extrema 5.50 %
+
+
+
+Informativas (no detienen el proceso)
+
+  [OK]    población expandida: 34,482,700 con factor07 × mieperho y 34,147,768 con facpob07 (difieren menos de 1 %)
+
+  [OK]    pobreza extrema base hogar 5.50 % (INEI 5.5 %)
+
   Sin ponderar, la pobreza de la muestra de hogares sería 20.22 %: por eso toda cifra se po
 … (recortado)
 ```

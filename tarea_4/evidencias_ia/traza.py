@@ -4,6 +4,7 @@ Lo usan los scripts de evidencias_ia/*/ para dejar constancia de qué herramient
 Claude, con qué argumentos, qué recibió y qué respondió. Las rutas de la carpeta personal se reemplazan por «~».
 """
 import json
+import re
 import shutil
 import subprocess
 import time
@@ -26,10 +27,11 @@ def ejecutar(prompt: str, opciones: list[str], modelo: str, cwd: Path = TAREA,
 
 
 def anonimizar(texto: str) -> str:
+    """La carpeta personal pasa a «~» y el usuario de Windows (p. ej., en la salida de `ls -la`) a «usuario»."""
     casa = str(Path.home())
     for forma in (casa, casa.replace("\\", "/"), casa.replace("\\", "\\\\"), "/c/Users/" + Path.home().name):
         texto = texto.replace(forma, "~")
-    return texto
+    return re.sub(rf"\b{re.escape(Path.home().name)}\b", "usuario", texto)
 
 
 def _bloque(texto: str, lenguaje: str = "text") -> list[str]:

@@ -1,31 +1,38 @@
-"""Servidor MCP del BCRP. Empiecen aquí: buscar_series ya funciona; completen los TODO hasta que pasen las pruebas.
+"""Servidor MCP del BCRP para la tarea 4: busca, descarga, resume y compara series oficiales.
 
-    uv run pytest                                           # el contrato: las 8 pruebas deben pasar
-    uv run server.py                                        # el servidor, por stdio
-    claude mcp add --scope project bcrp -- uv run server.py # conectarlo a Claude Code
+    uv run pytest -q                                             # 8 pruebas del profesor + 2 propias (desde tarea_4/)
+    uv run mcp/server.py                                         # el servidor, por stdio
+    claude mcp add --scope project bcrp -- uv run mcp/server.py  # conectarlo a Claude Code
 
 Las cuentas las hace Python, no el modelo: así cada cifra sale de una llamada que se puede repetir.
 """
+import calendar
+import json
 import re
+import time
 import unicodedata
+from datetime import date, datetime
 from functools import cache
 from pathlib import Path
 
 import httpx
 import pandas as pd
 from fastmcp import FastMCP
-from fastmcp.exceptions import ToolError
+from fastmcp.exceptions import ResourceError, ToolError
 
 AQUI = Path(__file__).parent
-CATALOGO = AQUI / "datos" / "catalogo_bcrp.csv"
+CATALOGO = AQUI.parent / "datos" / "catalogo_bcrp.csv"     # tarea_4/datos/, que git ignora
 URL_CATALOGO = "https://estadisticas.bcrp.gob.pe/estadisticas/series/metadata"
 API = "https://estadisticas.bcrp.gob.pe/estadisticas/series/api"
+WEB = "https://estadisticas.bcrp.gob.pe/estadisticas/series"
 SOLO_LECTURA = {"readOnlyHint": True, "openWorldHint": True}
+INTENTOS, ESPERA = 4, 2                                     # reintentos ante la página HTML de bloqueo: 2, 4 y 8 s
 
 mcp = FastMCP("bcrp", instructions=(
     "Series oficiales del Banco Central de Reserva del Perú (BCRP). Primero busca el código con buscar_series; "
-    "luego usa resumen para variaciones, promedios y extremos, y serie para los datos. No calcules a mano: "
-    "cita siempre el código de la serie y el periodo."))
+    "luego usa resumen para variaciones, promedios y extremos, serie para los datos y correlacion para comparar "
+    "dos series. La ficha de una serie está en el recurso bcrp://serie/{codigo}. No calcules a mano: cita "
+    "siempre el código de la serie, el periodo y la fuente. Si una herramienta falla, dilo; no estimes."))
 
 
 def _sin_tildes(s):
@@ -43,7 +50,8 @@ def catalogo():
     df = pd.read_csv(CATALOGO, sep=";", dtype=str).fillna("")
     df = df.rename(columns={"Código de serie": "codigo", "Categoría de serie": "categoria", "Grupo de serie": "grupo",
                             "Nombre de serie": "nombre", "Frecuencia": "frecuencia",
-                            "Fecha de actualización": "actualizada", "Fecha de inicio": "inicio"})
+                            "Fecha de actualización": "actualizada", "Fecha de inicio": "inicio",
+                            "Fuente": "origen", "Área que publica": "area"})
     df["texto"] = (df.categoria + " " + df.grupo + " " + df.nombre).map(_sin_tildes)
     return df
 
@@ -78,29 +86,300 @@ def buscar_series(texto: str, frecuencia: str | None = None, limite: int = 10) -
     return [_ficha(c) for c in orden.sort_values(["vieja", "largo"]).head(limite).codigo]
 
 
-# TODO 1 · serie(codigo, desde, hasta) -> {"codigo", "nombre", "frecuencia", "datos": [{"periodo", "valor"}], "fuente"}
-#   La API se llama así: f"{API}/{codigo}/json/{desde}/{hasta}" y responde
-#   {"config": {...}, "periods": [{"name": "Ene.2025", "values": ["0.81"]}, ...]}
-#   - Fechas que pide la API: 2025-1 (mensual y trimestral), 2025-01-15 (diaria), 2025 (anual).
-#   - Nombres que devuelve: "Ene.2025" (mensual), "01.Oct.26" (diaria), "T1.25" (trimestral), "2025" (anual).
-#     Setiembre viene como "Set". Devuelvan el periodo como "2025-01", "2026-10-01", "2025-T1" o "2025".
-#   - Salten los valores "n.d." y usen la frecuencia de _ficha(codigo) para saber qué formato pedir.
-#   - Si recibe muchos pedidos seguidos, la API responde una página HTML en vez de JSON: esperen unos segundos y
-#     reintenten (y guarden en caché lo que ya bajaron).
-#   - Un código que no existe debe dar un ToolError que diga el código.
+# ---------------------------------------------------------------------------------------------------------------
+# Fechas: lo que escribe el usuario, lo que pide la API y lo que devuelve
+# ---------------------------------------------------------------------------------------------------------------
 
-# TODO 2 · resumen(codigo, desde, hasta): primero, ultimo, cambio, variacion_pct, promedio, maximo y minimo
-#   (los tres últimos con su periodo). Úsenla para que el modelo nunca haga cuentas a mano.
+FORMATOS = "«2025-01» (mes), «2025-01-15» (día), «2025-T1» (trimestre) o «2025» (año)"
+MESES = {"ene": 1, "feb": 2, "mar": 3, "abr": 4, "may": 5, "jun": 6, "jul": 7, "ago": 8,
+         "sep": 9, "set": 9, "oct": 10, "nov": 11, "dic": 12}     # setiembre: «Sep» en mensuales, «Set» en diarias
+PLURAL = {"Diaria": "diarias", "Mensual": "mensuales", "Trimestral": "trimestrales", "Anual": "anuales"}
+FRECUENCIA_PANDAS = {"Diaria": "D", "Mensual": "M", "Trimestral": "Q", "Anual": "Y"}
 
-# TODO 3 · Una herramienta suya, bien descrita. Ideas:
-#   - comparar_paises con la API del Banco Mundial, que tampoco pide clave:
-#     https://api.worldbank.org/v2/country/PER;CHL;COL/indicator/NY.GDP.MKTP.KD.ZG?format=json&date=2015:2025
-#   - correlacion(codigo_a, codigo_b, desde, hasta)
-#   - grafico(codigo, desde, hasta) que guarde un PNG en salidas/ y devuelva la ruta
 
-# TODO 4 · Un recurso, por ejemplo la plantilla bcrp://serie/{codigo} con la ficha de la serie.
+def _a_api(fecha: str, frecuencia: str, fin: bool) -> tuple[str, tuple[int, int, int]]:
+    """Pasa una fecha del usuario al formato de la API para esa frecuencia, y una clave para ordenarla.
 
-# TODO 5 · Un prompt, por ejemplo informe(tema) que pida citar el código y el periodo de cada cifra.
+    La API pide 2025-1 en mensuales y trimestrales (el número es el mes o el trimestre), 2025-01-15 en diarias y
+    2025 en anuales. Si la fecha es más gruesa que la frecuencia, se toma el inicio del intervalo para «desde» y el
+    final para «hasta»: «2025» como hasta de una serie mensual es diciembre de 2025.
+    """
+    texto = str(fecha).strip()
+    trimestre = mes = dia = None
+    if m := re.fullmatch(r"(\d{4})", texto):
+        anio = int(m[1])
+    elif m := re.fullmatch(r"(\d{4})-[TtQq]([1-4])", texto):
+        anio, trimestre = int(m[1]), int(m[2])
+    elif m := re.fullmatch(r"(\d{4})-(\d{1,2})", texto):
+        anio, mes = int(m[1]), int(m[2])
+    elif m := re.fullmatch(r"(\d{4})-(\d{1,2})-(\d{1,2})", texto):
+        anio, mes, dia = int(m[1]), int(m[2]), int(m[3])
+    else:
+        raise ToolError(f"No entiendo la fecha {fecha!r}. Usen {FORMATOS}.")
+    if mes is not None and not 1 <= mes <= 12:
+        raise ToolError(f"Mes fuera de rango en {fecha!r}. Usen {FORMATOS}.")
+    if dia is not None:
+        try:
+            date(anio, mes, dia)
+        except ValueError:
+            raise ToolError(f"La fecha {fecha!r} no existe.") from None
+
+    if mes is not None:
+        mes_ini = mes_fin = mes
+    elif trimestre is not None:
+        mes_ini, mes_fin = 3 * trimestre - 2, 3 * trimestre
+    else:
+        mes_ini, mes_fin = 1, 12
+    mes_k = mes_fin if fin else mes_ini
+    if dia is None:
+        dia = calendar.monthrange(anio, mes_k)[1] if fin else 1
+    clave = (anio, mes_k, dia)
+
+    if frecuencia == "Anual":
+        return str(anio), clave
+    if frecuencia == "Mensual":
+        return f"{anio}-{mes_k}", clave
+    if frecuencia == "Trimestral":
+        return f"{anio}-{(mes_k - 1) // 3 + 1}", clave
+    if frecuencia == "Diaria":
+        return f"{anio}-{mes_k:02d}-{dia:02d}", clave
+    raise ToolError(f"Frecuencia no soportada: {frecuencia!r}.")
+
+
+def _anio(aa: str) -> int:
+    return datetime.strptime(aa, "%y").year       # 69-99 son 19xx; 00-68, 20xx
+
+
+def _periodo(nombre: str) -> str:
+    """'Ene.2025' -> '2025-01', '01.Oct.26' -> '2026-10-01', 'T1.25' -> '2025-T1', '2025' -> '2025'."""
+    n = nombre.strip()
+    if m := re.fullmatch(r"([A-Za-z]{3})\.(\d{4})", n):                  # mensual
+        return f"{m[2]}-{MESES[m[1].lower()]:02d}"
+    if m := re.fullmatch(r"(\d{1,2})\.([A-Za-z]{3})\.(\d{2})", n):       # diaria
+        return date(_anio(m[3]), MESES[m[2].lower()], int(m[1])).isoformat()
+    if m := re.fullmatch(r"T([1-4])\.(\d{2})", n):                       # trimestral
+        return f"{_anio(m[2])}-T{m[1]}"
+    if re.fullmatch(r"\d{4}", n):                                         # anual
+        return n
+    raise ValueError(n)
+
+
+@cache
+def _bajar(codigo: str, desde: str, hasta: str) -> tuple[tuple[str, float], ...]:
+    """Pide la serie a la API y la devuelve como pares (periodo, valor), sin los «n.d.».
+
+    Si la API responde la página HTML de bloqueo en vez de JSON, espera y reintenta. Lo que baja bien queda en
+    memoria (functools.cache no guarda los errores, así que un fallo se vuelve a intentar en la siguiente llamada).
+    """
+    url = f"{API}/{codigo}/json/{desde}/{hasta}"
+    for intento in range(INTENTOS):
+        try:
+            r = httpx.get(url, timeout=60)
+            r.raise_for_status()
+            cuerpo = r.json()
+            break
+        except (httpx.HTTPError, ValueError):
+            if intento == INTENTOS - 1:
+                raise ToolError(f"El BCRP no respondió con datos para {codigo} tras {INTENTOS} intentos ({url}). "
+                                "La API limita los pedidos seguidos: esperen unos segundos y reintenten.") from None
+            time.sleep(ESPERA * 2 ** intento)
+    pares = []
+    for p in cuerpo.get("periods") or []:
+        try:
+            valor = float(p["values"][0])
+        except (KeyError, IndexError, TypeError, ValueError):
+            continue                                                     # «n.d.» o vacío
+        try:
+            pares.append((_periodo(p["name"]), valor))
+        except (KeyError, ValueError):
+            raise ToolError(f"La API devolvió un periodo con formato inesperado: {p.get('name')!r}.") from None
+    return tuple(pares)
+
+
+def _web(codigo, frecuencia):
+    return f"{WEB}/{PLURAL[frecuencia]}/resultados/{codigo}/html"
+
+
+def _r(x, nd=4):
+    return None if x is None or pd.isna(x) else round(float(x), nd)
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# TODO 1 · serie
+# ---------------------------------------------------------------------------------------------------------------
+
+@mcp.tool(annotations=SOLO_LECTURA)
+def serie(codigo: str, desde: str, hasta: str) -> dict:
+    """Descarga los datos de una serie del BCRP entre dos fechas, con la URL de la fuente.
+
+    Úsala cuando necesites los valores periodo a periodo, por ejemplo para citar el dato de un mes o graficar.
+    Para variaciones, promedios, máximos o mínimos usa resumen, y para comparar dos series usa correlacion:
+    no hagas esas cuentas a mano.
+
+    Args:
+        codigo: código del BCRP, por ejemplo "PN01273PM" (búscalo con buscar_series).
+        desde: inicio, en «2025-01» (mes), «2025-01-15» (día), «2025-T1» (trimestre) o «2025» (año).
+        hasta: fin, en el mismo formato. Se adapta a la frecuencia de la serie.
+    """
+    f = _ficha(str(codigo).strip().upper())
+    d, clave_d = _a_api(desde, f["frecuencia"], fin=False)
+    h, clave_h = _a_api(hasta, f["frecuencia"], fin=True)
+    if clave_d > clave_h:
+        raise ToolError(f"«desde» ({desde}) es posterior a «hasta» ({hasta}).")
+    datos = [{"periodo": p, "valor": round(v, 6)} for p, v in _bajar(f["codigo"], d, h)]
+    r = {"codigo": f["codigo"], "nombre": f["nombre"], "frecuencia": f["frecuencia"], "desde": desde,
+         "hasta": hasta, "n": len(datos), "datos": datos, "fuente": f"{API}/{f['codigo']}/json/{d}/{h}",
+         "web": _web(f["codigo"], f["frecuencia"])}
+    if not datos:
+        r["nota"] = (f"El BCRP no tiene datos de {f['codigo']} entre {desde} y {hasta}. La serie empieza en "
+                     f"{f['inicio']} y se actualizó el {f['actualizada']}.")
+    return r
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# TODO 2 · resumen
+# ---------------------------------------------------------------------------------------------------------------
+
+@mcp.tool(annotations=SOLO_LECTURA)
+def resumen(codigo: str, desde: str, hasta: str) -> dict:
+    """Resume una serie del BCRP en un periodo: primero, último, cambio, variación %, promedio, máximo y mínimo.
+
+    Úsala para cualquier cifra derivada (cuánto subió, el promedio, el pico) en vez de calcularla a mano.
+    cambio = último - primero, en las unidades de la serie. variacion_pct = cambio / primero * 100.
+    Si la serie ya es una tasa o un porcentaje (inflación, tasa de referencia), lo que suele preguntarse es
+    cambio, en puntos porcentuales; variacion_pct sería la variación relativa de esa tasa.
+
+    Args:
+        codigo: código del BCRP, por ejemplo "PN01273PM".
+        desde: inicio, en «2025-01», «2025-01-15», «2025-T1» o «2025».
+        hasta: fin, en el mismo formato.
+    """
+    s = serie(codigo, desde, hasta)
+    if not s["datos"]:
+        raise ToolError(s["nota"])
+    df = pd.DataFrame(s["datos"])
+    primero, ultimo = df.iloc[0], df.iloc[-1]
+    cambio = ultimo.valor - primero.valor
+    punto = lambda fila: {"periodo": fila.periodo, "valor": _r(fila.valor)}
+    r = {"codigo": s["codigo"], "nombre": s["nombre"], "frecuencia": s["frecuencia"], "desde": desde,
+         "hasta": hasta, "n": len(df), "primero": punto(primero), "ultimo": punto(ultimo), "cambio": _r(cambio),
+         "variacion_pct": None if primero.valor == 0 else _r(cambio / primero.valor * 100),
+         "promedio": _r(df.valor.mean()), "maximo": punto(df.loc[df.valor.idxmax()]),
+         "minimo": punto(df.loc[df.valor.idxmin()]), "fuente": s["fuente"], "web": s["web"]}
+    if re.search(r"%|tasa", s["nombre"], re.IGNORECASE):
+        r["nota"] = "La serie ya está en %: «cambio» está en puntos porcentuales."
+    return r
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# TODO 3 · herramienta propia: correlacion
+# ---------------------------------------------------------------------------------------------------------------
+
+def _como_serie(s: dict) -> pd.Series:
+    """Los datos de serie() como pd.Series con índice de periodos de pandas, para alinear y desplazar fechas."""
+    if s["frecuencia"] == "Trimestral":
+        idx = [pd.Period(year=int(p[:4]), quarter=int(p[-1]), freq="Q") for p in (d["periodo"] for d in s["datos"])]
+    else:
+        idx = [pd.Period(d["periodo"], freq=FRECUENCIA_PANDAS[s["frecuencia"]]) for d in s["datos"]]
+    return pd.Series([d["valor"] for d in s["datos"]], index=pd.PeriodIndex(idx), dtype=float)
+
+
+def _texto(p: pd.Period, frecuencia: str) -> str:
+    return {"Diaria": lambda: p.strftime("%Y-%m-%d"), "Mensual": lambda: p.strftime("%Y-%m"),
+            "Trimestral": lambda: f"{p.year}-T{p.quarter}", "Anual": lambda: str(p.year)}[frecuencia]()
+
+
+def _fuerza(r):
+    if r is None:
+        return "no definida: una de las series no varía en el periodo"
+    nivel = "débil" if abs(r) < 0.3 else "moderada" if abs(r) < 0.7 else "fuerte"
+    return f"{nivel} y {'positiva' if r > 0 else 'negativa' if r < 0 else 'nula'}"
+
+
+@mcp.tool(annotations=SOLO_LECTURA)
+def correlacion(codigo_a: str, codigo_b: str, desde: str, hasta: str, rezago: int = 0) -> dict:
+    """Compara dos series del BCRP de la misma frecuencia: correlación de Pearson y brecha media entre ellas.
+
+    Úsala cuando la pregunta sea si dos indicadores se mueven juntos o cuál estuvo por encima del otro. Por
+    ejemplo, la inflación de alimentos (PN09822PM) frente a la inflación total (PN01273PM), o la tasa de
+    referencia (PD04722MM) frente a la inflación de alimentos. Alinea los periodos y descarta los que no están en
+    las dos series. Devuelve r, el número de pares, la brecha media a - b (en las unidades de las series; en
+    puntos porcentuales si son tasas) y en cuántos periodos a estuvo por encima de b, con las fuentes de ambas.
+    Fuerza de r por convención: |r| < 0.3 débil, < 0.7 moderada, si no fuerte.
+    Una correlación describe co-movimiento: no demuestra que una serie cause la otra.
+
+    Args:
+        codigo_a: primera serie, por ejemplo "PN09822PM".
+        codigo_b: segunda serie, de la misma frecuencia, por ejemplo "PD04722MM".
+        desde: inicio, en «2025-01», «2025-01-15», «2025-T1» o «2025». Vale para las dos series.
+        hasta: fin, en el mismo formato.
+        rezago: k compara a en el periodo t con b en t + k (k > 0: b se mueve k periodos después que a). En series
+            diarias son días calendario. Las dos series se leen dentro de [desde, hasta], así que se pierden k pares.
+    """
+    fa = _ficha(str(codigo_a).strip().upper())
+    fb = _ficha(str(codigo_b).strip().upper())
+    if fa["frecuencia"] != fb["frecuencia"]:
+        raise ToolError(f"{fa['codigo']} es {fa['frecuencia']} y {fb['codigo']} es {fb['frecuencia']}: correlacion "
+                        "necesita dos series de la misma frecuencia. Busquen la otra versión con buscar_series.")
+    sa, sb = serie(fa["codigo"], desde, hasta), serie(fb["codigo"], desde, hasta)
+    a, b = _como_serie(sa), _como_serie(sb)
+    b_desplazada = pd.Series(b.values, index=b.index - rezago)        # el valor de b en t + k queda en t
+    pares = pd.concat({"a": a, "b": b_desplazada}, axis=1, join="inner").dropna()
+    if len(pares) < 3:
+        raise ToolError(f"Solo hay {len(pares)} periodos comunes entre {fa['codigo']} y {fb['codigo']} en "
+                        f"{desde}-{hasta} con rezago {rezago}: hacen falta al menos 3.")
+    r = pares.a.corr(pares.b)
+    r = None if pd.isna(r) else _r(r)
+    frec = fa["frecuencia"]
+    return {
+        "serie_a": {"codigo": fa["codigo"], "nombre": fa["nombre"], "n_datos": len(a), "fuente": sa["fuente"]},
+        "serie_b": {"codigo": fb["codigo"], "nombre": fb["nombre"], "n_datos": len(b), "fuente": sb["fuente"]},
+        "frecuencia": frec, "desde": desde, "hasta": hasta, "rezago": rezago,
+        "periodo_comun": {"primero": _texto(pares.index[0], frec), "ultimo": _texto(pares.index[-1], frec)},
+        "n_pares": len(pares), "r": r, "fuerza": _fuerza(r),
+        "brecha_media": _r((pares.a - pares.b).mean()),
+        "periodos_a_mayor_que_b": int((pares.a > pares.b).sum()),
+        "advertencia": "Correlación descriptiva entre dos series agregadas: no demuestra causalidad.",
+        "fuentes": [sa["fuente"], sb["fuente"]],
+    }
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# TODO 4 · recurso: la ficha de una serie
+# ---------------------------------------------------------------------------------------------------------------
+
+@mcp.resource("bcrp://serie/{codigo}", mime_type="application/json",
+              annotations={"readOnlyHint": True, "idempotentHint": True})
+def ficha_serie(codigo: str) -> str:
+    """Ficha de una serie del BCRP: nombre, categoría, frecuencia, desde cuándo hay datos, quién la produce y enlaces."""
+    codigo = codigo.strip().upper()
+    fila = catalogo().query("codigo == @codigo")
+    if fila.empty:
+        raise ResourceError(f"No existe el código de serie {codigo!r}. Búsquenlo con buscar_series.")
+    f = fila.iloc[0]
+    ficha = {**_ficha(codigo), "grupo": f.grupo, "origen_de_los_datos": f.origen, "area_que_publica": f.area,
+             "web": _web(codigo, f.frecuencia), "api": f"{API}/{codigo}/json/{{desde}}/{{hasta}}",
+             "catalogo": URL_CATALOGO}
+    return json.dumps(ficha, ensure_ascii=False, indent=1)       # con tildes legibles, no í
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# TODO 5 · prompt
+# ---------------------------------------------------------------------------------------------------------------
+
+@mcp.prompt
+def informe(tema: str) -> str:
+    """Pide un informe breve con cifras oficiales del BCRP sobre un tema, citando código, periodo y fuente."""
+    return (
+        f"Escribe un informe breve sobre «{tema}» en el Perú con series oficiales del BCRP.\n"
+        "1. Busca los códigos con buscar_series. Si dudas de qué mide una serie, lee su ficha en "
+        "bcrp://serie/{codigo}.\n"
+        "2. Saca cada cifra con serie, resumen o correlacion. No hagas cuentas a mano.\n"
+        "3. Junto a cada cifra cita el código de la serie, el periodo y la URL de la fuente.\n"
+        "4. Si comparas dos series, la correlación describe co-movimiento: no la presentes como causa.\n"
+        "5. Si una herramienta falla o no hay datos, dilo en el informe en vez de estimar.\n"
+        "Cierra con una tabla de las series usadas (código, nombre, periodo)."
+    )
 
 
 if __name__ == "__main__":

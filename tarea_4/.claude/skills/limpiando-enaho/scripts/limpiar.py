@@ -38,6 +38,7 @@ DEPARTAMENTOS = {                    # código de ubigeo (2 dígitos) -> nombre;
     "19": "Pasco", "20": "Piura", "21": "Puno", "22": "San Martín", "23": "Tacna", "24": "Tumbes", "25": "Ucayali",
 }
 TIPOS_HOGAR = ["Sin adultos mayores", "Con adultos mayores y menores de 65", "Solo adultos mayores"]
+TAMANOS = ["1 persona", "2 personas", "3 a 4 personas", "5 o más personas"]   # según mieperho
 # Gasto por los 8 grupos de la canasta, en soles nominales del año. Copiado del do-file oficial del INEI
 # 01.ConstrVarGastoIngreso2014-2024.do (ConstVarGasto-Metodologia actualizada.zip, en el módulo 34), sin deflactar.
 GRUPOS_GASTO = {
@@ -196,6 +197,7 @@ def main() -> int:
     hogares["peso_personas"] = hogares.factor07 * hogares.mieperho        # la ponderación oficial
     hogares["part_alimentos"] = 100 * hogares.g1_alimentos / hogares.g0_total
     hogares["gasto_pc_mensual"] = hogares.g0_total / (12 * hogares.mieperho)
+    hogares["tamano_hogar"] = pd.cut(hogares.mieperho, [0, 1, 2, 4, np.inf], labels=TAMANOS).astype(str)
 
     # ---------------------------------------------------------------------------------------- base persona
     cols_hogar = ["pobreza", "pobre", "pobre_extremo", "mieperho", "factor07", "peso_personas", "ubigeo",
@@ -294,7 +296,7 @@ def main() -> int:
     # ------------------------------------------------------------------------------------- guardar bases
     cols_hogares = (LLAVES_HOGAR + ["ubigeo", "departamento", "estrato", "urbano", "dominio", "mieperho", "factor07",
                     "peso_personas", "pobreza", "pobre", "pobre_extremo", "n_residentes", "n_am", "n_menores_18",
-                    "jefe_am", "tipo_hogar_am", "am_vive_solo", *GRUPOS_GASTO, "g0_total", "gashog2d",
+                    "jefe_am", "tipo_hogar_am", "am_vive_solo", "tamano_hogar", *GRUPOS_GASTO, "g0_total", "gashog2d",
                     "part_alimentos", "gasto_pc_mensual"])
     hogares[cols_hogares].to_parquet(destinos["hogares"], index=False)
     cols_personas = (LLAVES_PERSONA + ["p203", "p207", "p208a", "adulto_mayor", "facpob07"] + cols_hogar)
@@ -327,10 +329,19 @@ def main() -> int:
             agregar("part_alimentos", corte, grupo, media(g.part_alimentos, pw), "% del gasto del hogar", P, len(g))
             agregar("gasto_pc_mensual", corte, grupo, media(g.gasto_pc_mensual, pw), "soles corrientes por persona "
                     "al mes", P, len(g))
+            agregar("mieperho_medio", corte, grupo, media(g.mieperho, g.factor07), "personas por hogar", H, len(g))
             if corte == "tipo_hogar_am":
                 agregar("hogares", corte, grupo, 100 * g.factor07.sum() / w_hog.sum(), "% de hogares", H, len(g))
                 agregar("personas", corte, grupo, 100 * pw.sum() / w.sum(), "% de personas", P, len(g))
                 agregar("rural", corte, grupo, pct(~g.urbano, pw), "% de personas", P, len(g))
+    # control por tamaño: la pobreza monetaria es per cápita y los hogares de solo adultos mayores son más chicos,
+    # así que se compara cada tipo de hogar con hogares del mismo tamaño
+    for (tipo, tam), g in hogares.groupby(["tipo_hogar_am", "tamano_hogar"]):
+        agregar("pobreza", "tipo_hogar_am × tamano", f"{tipo} · {tam}", pct(g.pobre, g.peso_personas),
+                "% de personas", P, len(g))
+        agregar("part_alimentos", "tipo_hogar_am × tamano", f"{tipo} · {tam}", media(g.part_alimentos, g.peso_personas),
+                "% del gasto del hogar", P, len(g))
+    agregar("mieperho_medio", "nacional", "Perú", media(hogares.mieperho, w_hog), "personas por hogar", H, n_hogares)
     con_am = hogares.n_am > 0
     agregar("hogares_con_am", "nacional", "Perú", pct(con_am, w_hog), "% de hogares", H, n_hogares)
     agregar("am_vive_solo", "hogares_con_am", "Perú", pct(hogares.am_vive_solo[con_am], w_hog[con_am]),

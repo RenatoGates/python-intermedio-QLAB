@@ -22,6 +22,7 @@ oficial, área, departamento, tipo de hogar, gasto) y **persona** solo para atri
 | `jefe_am` | El jefe del hogar (`p203 == 1`) tiene 65 años o más. |
 | `tipo_hogar_am` | «Sin adultos mayores», «Con adultos mayores y menores de 65» o «Solo adultos mayores». |
 | `am_vive_solo` | Hogar de una sola persona, de 65 años o más. |
+| `tamano_hogar` | «1 persona», «2 personas», «3 a 4 personas» o «5 o más personas», según `mieperho`. Para comparar tipos de hogar a igual tamaño: la pobreza es per cápita y los hogares de solo adultos mayores son más chicos. |
 | `g1_alimentos` … `g8_otros` | Gasto anual por grupo de la canasta, en soles corrientes, según el do-file del INEI. |
 | `g0_total` | Suma de los 8 grupos. Es igual a `gashog2d` (el script lo comprueba). |
 | `part_alimentos` | `100 × g1_alimentos / g0_total`: % del gasto del hogar que va a alimentos. Mide **exposición** a la inflación de alimentos. |
@@ -47,8 +48,9 @@ con qué base salió cada cifra; `n_muestral` es el número de hogares (o person
 
 | `indicador` | Cortes |
 |---|---|
-| `pobreza`, `pobreza_extrema` | nacional, area, departamento, tipo_hogar_am, tipo_hogar_am × area, edad_persona (facpob07) |
-| `part_alimentos`, `gasto_pc_mensual` | nacional, tipo_hogar_am, tipo_hogar_am × area |
+| `pobreza`, `pobreza_extrema` | nacional, area, departamento, tipo_hogar_am, tipo_hogar_am × area, edad_persona (facpob07); `pobreza` también por tipo_hogar_am × tamano |
+| `part_alimentos`, `gasto_pc_mensual` | nacional, tipo_hogar_am, tipo_hogar_am × area (y `part_alimentos` también por tipo_hogar_am × tamano) |
+| `mieperho_medio` | nacional, tipo_hogar_am, tipo_hogar_am × area (promedio de hogares, ponderado con `factor07`) |
 | `hogares`, `personas`, `rural` | tipo_hogar_am: qué parte de los hogares, de las personas y de lo rural le toca a cada tipo |
 | `hogares_con_am`, `am_vive_solo` | nacional |
 | `personas_en_hogares_am`, `pobreza_hogares_am` | departamento |

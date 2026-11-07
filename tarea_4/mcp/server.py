@@ -30,8 +30,9 @@ INTENTOS, ESPERA = 4, 2                                     # reintentos ante la
 
 mcp = FastMCP("bcrp", instructions=(
     "Series oficiales del Banco Central de Reserva del Perú (BCRP). Primero busca el código con buscar_series; "
-    "luego usa resumen para variaciones, promedios y extremos, serie para los datos y correlacion para comparar "
-    "dos series. La ficha de una serie está en el recurso bcrp://serie/{codigo}. No calcules a mano: cita "
+    "luego usa resumen para variaciones, promedios y extremos, serie para los datos, correlacion para comparar "
+    "dos series y graficar_series para un gráfico. La ficha de una serie está en el recurso bcrp://serie/{codigo}. "
+    "No calcules a mano: cita "
     "siempre el código de la serie, el periodo y la fuente. Si una herramienta falla, dilo; no estimes."))
 
 
@@ -345,6 +346,130 @@ def correlacion(codigo_a: str, codigo_b: str, desde: str, hasta: str, rezago: in
 
 
 # ---------------------------------------------------------------------------------------------------------------
+# Herramienta propia 2 · graficar_series: el gráfico sale de los datos que baja el servidor, no de cifras copiadas
+# ---------------------------------------------------------------------------------------------------------------
+
+FIGURAS = AQUI.parent / "figuras"
+SUPERFICIE, TINTA, TINTA_2, GRILLA = "#fcfcfb", "#0b0b0b", "#52514e", "#e6e5e1"
+SERIES_COLOR = ["#2a78d6", "#eb6834", "#1baf7a"]   # paleta categórica validada (skill dataviz), slots 1 a 3
+
+
+def _etiqueta(nombre: str) -> str:
+    return nombre.split(" - ")[-1].strip()
+
+
+@mcp.tool(annotations={"readOnlyHint": False, "destructiveHint": False, "openWorldHint": True})
+def graficar_series(codigos: list[str], desde: str, hasta: str, nombre_archivo: str | None = None) -> dict:
+    """Grafica de una a tres series del BCRP en un solo eje y guarda el PNG (y un CSV con los datos) en figuras/.
+
+    Úsala cuando un informe necesite un gráfico de series oficiales: los datos los baja este servidor, así que el
+    gráfico no depende de cifras copiadas a mano. Las series deben tener la misma frecuencia y la misma unidad
+    (por ejemplo, todas en %): no hace gráficos de doble eje. Ejemplo: codigos=["PN09822PM", "PN01273PM",
+    "PD04722MM"], desde="2021-01", hasta="2026-10". Devuelve las rutas, el último dato y el máximo de cada serie y
+    las fuentes.
+
+    Args:
+        codigos: de 1 a 3 códigos del BCRP de la misma frecuencia.
+        desde: inicio, en «2025-01», «2025-01-15», «2025-T1» o «2025».
+        hasta: fin, en el mismo formato.
+        nombre_archivo: nombre del PNG sin extensión (letras, números, - y _); si falta, se arma con los códigos.
+    """
+    import textwrap
+
+    import matplotlib
+    matplotlib.use("Agg")
+    from matplotlib.backends.backend_agg import FigureCanvasAgg
+    from matplotlib.figure import Figure
+
+    codigos = [str(c).strip().upper() for c in codigos]
+    if not 1 <= len(codigos) <= 3:
+        raise ToolError("graficar_series admite de 1 a 3 series: con más, el gráfico deja de leerse.")
+    fichas = [_ficha(c) for c in codigos]
+    if len({f["frecuencia"] for f in fichas}) > 1:
+        raise ToolError("Las series tienen frecuencias distintas: " + ", ".join(f"{f['codigo']} {f['frecuencia']}"
+                        for f in fichas) + ". Grafíquenlas por separado.")
+    nombre = re.sub(r"[^A-Za-z0-9_-]", "", nombre_archivo or "") or "bcrp_" + "_".join(codigos)
+    datos = [serie(c, desde, hasta) for c in codigos]
+    if any(not s["datos"] for s in datos):
+        raise ToolError("Sin datos en el periodo: " + "; ".join(s["nota"] for s in datos if not s["datos"]))
+
+    tablas = [_como_serie(s) for s in datos]
+    frec = fichas[0]["frecuencia"]
+    etiquetas = [_etiqueta(s["nombre"]) for s in datos]
+    titulo = textwrap.wrap(f"{', '.join(etiquetas)}, {_texto(tablas[0].index[0], frec)} a "
+                           f"{_texto(tablas[0].index[-1], frec)}", 78)
+    subtitulo = textwrap.wrap("En %. Máximos del periodo: " + "; ".join(
+        f"{e} {float(t.max()):.2f} % ({_texto(t.idxmax(), frec)})" for e, t in zip(etiquetas, tablas)) + ".", 112)
+    grupos = "; ".join(dict.fromkeys(f["nombre"].rsplit(" - ", 1)[0] for f in fichas))
+    pie = textwrap.wrap(f"Fuente: BCRP, estadisticas.bcrp.gob.pe, series {', '.join(codigos)} ({grupos}). Gráfico "
+                        "generado por la herramienta graficar_series del MCP bcrp con los datos de la API.", 140)
+
+    # maqueta en pulgadas: cabecera y pie crecen con sus líneas, el eje ocupa el resto
+    ancho, alto_eje = 8.6, 3.2
+    cabeza = 0.15 + 0.26 * len(titulo) + 0.19 * len(subtitulo) + 0.42      # + fila de leyenda
+    pies = 0.42 + 0.14 * len(pie)
+    alto_fig = cabeza + alto_eje + pies
+    fig = Figure(figsize=(ancho, alto_fig), facecolor=SUPERFICIE)
+    FigureCanvasAgg(fig)
+    eje = fig.add_axes((0.65 / ancho, pies / alto_fig, (ancho - 0.65 - 2.25) / ancho, alto_eje / alto_fig))
+    eje.set_facecolor(SUPERFICIE)
+    finales = []
+    for e, t, color in zip(etiquetas, tablas, SERIES_COLOR):
+        x = t.index.to_timestamp()
+        eje.plot(x, t.values, color=color, linewidth=1.6, label=e, solid_capstyle="round")
+        eje.plot(x[-1:], t.values[-1:], "o", color=color, markersize=5, markeredgecolor=SUPERFICIE,
+                 markeredgewidth=1.2)
+        corta = " ".join(e.split()[:3]) if len(e) > 24 else e
+        finales.append((x[-1], float(t.values[-1]), corta))
+    bajo = min(min(float(t.min()) for t in tablas), 0)
+    alto = max(float(t.max()) for t in tablas) * 1.08
+    eje.set_ylim(bajo, alto)
+    # etiquetas al final de cada línea, con el nombre de la serie; si los últimos valores están cerca, se separan
+    # en vertical y un conector fino las une a su punto
+    separacion = (alto - bajo) * 0.075
+    orden = sorted(range(len(finales)), key=lambda i: finales[i][1])
+    pos = {}
+    for k, i in enumerate(orden):
+        pos[i] = finales[i][1] if k == 0 else max(finales[i][1], pos[orden[k - 1]] + separacion)
+    puntos_por_unidad = alto_eje * 72 / (alto - bajo)
+    for i, (x_fin, v, corta) in enumerate(finales):
+        movida = abs(pos[i] - v) > 1e-9
+        eje.annotate(f"{v:.2f} %  {corta}", (x_fin, v), xytext=(14, (pos[i] - v) * puntos_por_unidad),
+                     textcoords="offset points", fontsize=8.5, color=TINTA, va="center", annotation_clip=False,
+                     arrowprops={"arrowstyle": "-", "color": TINTA_2, "linewidth": 0.6, "shrinkA": 0,
+                                 "shrinkB": 3} if movida else None)
+    for lado in ("top", "right", "left"):
+        eje.spines[lado].set_visible(False)
+    eje.spines["bottom"].set_color(GRILLA)
+    eje.grid(axis="y", color=GRILLA, linewidth=0.8)
+    eje.set_axisbelow(True)
+    eje.tick_params(length=0, colors=TINTA_2, labelsize=9)
+    eje.set_ylabel("%", color=TINTA_2, fontsize=9)
+    eje.legend(loc="lower left", bbox_to_anchor=(0, 1.02), ncol=len(codigos), frameon=False, fontsize=9,
+               labelcolor=TINTA, handlelength=1.6, borderaxespad=0)
+    y = 1 - 0.15 / alto_fig
+    fig.text(0.15 / ancho, y, "\n".join(titulo), va="top", fontsize=12.5, fontweight="bold", color=TINTA,
+             linespacing=1.2)
+    fig.text(0.15 / ancho, y - (0.26 * len(titulo) + 0.04) / alto_fig, "\n".join(subtitulo), va="top", fontsize=9,
+             color=TINTA_2, linespacing=1.3)
+    fig.text(0.15 / ancho, 0.06 / alto_fig, "\n".join(pie), va="bottom", fontsize=7.4, color=TINTA_2,
+             linespacing=1.3)
+    FIGURAS.mkdir(exist_ok=True)
+    png, csv = FIGURAS / f"{nombre}.png", FIGURAS / f"{nombre}.csv"
+    fig.savefig(png, dpi=200, facecolor=SUPERFICIE)
+    pd.concat({c: t for c, t in zip(codigos, tablas)}, axis=1).rename_axis("periodo").rename(
+        index=lambda p: _texto(p, frec)).to_csv(csv, encoding="utf-8")
+    return {
+        "png": png.relative_to(AQUI.parent).as_posix(), "csv": csv.relative_to(AQUI.parent).as_posix(),
+        "series": [{"codigo": s["codigo"], "nombre": s["nombre"], "n": len(t),
+                    "ultimo": {"periodo": _texto(t.index[-1], frec), "valor": _r(t.iloc[-1])},
+                    "maximo": {"periodo": _texto(t.idxmax(), frec), "valor": _r(t.max())}}
+                   for s, t in zip(datos, tablas)],
+        "fuentes": [s["fuente"] for s in datos],
+    }
+
+
+# ---------------------------------------------------------------------------------------------------------------
 # TODO 4 · recurso: la ficha de una serie
 # ---------------------------------------------------------------------------------------------------------------
 
@@ -374,7 +499,8 @@ def informe(tema: str) -> str:
         f"Escribe un informe breve sobre «{tema}» en el Perú con series oficiales del BCRP.\n"
         "1. Busca los códigos con buscar_series. Si dudas de qué mide una serie, lee su ficha en "
         "bcrp://serie/{codigo}.\n"
-        "2. Saca cada cifra con serie, resumen o correlacion. No hagas cuentas a mano.\n"
+        "2. Saca cada cifra con serie, resumen o correlacion, y el gráfico con graficar_series. No hagas cuentas "
+        "a mano.\n"
         "3. Junto a cada cifra cita el código de la serie, el periodo y la URL de la fuente.\n"
         "4. Si comparas dos series, la correlación describe co-movimiento: no la presentes como causa.\n"
         "5. Si una herramienta falla o no hay datos, dilo en el informe en vez de estimar.\n"

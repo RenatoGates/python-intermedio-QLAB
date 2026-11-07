@@ -1,0 +1,12 @@
+# Microdatos de la ENAHO, geojson y catálogo del BCRP: no se suben (el README explica cómo obtenerlos)
+datos/
+*.dta
+
+# Entorno y cachés
+.venv/
+__pycache__/
+.pytest_cache/
+
+# Base procesada de personas: pesa y se regenera con la skill limpiando-enaho.
+# validacion.txt e indicadores.csv sí se suben.
+salidas/*.parquet

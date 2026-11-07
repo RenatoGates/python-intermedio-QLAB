@@ -1,0 +1,16 @@
+$ uv run pytest -v --no-header   # desde tarea_4/, 2026-11-06
+============================= test session starts =============================
+collecting ... collected 10 items
+
+mcp/test_mios.py::test_correlacion_coincide_con_un_calculo_independiente PASSED [ 10%]
+mcp/test_mios.py::test_recurso_da_la_ficha_real_de_la_serie PASSED       [ 20%]
+mcp/test_server.py::test_buscar_encuentra_el_ipc PASSED                  [ 30%]
+mcp/test_server.py::test_cuatro_herramientas_como_minimo PASSED          [ 40%]
+mcp/test_server.py::test_serie_mensual PASSED                            [ 50%]
+mcp/test_server.py::test_serie_diaria PASSED                             [ 60%]
+mcp/test_server.py::test_resumen_sin_cuentas_a_mano PASSED               [ 70%]
+mcp/test_server.py::test_codigo_inexistente_da_un_error_claro PASSED     [ 80%]
+mcp/test_server.py::test_un_recurso PASSED                               [ 90%]
+mcp/test_server.py::test_un_prompt PASSED                                [100%]
+
+============================= 10 passed in 4.67s ==============================
